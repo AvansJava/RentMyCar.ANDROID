@@ -33,15 +33,7 @@ android {
         useIR = true
     }
 
-    composeOptions {
-        def kotlin_compiler_version = "1.4.30"
-        kotlinCompilerVersion kotlin_compiler_version
-
-        def kotlin_compiler_extension_version = "1.4.0"
-        kotlinCompilerExtensionVersion kotlin_compiler_extension_version
-    }
     buildFeatures {
-        compose true
         viewBinding true
     }
 }

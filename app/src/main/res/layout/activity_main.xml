@@ -11,7 +11,7 @@
         android:id="@+id/background_red_car"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/welcome_background_red_car"
+        android:background="@drawable/welcome_background_car"
         android:contentDescription="@null" />
 
     <TextView
@@ -39,21 +39,22 @@
         android:text="@string/get_started"
         android:textAlignment="textStart"
         android:textColor="@color/white_smoke"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/already_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:backgroundTint="@color/button_blue"/>
 
     <TextView
-        android:id="@+id/welcome_text"
+        android:id="@+id/welcome_text_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome_text"
         android:textColor="@color/white_smoke"
+        android:textAlignment="textEnd"
         android:paddingTop="40dp"
-        android:paddingStart="28dp"
-        android:paddingEnd="40dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="18dp"
         android:textSize="46sp"
         android:shadowColor="@color/black"
         android:shadowDx="8"
