@@ -5,9 +5,18 @@
       <map>
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_nav_graph.xml" value="0.20520833333333333" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_login.xml" value="0.20520833333333333" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_welcome_screen.xml" value="0.20520833333333333" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/layout_drawer_header.xml" value="0.20520833333333333" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/loading.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/login.xml" value="0.36666666666666664" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_login_header.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/register.xml" value="0.33" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/menu/menu_drawer_layout.xml" value="1.4071428571428573" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
       </map>
