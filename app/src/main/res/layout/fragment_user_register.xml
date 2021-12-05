@@ -89,7 +89,7 @@
         android:paddingEnd="60dp"
         android:paddingTop="20dp"
         android:inputType="textPassword"
-        app:startIconDrawable="@drawable/ic_baseline_security_24"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
         app:startIconContentDescription="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
