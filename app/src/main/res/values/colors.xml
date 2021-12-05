@@ -13,4 +13,5 @@
     <color name="black_60_opacity">#99000000</color>
     <color name="grey">#BABABA</color>
     <color name="hyperlink">#2ECDD0</color>
+    <color name="light_red">#FF3131</color>
 </resources>

@@ -12,7 +12,7 @@ data class GetCarByIdResponse(
     val costPrice: Int,
     val carType: String,
     val userId: Long,
-    val location: GetLocationByIdResponse,
+    val location: Long,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime
 )

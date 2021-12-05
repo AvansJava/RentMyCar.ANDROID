@@ -5,13 +5,13 @@
     <string name="welcome_text"><span style="color:#9391e6">Find the ideal</span> car for your trip.</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="email">E-mail Address</string>
-    <string name="password">Password</string>
+    <string name="email">E-mail Address*</string>
+    <string name="password">Password*</string>
     <string name="register_title"><span style="color:#9391e6">Sign up</span> to Rent<span style="color:#9391e6">My</span>Car.</string>
     <string name="start_for_free">START FOR FREE</string>
     <string name="create_an_account">Create an account</string>
     <string name="login">Login</string>
-    <string name="don_t_have_an_account_sign_up">Don\'t have an account? <a href="https://www.google.nl/">Sign up!</a></string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? <a href="#">Sign up!</a></string>
     <string name="sign_in"><u>Sign in</u>.</string>
     <string name="login_title">Login to RentMyCar</string>
 </resources>

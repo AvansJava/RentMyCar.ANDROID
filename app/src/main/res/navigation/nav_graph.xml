@@ -8,7 +8,72 @@
     <fragment
         android:id="@+id/welcomeScreenFragment"
         android:name="com.rentmycar.rentmycar.fragment.WelcomeScreenFragment"
-        android:label="Rent My Car Login"
+        android:label="Rent My Car"
         tools:layout="@layout/fragment_welcome_screen" >
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_userRegisterFragment"
+            app:destination="@id/userRegisterFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/userRegisterFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserRegisterFragment"
+        android:label="Register Account"
+        tools:layout="@layout/fragment_user_register">
+        <action
+            android:id="@+id/action_userRegisterFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserLoginFragment"
+        android:label="Log in to your Account"
+        tools:layout="@layout/fragment_user_login">
+        <action
+            android:id="@+id/action_userLoginFragment_to_userRegisterFragment"
+            app:destination="@id/userRegisterFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_userLoginFragment_to_userDashboardFragment"
+            app:destination="@id/userDashboardFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDashboardFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserDashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_user_login">
+
+        <argument android:name="email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="password"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>
