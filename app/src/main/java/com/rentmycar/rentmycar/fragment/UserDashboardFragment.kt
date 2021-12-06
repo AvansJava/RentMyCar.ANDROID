@@ -40,8 +40,6 @@ class UserDashboardFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navController = findNavController()
 
-        viewModel.getUser()
-
         viewModel.getUserLiveData.observe(viewLifecycleOwner) { user ->
             epoxyController.getUserResponse = user
             if (user == null) {
@@ -49,6 +47,7 @@ class UserDashboardFragment: Fragment() {
                 navController.navigate(R.id.userLoginFragment)
             }
         }
+        viewModel.getUser()
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)

@@ -76,4 +76,12 @@
             app:nullable="true"
             android:defaultValue="@null"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/carListFragment"
+        android:name="com.rentmycar.rentmycar.fragment.CarListFragment"
+        android:label="Car Overview"
+        tools:layout="@layout/fragment_car_list">
+
+    </fragment>
 </navigation>

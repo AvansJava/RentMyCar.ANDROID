@@ -2,7 +2,6 @@ package com.rentmycar.rentmycar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,7 +25,7 @@ class NavGraphActivity : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
 
         appBarConfiguration = AppBarConfiguration(
-            topLevelDestinationIds = setOf(R.id.welcomeScreenFragment, R.id.userDashboardFragment),
+            topLevelDestinationIds = setOf(R.id.welcomeScreenFragment, R.id.userDashboardFragment, R.id.carListFragment),
             drawerLayout = drawerLayout
         )
         setupActionBarWithNavController(
