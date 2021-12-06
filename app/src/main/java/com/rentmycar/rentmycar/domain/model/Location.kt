@@ -1,6 +1,6 @@
-package com.rentmycar.rentmycar.network.response
+package com.rentmycar.rentmycar.domain.model
 
-data class GetLocationByIdResponse(
+data class Location(
     val id: Long,
     val street: String,
     val houseNumber: String,
@@ -9,7 +9,4 @@ data class GetLocationByIdResponse(
     val country: String,
     val latitude: Float,
     val longitude: Float,
-    val userId: Long,
-    val createdAt: String,
-    val updatedAt: String
 )

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <com.airbnb.epoxy.EpoxyRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Car List"
-        android:textSize="40dp"/>
+        android:background="@color/white_smoke"
+        android:id="@+id/epoxyRecyclerView"
+        app:itemSpacing="8dp"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:listitem="@layout/view_holder_car"
+        tools:itemCount="12"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

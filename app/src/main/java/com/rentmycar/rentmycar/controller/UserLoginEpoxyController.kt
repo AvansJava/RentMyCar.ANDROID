@@ -32,7 +32,5 @@ class UserLoginEpoxyController: EpoxyController() {
             // todo error state
             return
         }
-
-        val accessToken: String = postLoginResponse!!.accessToken
     }
 }

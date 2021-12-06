@@ -53,8 +53,8 @@
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
         <action
-            android:id="@+id/action_userLoginFragment_to_userDashboardFragment"
-            app:destination="@id/userDashboardFragment"
+            android:id="@+id/action_userLoginFragment_to_carListFragment"
+            app:destination="@id/carListFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"

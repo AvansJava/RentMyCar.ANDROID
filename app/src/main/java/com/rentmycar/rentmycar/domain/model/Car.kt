@@ -1,8 +1,6 @@
-package com.rentmycar.rentmycar.network.response
+package com.rentmycar.rentmycar.domain.model
 
-import java.time.LocalDateTime
-
-data class GetCarByIdResponse(
+data class Car (
     val id: Int,
     val brand: String,
     val brandType: String,
@@ -11,8 +9,7 @@ data class GetCarByIdResponse(
     val consumption: Double,
     val costPrice: Int,
     val carType: String,
-    val userId: Int,
-    val locationId: Int,
+    val resources: List<CarResource>?,
     val createdAt: String,
     val updatedAt: String?
 )

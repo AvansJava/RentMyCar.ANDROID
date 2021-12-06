@@ -16,6 +16,8 @@ class UserClient(
         return safeApiCall { userService.postUserLogin(login) }
     }
 
+
+
     suspend fun getUser(): SimpleResponse<GetUserResponse> {
         return safeApiCall { userService.getUser() }
     }
