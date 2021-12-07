@@ -1,5 +1,8 @@
 package com.rentmycar.rentmycar.network.response
 
 data class PostLoginResponse(
-    val accessToken: String
+    val firstName: String,
+    val lastName: String,
+    val accessToken: String,
+    val userId: String
 )

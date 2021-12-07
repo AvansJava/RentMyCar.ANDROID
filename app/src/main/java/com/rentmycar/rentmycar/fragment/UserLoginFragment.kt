@@ -16,14 +16,10 @@ import androidx.navigation.fragment.findNavController
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.config.Config
-import com.rentmycar.rentmycar.controller.UserDashboardEpoxyController
 import com.rentmycar.rentmycar.controller.UserLoginEpoxyController
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_login.*
-import kotlinx.coroutines.delay
-import java.util.prefs.Preferences
 
 class UserLoginFragment : Fragment() {
 
@@ -51,6 +47,9 @@ class UserLoginFragment : Fragment() {
                 return@observe
             }
             preference.setToken(userLogin.accessToken)
+            preference.setUserId(userLogin.userId.toInt())
+            preference.setFirstName(userLogin.firstName)
+            preference.setLastName(userLogin.lastName)
         }
 
         tvSignIn.setOnClickListener {

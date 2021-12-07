@@ -19,8 +19,12 @@ class CarRepository {
         }
 
         request.body.forEach { item ->
+
+            if (item.locationId != null) {
+                val location = locationRepository.getLocationById(item.locationId)
+            }
+
             val resource = getCarResourcesByCar(item.id)
-            val location = locationRepository.getLocationById(item.locationId)
             val car: Car = CarMapper.buildFrom(
                 response = item,
                 resources = resource
@@ -38,7 +42,10 @@ class CarRepository {
         }
 
         val resources = getCarResourcesByCar(request.body.id)
-        val location = locationRepository.getLocationById(request.body.locationId)
+
+        if (request.body.locationId != null) {
+            val location = locationRepository.getLocationById(request.body.locationId!!)
+        }
 
         return CarMapper.buildFrom(
             response = request.body,
