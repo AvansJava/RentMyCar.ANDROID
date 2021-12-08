@@ -11,14 +11,45 @@
 <!--        android:id="@+id/epoxyRecyclerView"-->
 <!--        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />-->
 
-    <Button
-        android:id="@+id/testMapsButton"
+
+    <TextView
+        android:id="@+id/testTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click  to maps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Location" />
+
+    <TextView
+        android:id="@+id/testTv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/testTv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Location"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="@id/testTv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".fragment.LocationMapsFragment"  android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/idSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#BFBFBF"
+        android:elevation="5dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toTopOf="@id/map"
+        app:queryHint="Search Here"
+        tools:layout_editor_absoluteX="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
