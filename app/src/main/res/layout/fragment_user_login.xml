@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:text="@string/sign_in_account_exists"
+                android:text="@string/don_t_have_an_account_sign_up"
                 android:textColor="@color/white_smoke"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/background_red_car"
@@ -124,14 +124,14 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tvSignIn"
+                android:id="@+id/tvSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:paddingBottom="20dp"
-                android:text="@string/sign_in"
+                android:text="@string/sign_up"
                 android:textColor="@color/hyperlink"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"

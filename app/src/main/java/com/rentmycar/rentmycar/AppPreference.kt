@@ -44,4 +44,8 @@ class AppPreference(context: Context) {
     fun setUserId(userId: Int) {
         preference.edit().putInt(PREFERENCE_USER_ID, userId).apply()
     }
+
+    fun clearPreferences() {
+        preference.edit().clear().apply()
+    }
 }

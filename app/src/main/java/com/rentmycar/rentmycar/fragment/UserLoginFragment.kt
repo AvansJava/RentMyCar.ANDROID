@@ -52,13 +52,15 @@ class UserLoginFragment : Fragment() {
             preference.setLastName(userLogin.lastName)
         }
 
-        tvSignIn.setOnClickListener {
-            tvSignIn.setTextColor(Color.parseColor("#FF018786"))
+        tvSignUp.setOnClickListener {
+            tvSignUp.setTextColor(Color.parseColor("#FF018786"))
             val directions = UserLoginFragmentDirections.actionUserLoginFragmentToUserRegisterFragment()
             findNavController().navigate(directions)
         }
 
         btnLogin.setOnClickListener {
+            preference.clearPreferences()
+
             val userEmail: String = email.editText?.text?.trim { it <= ' ' }.toString()
             val userPassword: String = password.editText?.text?.trim { it <= ' ' }.toString()
 
