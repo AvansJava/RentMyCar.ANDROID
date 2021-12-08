@@ -3,6 +3,7 @@ package com.rentmycar.rentmycar.controller
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.databinding.ModelCarListHeaderBinding
 import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
 import com.rentmycar.rentmycar.databinding.ViewHolderCarBinding
 import com.rentmycar.rentmycar.domain.model.Car
@@ -32,6 +33,9 @@ class CarListEpoxyController: EpoxyController() {
             return
         }
 
+        HeaderEpoxyModel(RentMyCarApplication.context.getString(R.string.choose_a_car))
+            .id("header").addTo(this)
+
         if (cars.isEmpty()) {
             val localException = LocalException(
                 RentMyCarApplication.context.getString(R.string.no_cars_found),
@@ -46,6 +50,15 @@ class CarListEpoxyController: EpoxyController() {
                 CarEpoxyModel(car).id(car.id).addTo(this)
             }
         }
+    }
+
+    data class HeaderEpoxyModel(
+        val header: String
+    ): ViewBindingKotlinModel<ModelCarListHeaderBinding>(R.layout.model_car_list_header) {
+        override fun ModelCarListHeaderBinding.bind() {
+            nameTextView.text = header
+        }
+
     }
 
     data class CarEpoxyModel(

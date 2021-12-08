@@ -105,4 +105,25 @@
         tools:layout="@layout/fragment_car_list">
 
     </fragment>
+
+    <fragment android:id="@+id/locationCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.LocationCreateFragment"
+        android:label="Create Location"
+        tools:layout="@layout/fragment_location_create">
+        <action
+            android:id="@+id/action_locationCreateFragment_to_locationMapsFragment"
+            app:destination="@id/locationMapsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/locationMapsFragment"
+        android:name="com.rentmycar.rentmycar.fragment.LocationMapsFragment"
+        android:label="Select Location"
+        tools:layout="@layout/fragment_location_maps">
+
+    </fragment>
+
 </navigation>
