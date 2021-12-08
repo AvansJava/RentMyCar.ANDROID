@@ -1,18 +1,14 @@
 package com.rentmycar.rentmycar.controller
 
-import android.content.res.Resources
-import android.provider.Settings.Global.getString
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
 import com.rentmycar.rentmycar.databinding.ViewHolderCarBinding
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
-import com.rentmycar.rentmycar.network.response.GetCarByIdResponse
-import com.rentmycar.rentmycar.network.response.PostLoginResponse
-import com.squareup.picasso.Picasso
 
 class CarListEpoxyController: EpoxyController() {
     var isLoading: Boolean = true
@@ -38,8 +34,8 @@ class CarListEpoxyController: EpoxyController() {
 
         if (cars.isEmpty()) {
             val localException = LocalException(
-                Resources.getSystem().getString(R.string.no_cars_found),
-                Resources.getSystem().getString(R.string.no_cars_available)
+                RentMyCarApplication.context.getString(R.string.no_cars_found),
+                RentMyCarApplication.context.getString(R.string.no_cars_available)
             )
             EmptyCarListEpoxyModel(localException).id("emptyList").addTo(this)
             return

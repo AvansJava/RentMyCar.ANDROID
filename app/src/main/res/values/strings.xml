@@ -22,4 +22,12 @@
     <string name="choose_a_car">Choose a car</string>
     <string name="no_cars_found">No cars found</string>
     <string name="no_cars_available">There are no cars available at the moment.</string>
+    <string name="settings">Settings</string>
+    <string name="user_dashboard">User Dashboard</string>
+    <string name="cars">Cars</string>
+    <string name="rent_a_car">Rent a car</string>
+    <string name="car_overview">Car Overview</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="log_in_to_account">Log in to your account</string>
+    <string name="register_account">Register Account</string>
 </resources>

@@ -22,5 +22,13 @@
     <string name="confirm_account">Bevestig Account</string>
     <string name="choose_a_car">Kies een auto</string>
     <string name="no_cars_found">Geen auto\'s gevonden</string>
-    <string name="no_cars_available">Er zijn momenteel geen auto's beschikbaar.</string>
+    <string name="no_cars_available">Er zijn momenteel geen auto\'s beschikbaar.</string>
+    <string name="settings">Instellingen</string>
+    <string name="user_dashboard">Gebruiker Dashboard</string>
+    <string name="cars">Auto\'s</string>
+    <string name="rent_a_car">Huur een auto</string>
+    <string name="car_overview">Auto Overzicht</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="log_in_to_account">Log in met uw account</string>
+    <string name="register_account">Registreer Account</string>
 </resources>

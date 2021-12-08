@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/welcomeScreenFragment"
         android:name="com.rentmycar.rentmycar.fragment.WelcomeScreenFragment"
-        android:label="Rent My Car"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_welcome_screen" >
         <action
             android:id="@+id/action_welcomeScreenFragment_to_userRegisterFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/userRegisterFragment"
         android:name="com.rentmycar.rentmycar.fragment.UserRegisterFragment"
-        android:label="Register Account"
+        android:label="@string/register_account"
         tools:layout="@layout/fragment_user_register">
         <action
             android:id="@+id/action_userRegisterFragment_to_userLoginFragment"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/userConfirmationFragment"
         android:name="com.rentmycar.rentmycar.fragment.UserConfirmationFragment"
-        android:label="Confirm Account"
+        android:label="@string/confirm_account"
         tools:layout="@layout/fragment_user_confirmation">
         <action
             android:id="@+id/action_userConfirmationFragment_to_userLoginFragment"
@@ -64,7 +64,7 @@
     <fragment
         android:id="@+id/userLoginFragment"
         android:name="com.rentmycar.rentmycar.fragment.UserLoginFragment"
-        android:label="Log in to your Account"
+        android:label="@string/log_in_to_account"
         tools:layout="@layout/fragment_user_login">
         <action
             android:id="@+id/action_userLoginFragment_to_userRegisterFragment"
@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/userDashboardFragment"
         android:name="com.rentmycar.rentmycar.fragment.UserDashboardFragment"
-        android:label="Dashboard"
+        android:label="@string/dashboard"
         tools:layout="@layout/fragment_user_login">
 
         <argument android:name="email"
@@ -101,7 +101,7 @@
     <fragment
         android:id="@+id/carListFragment"
         android:name="com.rentmycar.rentmycar.fragment.CarListFragment"
-        android:label="Car Overview"
+        android:label="@string/car_overview"
         tools:layout="@layout/fragment_car_list">
 
     </fragment>
