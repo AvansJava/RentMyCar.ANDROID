@@ -32,4 +32,11 @@
     <string name="log_in_to_account">Log in met uw account</string>
     <string name="register_account">Registreer Account</string>
     <string name="my_locations">Mijn locaties</string>
+    <string name="no_results_found">Geen resultaten gevonden</string>
+    <string name="no_search_query">Voer een zoekterm in</string>
+    <string name="search">Zoek hier</string>
+    <string name="select_location">Selecteer Locatie</string>
+    <string name="location_overview">Locatie Overzicht</string>
+    <string name="location_create">Nieuwe Locatie Aanmaken</string>
+    <string name="location_details">Locatie Details</string>
 </resources>

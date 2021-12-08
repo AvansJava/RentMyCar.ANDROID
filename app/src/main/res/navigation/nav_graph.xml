@@ -108,21 +108,35 @@
 
     <fragment android:id="@+id/locationCreateFragment"
         android:name="com.rentmycar.rentmycar.fragment.LocationCreateFragment"
-        android:label="Create Location"
+        android:label="@string/location_create"
         tools:layout="@layout/fragment_location_create">
+
         <action
-            android:id="@+id/action_locationCreateFragment_to_locationMapsFragment"
-            app:destination="@id/locationMapsFragment"
+            android:id="@+id/action_locationCreateFragment_to_locationDetailsFragment"
+            app:destination="@id/locationDetailsFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
-    <fragment android:id="@+id/locationMapsFragment"
-        android:name="com.rentmycar.rentmycar.fragment.LocationMapsFragment"
-        android:label="Select Location"
-        tools:layout="@layout/fragment_location_maps">
+    <fragment android:id="@+id/locationListFragment"
+        android:name="com.rentmycar.rentmycar.fragment.LocationListFragment"
+        android:label="@string/location_overview"
+        tools:layout="@layout/fragment_location_list">
+        <action
+            android:id="@+id/action_locationListFragment_to_locationDetailsFragment"
+            app:destination="@id/locationDetailsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/locationDetailsFragment"
+        android:name="com.rentmycar.rentmycar.fragment.LocationDetailsFragment"
+        android:label="@string/location_details"
+        tools:layout="@layout/fragment_location_details">
 
     </fragment>
 

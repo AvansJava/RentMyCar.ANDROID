@@ -15,4 +15,14 @@ class LocationRepository {
 
         return LocationMapper.buildFrom(response = request.body)
     }
+
+    suspend fun postLocation(location: Location): Location? {
+        val request = NetworkLayer.locationClient.postLocation(location)
+
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        return LocationMapper.buildFrom(response = request.body)
+    }
 }

@@ -21,4 +21,11 @@ class LocationViewModel: ViewModel() {
             _locationByIdLiveData.postValue(response)
         }
     }
+
+    fun postLocation(location: Location) {
+        viewModelScope.launch {
+            val response = locationRepository.postLocation(location)
+            _locationByIdLiveData.postValue(response)
+        }
+    }
 }

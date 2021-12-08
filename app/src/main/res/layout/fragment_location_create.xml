@@ -5,51 +5,44 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <com.airbnb.epoxy.EpoxyRecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/epoxyRecyclerView"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />-->
-
-
-    <TextView
-        android:id="@+id/testTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Location" />
-
-    <TextView
-        android:id="@+id/testTv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/testTv"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Location"/>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="@id/testTv"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".fragment.LocationMapsFragment"  android:layout_height="wrap_content"/>
+        tools:context=".fragment.LocationMapsFragment"/>
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/idSearchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#BFBFBF"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:background="#B3FFFFFF"
         android:elevation="5dp"
         app:iconifiedByDefault="false"
         app:layout_constraintTop_toTopOf="@id/map"
-        app:queryHint="Search Here"
+        app:queryHint="@string/search"
         tools:layout_editor_absoluteX="10dp" />
+
+    <Button
+        android:id="@+id/btnSelectLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_blue"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/select_location"
+        android:textColor="@color/white_smoke"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
