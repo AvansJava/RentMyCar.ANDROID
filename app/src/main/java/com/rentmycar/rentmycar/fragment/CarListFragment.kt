@@ -30,7 +30,7 @@ class CarListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.carListLiveData.observe(viewLifecycleOwner) {cars ->
+        viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
             epoxyController.cars = cars
             if (cars == null) {
                 Toast.makeText(requireActivity(), "Unsuccessful network call!", Toast.LENGTH_LONG).show()

@@ -2,8 +2,10 @@ package com.rentmycar.rentmycar.controller
 
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
 import com.rentmycar.rentmycar.databinding.ViewHolderCarBinding
 import com.rentmycar.rentmycar.domain.model.Car
+import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetCarByIdResponse
@@ -33,7 +35,11 @@ class CarListEpoxyController: EpoxyController() {
         }
 
         if (cars.isEmpty()) {
-            //todo show empty state
+            val localException = LocalException(
+                "No cars found",
+                "There are no cars available at the moment."
+            )
+            EmptyCarListEpoxyModel(localException).id("emptyList").addTo(this)
             return
         }
 
@@ -50,6 +56,16 @@ class CarListEpoxyController: EpoxyController() {
         override fun ViewHolderCarBinding.bind() {
             titleTextView.text = "${car.brand} ${car.brandType} ${car.model}"
             carPriceTextView.text = "Starting at 80,- per hour"
+        }
+
+    }
+
+    data class EmptyCarListEpoxyModel(
+        val localException: LocalException
+    ): ViewBindingKotlinModel<ModelLocalExceptionErrorStateBinding>(R.layout.model_local_exception_error_state) {
+        override fun ModelLocalExceptionErrorStateBinding.bind() {
+            titleTextView.text = localException.title
+            descriptionTextView.text = localException.description
         }
 
     }

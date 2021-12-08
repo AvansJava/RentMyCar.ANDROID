@@ -1,7 +1,7 @@
 package com.rentmycar.rentmycar.fragment
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_confirmation.*
+import kotlinx.android.synthetic.main.fragment_user_confirmation.tvSignIn
 
 class UserConfirmationFragment: Fragment() {
 
@@ -28,13 +29,23 @@ class UserConfirmationFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.userConfirmationLiveData
+
+        tvSignIn.setOnClickListener {
+            tvSignIn.setTextColor(Color.parseColor("#FF018786"))
+            val directions =
+                UserConfirmationFragmentDirections.actionUserConfirmationFragmentToUserLoginFragment()
+            findNavController().navigate(directions)
+        }
+
         btnConfirm.setOnClickListener {
             val confirmationToken: String = confirmation.editText?.text?.trim { it <= ' ' }.toString()
 
             if (!validateConfirmationToken(confirmationToken)) {
                 viewModel.confirmUser(confirmationToken)
 
-                val directions = UserConfirmationFragmentDirections.actionUserConfirmationFragmentToUserLoginFragment()
+                val directions =
+                    UserConfirmationFragmentDirections.actionUserConfirmationFragmentToUserLoginFragment()
                 findNavController().navigate(directions)
             }
         }

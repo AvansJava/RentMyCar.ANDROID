@@ -54,7 +54,7 @@
         tools:layout="@layout/fragment_user_confirmation">
         <action
             android:id="@+id/action_userConfirmationFragment_to_userLoginFragment"
-            app:destination="@id/userConfirmationFragment"
+            app:destination="@id/userLoginFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"

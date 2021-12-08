@@ -10,12 +10,12 @@ class CarRepository {
 
     private val locationRepository = LocationRepository()
 
-    suspend fun getCarList(): MutableList<Car>? {
+    suspend fun getCarList(): MutableList<Car> {
         val carList = mutableListOf<Car>()
         val request = NetworkLayer.carClient.getCarList()
 
         if (request.failed || !request.isSuccessful) {
-            return null
+            return carList
         }
 
         request.body.forEach { item ->

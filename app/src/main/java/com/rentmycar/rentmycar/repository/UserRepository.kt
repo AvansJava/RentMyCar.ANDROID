@@ -30,12 +30,11 @@ class UserRepository {
         return request.body
     }
 
-    suspend fun confirmUser(token: String): String? {
+    suspend fun confirmUser(token: String): String {
         val request = NetworkLayer.userClient.confirmUser(token)
 
         if (request.failed || !request.isSuccessful) {
-            //todo error handling
-            return null
+            return request.body
         }
 
         return request.body
