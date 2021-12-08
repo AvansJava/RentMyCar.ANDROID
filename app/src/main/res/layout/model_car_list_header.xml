@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Choose a car"
+        android:text="@string/choose_a_car"
         android:textColor="?attr/colorOnBackground"
         android:textSize="38sp"
         android:textStyle="bold"

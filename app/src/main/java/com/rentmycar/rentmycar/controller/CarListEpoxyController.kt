@@ -1,5 +1,7 @@
 package com.rentmycar.rentmycar.controller
 
+import android.content.res.Resources
+import android.provider.Settings.Global.getString
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
@@ -36,8 +38,8 @@ class CarListEpoxyController: EpoxyController() {
 
         if (cars.isEmpty()) {
             val localException = LocalException(
-                "No cars found",
-                "There are no cars available at the moment."
+                Resources.getSystem().getString(R.string.no_cars_found),
+                Resources.getSystem().getString(R.string.no_cars_available)
             )
             EmptyCarListEpoxyModel(localException).id("emptyList").addTo(this)
             return

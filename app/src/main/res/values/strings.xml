@@ -19,4 +19,7 @@
     <string name="confirmation_token">Confirmation Token</string>
     <string name="already_confirmed">Already confirmed?</string>
     <string name="confirm_account">Confirm Account</string>
+    <string name="choose_a_car">Choose a car</string>
+    <string name="no_cars_found">No cars found</string>
+    <string name="no_cars_available">There are no cars available at the moment.</string>
 </resources>
