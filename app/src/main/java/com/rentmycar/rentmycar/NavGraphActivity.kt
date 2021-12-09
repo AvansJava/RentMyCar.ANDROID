@@ -23,7 +23,6 @@ import java.lang.Math.log
 
 class NavGraphActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private val preference = AppPreference(RentMyCarApplication.context)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,7 @@ class NavGraphActivity : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
 
         appBarConfiguration = AppBarConfiguration(
-            topLevelDestinationIds = setOf(R.id.welcomeScreenFragment, R.id.userDashboardFragment, R.id.carListFragment, R.id.carDetailsFragment),
+            topLevelDestinationIds = setOf(R.id.userDashboardFragment, R.id.carListFragment),
             drawerLayout = drawerLayout
         )
         setupActionBarWithNavController(

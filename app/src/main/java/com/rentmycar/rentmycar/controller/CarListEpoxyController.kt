@@ -1,15 +1,19 @@
 package com.rentmycar.rentmycar.controller
 
+import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.databinding.ModelCarImageCarouselItemBinding
 import com.rentmycar.rentmycar.databinding.ModelCarListHeaderBinding
 import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
 import com.rentmycar.rentmycar.databinding.ViewHolderCarBinding
 import com.rentmycar.rentmycar.domain.model.Car
+import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
+import com.squareup.picasso.Picasso
 
 class CarListEpoxyController(
     private val onCarSelected: (Int) -> Unit
@@ -70,6 +74,7 @@ class CarListEpoxyController(
         override fun ViewHolderCarBinding.bind() {
             titleTextView.text = "${car.brand} ${car.brandType} ${car.model}"
             carPriceTextView.text = "Starting at 80,- per hour"
+            Picasso.get().load(car.resources[0].filePath).into(headerImageView)
 
             root.setOnClickListener {
                 onCarSelected(car.id)
@@ -87,5 +92,4 @@ class CarListEpoxyController(
         }
 
     }
-
 }

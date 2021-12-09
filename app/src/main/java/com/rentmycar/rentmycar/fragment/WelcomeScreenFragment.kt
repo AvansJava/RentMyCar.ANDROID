@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.rentmycar.rentmycar.R
@@ -24,6 +25,8 @@ class WelcomeScreenFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
         btnRegister.setOnClickListener {
             val directions = WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToUserRegisterFragment()
