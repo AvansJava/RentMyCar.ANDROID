@@ -34,7 +34,7 @@ class NavGraphActivity : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
 
         appBarConfiguration = AppBarConfiguration(
-            topLevelDestinationIds = setOf(R.id.userDashboardFragment, R.id.carListFragment),
+            topLevelDestinationIds = setOf(R.id.welcomeScreenFragment,R.id.userDashboardFragment, R.id.carListFragment),
             drawerLayout = drawerLayout
         )
         setupActionBarWithNavController(

@@ -1,13 +1,11 @@
 package com.rentmycar.rentmycar.controller
 
+import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.databinding.ModelCarImageCarouselItemBinding
-import com.rentmycar.rentmycar.databinding.ModelCarListHeaderBinding
-import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
-import com.rentmycar.rentmycar.databinding.ViewHolderCarBinding
+import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.LocalException
@@ -53,7 +51,21 @@ class CarListEpoxyController(
 
         cars.forEach { car ->
             if (car != null) {
-                CarEpoxyModel(car, onCarSelected).id(car.id).addTo(this)
+                CarListItemHeaderModel(car, onCarSelected).id("header_{$car.id}").addTo(this)
+                val items = car.resources.map { resource ->
+                    ImagesCarouselItemEpoxyModel(car.id, resource, onCarSelected).id(resource.id)
+                }
+
+                CarouselModel_()
+                    .id("images_carousel_{$car.id}")
+                    .padding(
+                        Carousel.Padding.dp(8,0,8,0,8)
+                    )
+                    .models(items)
+                    .numViewsToShowOnScreen(1f)
+                    .addTo(this)
+
+                CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_{$car.id}").addTo(this)
             }
         }
     }
@@ -67,17 +79,56 @@ class CarListEpoxyController(
 
     }
 
-    data class CarEpoxyModel(
+    data class CarListItemHeaderModel(
         val car: Car,
         val onCarSelected: (Int) -> Unit
-    ) : ViewBindingKotlinModel<ViewHolderCarBinding>(R.layout.view_holder_car) {
-        override fun ViewHolderCarBinding.bind() {
-            titleTextView.text = "${car.brand} ${car.brandType} ${car.model}"
-            carPriceTextView.text = "Starting at 80,- per hour"
-            Picasso.get().load(car.resources[0].filePath).into(headerImageView)
+    ): ViewBindingKotlinModel<ModelCarListItemHeaderBinding>(R.layout.model_car_list_item_header) {
+
+        override fun ModelCarListItemHeaderBinding.bind() {
+            titleTextView.text = RentMyCarApplication.context.getString(R.string.car_brand_model, car.brand, car.brand, car.model)
+            when(car.carType) {
+                "BEV" -> {
+                    carTypeImageView.setImageResource(R.drawable.ic_baseline_electric_car_24)
+                }
+                "FCEV" -> {
+                    carTypeImageView.setImageResource(R.drawable.ic_baseline_fcev)
+                }
+                "ICE" -> {
+                    carTypeImageView.setImageResource(R.drawable.ic_baseline_local_gas_station_24)
+                }
+            }
 
             root.setOnClickListener {
                 onCarSelected(car.id)
+            }
+        }
+    }
+
+    data class ImagesCarouselItemEpoxyModel(
+        val carId: Int,
+        val carResource: CarResource,
+        val onCarSelected: (Int) -> Unit
+    ): ViewBindingKotlinModel<ModelCarImageCarouselItemBinding>(R.layout.model_car_image_carousel_item) {
+
+        override fun ModelCarImageCarouselItemBinding.bind() {
+            Picasso.get().load(carResource.filePath).into(headerImageView)
+
+            root.setOnClickListener {
+                onCarSelected(carId)
+            }
+        }
+    }
+
+    data class CarListItemFooterEpoxyModel(
+        val carId: Int,
+        val carPrice: Double,
+        val onCarSelected: (Int) -> Unit
+    ): ViewBindingKotlinModel<ModelCarListItemFooterBinding>(R.layout.model_car_list_item_footer) {
+        override fun ModelCarListItemFooterBinding.bind() {
+            carPriceTextView.text = RentMyCarApplication.context.getString(R.string.car_price, carPrice)
+
+            root.setOnClickListener {
+                onCarSelected(carId)
             }
         }
 

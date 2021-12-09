@@ -26,7 +26,8 @@ class WelcomeScreenFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+//          commented out due to easy development
+//        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
         btnRegister.setOnClickListener {
             val directions = WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToUserRegisterFragment()
