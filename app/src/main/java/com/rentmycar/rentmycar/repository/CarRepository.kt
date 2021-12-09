@@ -3,7 +3,6 @@ package com.rentmycar.rentmycar.repository;
 import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.network.NetworkLayer;
-import com.rentmycar.rentmycar.network.response.GetCarByIdResponse;
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 
 class CarRepository {

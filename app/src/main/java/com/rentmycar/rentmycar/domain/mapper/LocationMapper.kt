@@ -1,10 +1,10 @@
 package com.rentmycar.rentmycar.domain.mapper
 
 import com.rentmycar.rentmycar.domain.model.Location
-import com.rentmycar.rentmycar.network.response.GetLocationByIdResponse
+import com.rentmycar.rentmycar.network.response.GetLocationResponse
 
 object LocationMapper {
-    fun buildFrom(response: GetLocationByIdResponse): Location {
+    fun buildFrom(response: GetLocationResponse): Location {
         return Location(
             street = response.street,
             houseNumber = response.houseNumber,

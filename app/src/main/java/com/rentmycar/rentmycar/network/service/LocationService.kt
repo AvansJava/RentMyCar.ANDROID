@@ -1,7 +1,7 @@
 package com.rentmycar.rentmycar.network.service
 
 import com.rentmycar.rentmycar.domain.model.Location
-import com.rentmycar.rentmycar.network.response.GetLocationByIdResponse
+import com.rentmycar.rentmycar.network.response.GetLocationResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -13,9 +13,9 @@ interface LocationService {
     @GET("location/{id}/")
     suspend fun getLocationById(
         @Path("id") id: Int
-    ): Response<GetLocationByIdResponse>
+    ): Response<GetLocationResponse>
 
     @POST("location/")
-    suspend fun postLocation(@Body location: Location): Response<GetLocationByIdResponse>
+    suspend fun postLocation(@Body location: Location): Response<GetLocationResponse>
 
 }

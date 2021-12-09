@@ -11,7 +11,9 @@ import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 
-class CarListEpoxyController: EpoxyController() {
+class CarListEpoxyController(
+    private val onCarSelected: (Int) -> Unit
+): EpoxyController() {
     var isLoading: Boolean = true
         set(value) {
             field = value
@@ -47,7 +49,7 @@ class CarListEpoxyController: EpoxyController() {
 
         cars.forEach { car ->
             if (car != null) {
-                CarEpoxyModel(car).id(car.id).addTo(this)
+                CarEpoxyModel(car, onCarSelected).id(car.id).addTo(this)
             }
         }
     }
@@ -62,11 +64,16 @@ class CarListEpoxyController: EpoxyController() {
     }
 
     data class CarEpoxyModel(
-        val car: Car
+        val car: Car,
+        val onCarSelected: (Int) -> Unit
     ) : ViewBindingKotlinModel<ViewHolderCarBinding>(R.layout.view_holder_car) {
         override fun ViewHolderCarBinding.bind() {
             titleTextView.text = "${car.brand} ${car.brandType} ${car.model}"
             carPriceTextView.text = "Starting at 80,- per hour"
+
+            root.setOnClickListener {
+                onCarSelected(car.id)
+            }
         }
 
     }

@@ -1,6 +1,6 @@
 package com.rentmycar.rentmycar.network.response
 
-data class GetLocationByIdResponse(
+data class GetLocationResponse(
     val id: Int,
     val street: String,
     val houseNumber: String,

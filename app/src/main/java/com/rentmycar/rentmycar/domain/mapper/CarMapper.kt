@@ -1,15 +1,13 @@
 package com.rentmycar.rentmycar.domain.mapper
 
 import com.rentmycar.rentmycar.domain.model.Car
-import com.rentmycar.rentmycar.domain.model.CarUser
-import com.rentmycar.rentmycar.domain.model.Location
-import com.rentmycar.rentmycar.network.response.GetCarByIdResponse
+import com.rentmycar.rentmycar.network.response.GetCarResponse
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 
 object CarMapper {
 
     //todo: carUser
-    fun buildFrom(response: GetCarByIdResponse, resources: List<GetCarResourceResponse>): Car {
+    fun buildFrom(response: GetCarResponse, resources: List<GetCarResourceResponse>): Car {
         return Car(
             id = response.id,
             brand = response.brand,

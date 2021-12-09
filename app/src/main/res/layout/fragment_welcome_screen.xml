@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontal_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/button_blue"/>
+        android:backgroundTint="@color/indigo_500"/>
 
     <TextView
         android:id="@+id/welcome_text_2"
