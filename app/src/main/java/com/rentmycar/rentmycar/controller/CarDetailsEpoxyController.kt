@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.controller
 
+import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
@@ -58,6 +59,9 @@ class CarDetailsEpoxyController: EpoxyController() {
 
             CarouselModel_()
                 .id("images_carousel")
+                .padding(
+                    Carousel.Padding.dp(8,0,8,0,8)
+                )
                 .models(items)
                 .numViewsToShowOnScreen(1f)
                 .addTo(this)

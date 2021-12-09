@@ -19,4 +19,5 @@
     <color name="hyperlink">#2ECDD0</color>
     <color name="light_red">#FF3131</color>
     <color name="background">#fafafa</color>
+    <color name="card_background">#f7eee1</color>
 </resources>

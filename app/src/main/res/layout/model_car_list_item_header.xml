@@ -34,10 +34,6 @@
             android:textColor="@color/white_smoke"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:shadowColor="@color/black"
-            android:shadowDx="4"
-            android:shadowDy="4"
-            android:shadowRadius="8"
             app:layout_constraintStart_toEndOf="@id/carTypeImageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Volkswagen Polo 1.6 TDI" />

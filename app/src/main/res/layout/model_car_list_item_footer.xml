@@ -23,10 +23,6 @@
         app:drawableStartCompat="@drawable/ic_baseline_euro_24"
         android:drawableTint="@color/white_smoke"
         android:textColor="@color/white_smoke"
-        android:shadowColor="@color/black"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="8"
         tools:text="Starting at 80,- per hour"/>
 
     <androidx.appcompat.widget.AppCompatImageView
