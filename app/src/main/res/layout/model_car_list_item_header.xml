@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey">
+        android:background="@color/indigo_500">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/carTypeImageView"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/titleTextView"
-        app:tint="?colorOnSurface"
+        app:tint="@color/white_smoke"
         tools:srcCompat="@drawable/ic_baseline_electric_car_24" />
 
         <TextView
@@ -31,9 +31,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:paddingBottom="16dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white_smoke"
             android:textSize="22sp"
             android:textStyle="bold"
+            android:shadowColor="@color/black"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="8"
             app:layout_constraintStart_toEndOf="@id/carTypeImageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Volkswagen Polo 1.6 TDI" />

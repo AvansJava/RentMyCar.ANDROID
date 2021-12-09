@@ -3,7 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/welcome_background_car_grayscale">
+
+    <ImageView
+        android:id="@+id/opacity_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_60_opacity"
+        android:contentDescription="@null"/>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:layout_width="match_parent"
