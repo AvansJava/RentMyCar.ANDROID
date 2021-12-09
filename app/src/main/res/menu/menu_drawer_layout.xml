@@ -6,6 +6,9 @@
                 <item android:id="@+id/carListFragment"
                     android:title="@string/cars"
                     android:icon="@drawable/ic_baseline_car_rental_24"/>
+                <item android:id="@+id/carDetailsFragment"
+                    android:title="@string/cars"
+                    android:icon="@drawable/ic_baseline_car_rental_24"/>
             </group>
         </menu>
     </item>

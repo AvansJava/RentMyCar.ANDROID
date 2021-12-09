@@ -6,6 +6,6 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities
 data class GetCarResourceResponse(
     val id: Int,
     val filePath: String,
-    val createdAt: LocalDateTime,
-    val updatedAt: Visibilities.Local
+    val createdAt: String,
+    val updatedAt: String?
 )

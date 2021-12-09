@@ -6,36 +6,36 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/carTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textColor="?attr/colorOnBackground"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/genderImageView"
+        app:layout_constraintEnd_toStartOf="@id/carTypeImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Volkswagen Polo 1.6 TDI" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/aliveTextView"
+        android:id="@+id/carTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?attr/colorOnBackground"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@id/nameTextView"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+        app:layout_constraintStart_toStartOf="@id/carTextView"
+        app:layout_constraintTop_toBottomOf="@id/carTextView"
         tools:text="Battery Electric Vehicle" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/genderImageView"
+        android:id="@+id/carTypeImageView"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nameTextView"
+        app:layout_constraintTop_toTopOf="@id/carTextView"
         tools:srcCompat="@drawable/ic_baseline_electric_car_24"
         app:tint="?colorOnSurface"/>
 

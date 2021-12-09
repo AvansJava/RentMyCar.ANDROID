@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.repository;
 
+import android.util.Log
 import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.network.NetworkLayer;
@@ -40,21 +41,22 @@ class CarRepository {
             return null
         }
 
-        val resources = getCarResourcesByCar(request.body.id)
-
         if (request.body.locationId != null) {
             val location = locationRepository.getLocationById(request.body.locationId!!)
         }
 
+        val resourceRequest = getCarResourcesByCar(request.body.id)
+
         return CarMapper.buildFrom(
             response = request.body,
-            resources = resources,
+            resources = resourceRequest,
         )
     }
 
     private suspend fun getCarResourcesByCar(carId: Int): List<GetCarResourceResponse> {
 
         val request = NetworkLayer.carClient.getCarResources(carId)
+
         if (request.failed || !request.isSuccessful) {
             return emptyList()
         }

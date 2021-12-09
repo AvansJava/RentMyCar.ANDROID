@@ -9,7 +9,7 @@ data class Car (
     val consumption: Double,
     val costPrice: Int,
     val carType: String,
-    val resources: List<CarResource>?,
+    val resources: List<CarResource>,
     val createdAt: String,
     val updatedAt: String?
 )

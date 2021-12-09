@@ -40,4 +40,15 @@
     <string name="location_create">Nieuwe Locatie Aanmaken</string>
     <string name="location_details">Locatie Details</string>
     <string name="car_details">Auto Details</string>
+    <string name="car_brand_model">%1$s %2$s %3$s</string>
+    <string name="car_type_bev">Volledig Elektrisch</string>
+    <string name="car_type_fcev">Waterstofcel</string>
+    <string name="car_type_ice">Verbrandingsmotor</string>
+    <string name="consumption">Verbruik:</string>
+    <string name="consumption_bev">%.2f%n kWh / 100km</string>
+    <string name="consumption_fcev">%.2f%n kg / 100km</string>
+    <string name="consumption_ice">%.2f%n L / 100km</string>
+    <string name="brand">Merk:</string>
+    <string name="brand_type">Type:</string>
+    <string name="model">Model:</string>
 </resources>

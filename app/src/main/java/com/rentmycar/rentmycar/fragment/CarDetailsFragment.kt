@@ -33,7 +33,7 @@ class CarDetailsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.carByIdLiveData.observe(viewLifecycleOwner) { car ->
-//            epoxyController.car = car
+            epoxyController.car = car
             if (car == null) {
                 Toast.makeText(requireActivity(), "Unsuccessful network call!", Toast.LENGTH_LONG).show()
                 return@observe

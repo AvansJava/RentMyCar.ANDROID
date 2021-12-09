@@ -39,4 +39,15 @@
     <string name="location_create">Create Location</string>
     <string name="location_details">Location Details</string>
     <string name="car_details">Car Details</string>
+    <string name="car_brand_model">%1$s %2$s %3$s</string>
+    <string name="car_type_bev">Battery Electric Vehicle</string>
+    <string name="car_type_fcev">Fuel Cell Electric Vehicle</string>
+    <string name="car_type_ice">Internal Combustion Engine</string>
+    <string name="consumption">Consumption:</string>
+    <string name="consumption_bev">%.2f%n kWh / 100km</string>
+    <string name="consumption_fcev">%.2f%n kg / 100km</string>
+    <string name="consumption_ice">%.2f%n L / 100km</string>
+    <string name="brand">Brand:</string>
+    <string name="brand_type">Type:</string>
+    <string name="model">Model:</string>
 </resources>
