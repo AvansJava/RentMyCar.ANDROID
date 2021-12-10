@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_confirmation.*
 import kotlinx.android.synthetic.main.fragment_user_confirmation.tvSignIn
@@ -55,7 +56,7 @@ class UserConfirmationFragment: Fragment() {
         var formErrors = false
 
         if (confirmationToken.isEmpty()) {
-            confirmation.error = "Please fill in your confirmation token."
+            confirmation.error = RentMyCarApplication.context.getString(R.string.confirmation_token_empty)
             formErrors = true
         } else {
             confirmation.error = null

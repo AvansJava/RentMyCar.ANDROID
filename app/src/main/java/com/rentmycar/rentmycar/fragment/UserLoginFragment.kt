@@ -43,7 +43,7 @@ class UserLoginFragment : Fragment() {
         viewModel.userLoginLiveData.observe(viewLifecycleOwner) {userLogin ->
             epoxyController.postLoginResponse = userLogin
             if (userLogin == null) {
-                Toast.makeText(requireActivity(), "Unsuccessful network call!", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
             preference.setToken(userLogin.accessToken)
@@ -81,28 +81,28 @@ class UserLoginFragment : Fragment() {
         var formErrors = false
 
         if (userEmail.isEmpty()) {
-            email.error = "Please fill in your e-mail address."
+            email.error = RentMyCarApplication.context.getString(R.string.email_empty)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            email.error = "E-mail address invalid."
+            email.error = RentMyCarApplication.context.getString(R.string.email_incorrect)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (userPassword.isEmpty()) {
-            password.error = "Please fill in your password."
+            password.error = RentMyCarApplication.context.getString(R.string.password_empty)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userPassword.length < 6) {
-            password.error = "Password needs to have a minimum of 6 characters."
+            password.error = RentMyCarApplication.context.getString(R.string.password_incorrect)
             formErrors = true
         } else {
             password.error = null

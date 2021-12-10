@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Register
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_login.*
@@ -74,42 +75,42 @@ class UserRegisterFragment: Fragment() {
         var formErrors = false
 
         if (userEmail.isEmpty()) {
-            email.error = "Please fill in your e-mail address."
+            email.error = RentMyCarApplication.context.getString(R.string.email_empty)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            email.error = "E-mail address invalid."
+            email.error = RentMyCarApplication.context.getString(R.string.email_incorrect)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (userPassword.isEmpty()) {
-            password.error = "Please fill in your password."
+            password.error = RentMyCarApplication.context.getString(R.string.password_empty)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userPassword.length < 6) {
-            password.error = "Password needs to have a minimum of 6 characters."
+            password.error = RentMyCarApplication.context.getString(R.string.password_incorrect)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userFirstName.length < 2) {
-            first_name.error = "Name needs to have a minimum of 2 characters."
+            first_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userLastName.length < 2) {
-            last_name.error = "Name needs to have a minimum of 2 characters."
+            last_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
             formErrors = true
         } else {
             password.error = null

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.CarListEpoxyController
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
 
@@ -34,7 +35,7 @@ class CarListFragment: Fragment() {
         viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
             epoxyController.cars = cars
             if (cars == null) {
-                Toast.makeText(requireActivity(), "Unsuccessful network call!", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
         }

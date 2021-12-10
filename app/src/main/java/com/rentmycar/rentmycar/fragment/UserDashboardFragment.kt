@@ -38,7 +38,7 @@ class UserDashboardFragment: Fragment() {
             epoxyController.getUserResponse = user
 
             if (user == null) {
-                Toast.makeText(requireActivity(), "E-mail address or password incorrect.", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.email_password_incorrect), Toast.LENGTH_LONG).show()
                 navController.navigate(R.id.userLoginFragment)
             }
         }

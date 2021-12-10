@@ -5,11 +5,10 @@ import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.databinding.ModelCarDetailsDataPointBinding
-import com.rentmycar.rentmycar.databinding.ModelCarDetailsHeaderBinding
-import com.rentmycar.rentmycar.databinding.ModelCarImageCarouselItemBinding
+import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
+import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
@@ -26,6 +25,15 @@ class CarDetailsEpoxyController: EpoxyController() {
         }
 
     var car: Car? = null
+        set(value) {
+            field = value
+            if (field != null) {
+                isLoading = false
+                requestModelBuild()
+            }
+        }
+
+    var location: Location? = null
         set(value) {
             field = value
             if (field != null) {
@@ -87,6 +95,8 @@ class CarDetailsEpoxyController: EpoxyController() {
             description = car!!.consumption,
             carType = car!!.carType
         ).id("data_point_4").addTo(this)
+
+        MapEpoxyModel().id("map").addTo(this)
     }
 
     data class HeaderEpoxyModel(
@@ -158,5 +168,11 @@ class CarDetailsEpoxyController: EpoxyController() {
             textView.text = description
         }
 
+    }
+
+    class MapEpoxyModel : ViewBindingKotlinModel<ModelCarDetailsMapBinding>(R.layout.model_car_details_map) {
+        override fun ModelCarDetailsMapBinding.bind() {
+            // nothing to bind
+        }
     }
 }

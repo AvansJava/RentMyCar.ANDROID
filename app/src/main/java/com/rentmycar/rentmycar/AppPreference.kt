@@ -1,7 +1,11 @@
 package com.rentmycar.rentmycar
 
+import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 
 class AppPreference(context: Context) {
 

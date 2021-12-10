@@ -52,4 +52,12 @@
     <string name="brand_type">Type:</string>
     <string name="model">Model:</string>
     <string name="car_price">Start vanaf €%.2f%n per uur</string>
+    <string name="network_call_failed">Kon geen data ophalen. Probeer het opnieuw.</string>
+    <string name="confirmation_token_empty">Vul uw token in om de account te bevestigen.</string>
+    <string name="email_password_incorrect">E-mail adres of wachtwoord incorrect.</string>
+    <string name="email_empty">Vul uw e-mail adres in.</string>
+    <string name="email_incorrect">E-mail adres ongeldig.</string>
+    <string name="password_empty">Vul uw wachtwoord in.</string>
+    <string name="password_incorrect">Wachtwoord moet tenminste 6 karakters bevatten.</string>
+    <string name="name_incorrect">Naam moet tenminste 2 karakters bevatten.</string>
 </resources>

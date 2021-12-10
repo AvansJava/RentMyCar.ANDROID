@@ -51,4 +51,12 @@
     <string name="brand_type">Type:</string>
     <string name="model">Model:</string>
     <string name="car_price">Starting at €%.2f%n per hour</string>
+    <string name="network_call_failed">Couldn\'t retrieve data. Please try again.</string>
+    <string name="confirmation_token_empty">Please fill in your confirmation token.</string>
+    <string name="email_password_incorrect">E-mail address or password incorrect.</string>
+    <string name="email_empty">Please fill in your e-mail address.</string>
+    <string name="email_incorrect">E-mail address invalid.</string>
+    <string name="password_empty">Please fill in your password.</string>
+    <string name="password_incorrect">Password needs to have a minimum of 6 characters.</string>
+    <string name="name_incorrect">Name needs to have a minimum of 2 characters.</string>
 </resources>
