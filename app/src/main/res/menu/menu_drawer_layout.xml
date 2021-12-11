@@ -10,11 +10,12 @@
         </menu>
     </item>
 
-    <item android:title="Group 2">
+    <item android:title="Account">
         <menu>
             <group android:checkableBehavior="single">
-                <item android:id="@+id/item2"
-                    android:title="Item 2" />
+                <item android:id="@+id/userDashboardFragment"
+                    android:title="Me"
+                    android:icon="@drawable/ic_baseline_person_24" />
             </group>
         </menu>
     </item>
