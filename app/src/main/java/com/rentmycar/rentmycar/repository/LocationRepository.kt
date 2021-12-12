@@ -42,4 +42,24 @@ class LocationRepository {
         }
         return locationList
     }
+
+    suspend fun updateLocation(id: Int, location: Location): Location? {
+        val request = NetworkLayer.locationClient.updateLocationById(id, location)
+
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        return LocationMapper.buildFrom(response = request.body)
+    }
+
+    suspend fun deleteLocation(id: Int): String? {
+        val request = NetworkLayer.locationClient.deleteLocationById(id)
+
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        return request.body
+    }
 }

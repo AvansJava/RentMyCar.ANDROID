@@ -3,10 +3,7 @@ package com.rentmycar.rentmycar.network.service
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.network.response.GetLocationResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface LocationService {
 
@@ -20,4 +17,15 @@ interface LocationService {
 
     @GET("location/")
     suspend fun getLocations(): Response<List<GetLocationResponse>>
+
+    @PUT("location/{id}/")
+    suspend fun updateLocationById(
+        @Path("id") id: Int,
+        @Body location: Location
+    ): Response<GetLocationResponse>
+
+    @DELETE("location/{id}/")
+    suspend fun deleteLocationById(
+        @Path("id") id: Int
+    ): Response<String>
 }

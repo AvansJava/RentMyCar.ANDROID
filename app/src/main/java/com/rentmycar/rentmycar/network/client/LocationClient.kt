@@ -20,4 +20,12 @@ class LocationClient(
     suspend fun getLocations(): SimpleResponse<List<GetLocationResponse>> {
         return safeApiCall { locationService.getLocations() }
     }
+
+    suspend fun updateLocationById(id: Int, location: Location): SimpleResponse<GetLocationResponse> {
+        return safeApiCall { locationService.updateLocationById(id, location) }
+    }
+
+    suspend fun deleteLocationById(id: Int): SimpleResponse<String> {
+        return safeApiCall { locationService.deleteLocationById(id) }
+    }
 }

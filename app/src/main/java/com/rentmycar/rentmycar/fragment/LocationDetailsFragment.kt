@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -76,6 +77,18 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
         checkPermissions()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
+
+        btnUpdateLocation.setOnClickListener {
+            val directions = LocationDetailsFragmentDirections.actionLocationDetailsFragmentToLocationCreateFragment(true, locationId)
+            findNavController().navigate(directions)
+        }
+
+        btnDeleteLocation.setOnClickListener {
+            viewModel.deleteLocation(locationId)
+
+            val directions = LocationDetailsFragmentDirections.actionLocationDetailsFragmentToLocationListFragment()
+            findNavController().navigate(directions)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

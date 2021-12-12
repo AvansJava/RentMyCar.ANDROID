@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
@@ -32,6 +33,8 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
     private var address: Address? = null
     var gMap: GoogleMap? = null
     private val geoCoder = Geocoder(RentMyCarApplication.context, Locale.getDefault())
+    private val safeArgs: LocationCreateFragmentArgs by navArgs()
+    private var updateLocation: Boolean = false
 
     private val viewModel: LocationViewModel by lazy {
         ViewModelProvider(this)[LocationViewModel::class.java]
@@ -47,19 +50,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ), 101)
-        }
-
+        checkPermissions()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
 
@@ -79,10 +70,17 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
         btnSelectLocation.setOnClickListener {
             if (address != null) {
                 val location: com.rentmycar.rentmycar.domain.model.Location = parseAddress(address!!)
-                viewModel.postLocation(location)
+                val updateLocation = safeArgs.updateLocation
+                val locationId = safeArgs.locationId
+
+                if (updateLocation) {
+                    viewModel.updateLocation(locationId, location)
+                } else {
+                    viewModel.postLocation(location)
+                }
 
                 val directions =
-                    LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationDetailsFragment()
+                    LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
                 findNavController().navigate(directions)
             } else {
                 Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.no_results_found), Toast.LENGTH_SHORT).show()
@@ -159,4 +157,18 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
         gMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 15f))
     }
 
+    private fun checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ), 101)
+        }
+    }
 }

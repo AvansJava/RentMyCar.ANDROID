@@ -119,12 +119,20 @@
         tools:layout="@layout/fragment_location_create">
 
         <action
-            android:id="@+id/action_locationCreateFragment_to_locationDetailsFragment"
-            app:destination="@id/locationDetailsFragment"
+            android:id="@+id/action_locationCreateFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <argument android:name="updateLocation"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+
+        <argument android:name="locationId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 
     <fragment android:id="@+id/locationListFragment"
@@ -155,6 +163,22 @@
         <argument android:name="locationId"
             app:argType="integer"
             android:defaultValue="-1"/>
+
+        <action
+            android:id="@+id/action_locationDetailsFragment_to_locationCreateFragment"
+            app:destination="@id/locationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action
+            android:id="@+id/action_locationDetailsFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/carDetailsFragment"
