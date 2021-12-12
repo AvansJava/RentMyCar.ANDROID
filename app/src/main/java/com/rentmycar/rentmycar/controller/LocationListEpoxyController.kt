@@ -3,6 +3,7 @@ package com.rentmycar.rentmycar.controller
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.databinding.ModelHeaderBinding
 import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
 import com.rentmycar.rentmycar.databinding.ModelLocationListHeaderBinding
 import com.rentmycar.rentmycar.databinding.ModelLocationListItemBinding
@@ -57,8 +58,8 @@ class LocationListEpoxyController(
 
     data class HeaderEpoxyModel(
         val header: String
-    ): ViewBindingKotlinModel<ModelLocationListHeaderBinding>(R.layout.model_location_list_header) {
-        override fun ModelLocationListHeaderBinding.bind() {
+    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
+        override fun ModelHeaderBinding.bind() {
             nameTextView.text = header
         }
 

@@ -232,5 +232,19 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_userCarListFragment_to_carCreateFragment"
+            app:destination="@+id/carCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/carCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.CarCreateFragment"
+        android:label="@string/car_create"
+        tools:layout="@layout/fragment_car_create">
+
     </fragment>
 </navigation>

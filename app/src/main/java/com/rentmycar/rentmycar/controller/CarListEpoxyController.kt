@@ -89,8 +89,8 @@ class CarListEpoxyController(
 
     data class HeaderEpoxyModel(
         val header: String
-    ): ViewBindingKotlinModel<ModelCarListHeaderBinding>(R.layout.model_car_list_header) {
-        override fun ModelCarListHeaderBinding.bind() {
+    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
+        override fun ModelHeaderBinding.bind() {
             nameTextView.text = header
         }
 

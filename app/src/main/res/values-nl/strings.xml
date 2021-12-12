@@ -83,4 +83,10 @@
     <string name="user_car_overview">Mijn auto overzicht</string>
     <string name="my_cars">Mijn auto\'s</string>
     <string name="view_car_details">Bekijk auto details</string>
+    <string name="add_car">Registreer nieuwe auto</string>
+    <string name="car_create">Registreer uw auto</string>
+    <string name="car_brand">Merk (bijv. Volkswagen)</string>
+    <string name="car_brand_type">Type (bijv. Polo</string>
+    <string name="car_model">Model (bijv. EX-L)</string>
+    <string name="car_license_plate">Kentekenplaatnummer</string>
 </resources>

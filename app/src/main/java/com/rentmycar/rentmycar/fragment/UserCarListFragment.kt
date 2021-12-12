@@ -13,6 +13,7 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.UserCarListEpoxyController
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
+import kotlinx.android.synthetic.main.fragment_user_car_list.*
 
 class UserCarListFragment: Fragment() {
 
@@ -26,7 +27,7 @@ class UserCarListFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_car_list, container, false)
+        return inflater.inflate(R.layout.fragment_user_car_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +41,11 @@ class UserCarListFragment: Fragment() {
             }
         }
         viewModel.getCarsByUser()
+
+        btnCarAdd.setOnClickListener {
+            val directions = UserCarListFragmentDirections.actionUserCarListFragmentToCarCreateFragment()
+            findNavController().navigate(directions)
+        }
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)

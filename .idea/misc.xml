@@ -20,6 +20,7 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_untitled_1.xml" value="0.24427083333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/model_car_details_title.xml" value="0.3769230769230769" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/model_car_type_list_item.xml" value="0.221875" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_nav_graph.xml" value="0.20520833333333333" />
@@ -42,6 +43,8 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/layout_drawer_header.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/loading.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/login.xml" value="0.36666666666666664" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_form.xml" value="0.20572916666666666" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_header.xml" value="0.34193840579710144" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_data_point.xml" value="0.35688405797101447" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_header.xml" value="0.33" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_location_data_point.xml" value="0.34193840579710144" />
@@ -51,6 +54,7 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_header.xml" value="0.22395833333333334" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_item_footer.xml" value="0.35190217391304346" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_item_header.xml" value="0.35190217391304346" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_type_list_item.xml" value="0.20572916666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_header_user_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_loading.xml" value="0.36186594202898553" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_local_exception_error_state.xml" value="0.228125" />

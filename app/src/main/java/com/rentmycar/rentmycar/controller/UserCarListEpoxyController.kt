@@ -1,16 +1,13 @@
 package com.rentmycar.rentmycar.controller
 
-import android.util.Log
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.config.Config
 import com.rentmycar.rentmycar.config.Config.NO_IMAGE_AVAILABLE_URL
 import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
-import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
@@ -82,8 +79,8 @@ class UserCarListEpoxyController(
 
     data class HeaderEpoxyModel(
         val header: String
-    ): ViewBindingKotlinModel<ModelCarListHeaderBinding>(R.layout.model_car_list_header) {
-        override fun ModelCarListHeaderBinding.bind() {
+    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
+        override fun ModelHeaderBinding.bind() {
             nameTextView.text = header
         }
 
