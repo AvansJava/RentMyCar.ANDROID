@@ -115,7 +115,7 @@
 
     <fragment android:id="@+id/locationCreateFragment"
         android:name="com.rentmycar.rentmycar.fragment.LocationCreateFragment"
-        android:label="@string/location_create"
+        android:label="@string/location_select"
         tools:layout="@layout/fragment_location_create">
 
         <action

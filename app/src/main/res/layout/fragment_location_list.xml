@@ -36,5 +36,4 @@
         app:backgroundTint="@color/teal_700"
         app:tint="@color/white_smoke"/>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

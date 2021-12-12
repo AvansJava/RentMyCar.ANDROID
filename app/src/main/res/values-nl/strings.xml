@@ -37,7 +37,7 @@
     <string name="search">Zoek hier</string>
     <string name="select_location">Selecteer Locatie</string>
     <string name="location_overview">Locatie Overzicht</string>
-    <string name="location_create">Nieuwe Locatie Aanmaken</string>
+    <string name="location_select">Selecteer Locatie</string>
     <string name="location_details">Locatie Details</string>
     <string name="car_details">Auto Details</string>
     <string name="car_brand_model">%1$s %2$s %3$s</string>
@@ -60,7 +60,7 @@
     <string name="password_empty">Vul uw wachtwoord in.</string>
     <string name="password_incorrect">Wachtwoord moet tenminste 6 karakters bevatten.</string>
     <string name="name_incorrect">Naam moet tenminste 2 karakters bevatten.</string>
-    <string name="no_database_connection">Kon geen gegevens ophalen uit de database.</string>
+    <string name="no_database_connection">Kon geen verbinding maken met de database.</string>
     <string name="welcome_user">Welkom terug bij HuurMijnAuto</string>
     <string name="user_welcome_back">Welkom terug</string>
     <string name="add_location">Voeg Locatie Toe</string>
