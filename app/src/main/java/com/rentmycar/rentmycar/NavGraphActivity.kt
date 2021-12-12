@@ -38,7 +38,8 @@ class NavGraphActivity : AppCompatActivity() {
                 R.id.welcomeScreenFragment,
                 R.id.userDashboardFragment,
                 R.id.carListFragment,
-                R.id.locationListFragment),
+                R.id.locationListFragment,
+                R.id.userCarListFragment),
             drawerLayout = drawerLayout
         )
         setupActionBarWithNavController(

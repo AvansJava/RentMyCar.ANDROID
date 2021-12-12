@@ -20,9 +20,9 @@
         android:textStyle="italic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:drawableStartCompat="@drawable/ic_baseline_euro_24"
+        app:drawableStartCompat="@drawable/ic_baseline_info_24"
         android:textColor="@color/white_smoke"
-        tools:text="Starting at 80,- per hour"
+        tools:text="View car details"
         app:drawableTint="@color/white_smoke" />
 
     <androidx.appcompat.widget.AppCompatImageView

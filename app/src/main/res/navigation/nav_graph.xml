@@ -212,4 +212,17 @@
             app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
+    <fragment android:id="@+id/userCarListFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserCarListFragment"
+        android:label="@string/user_car_overview"
+        tools:layout="@layout/fragment_user_car_list">
+
+        <action
+            android:id="@+id/action_userCarListFragment_to_carDetailsFragment"
+            app:destination="@+id/carDetailsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
 </navigation>

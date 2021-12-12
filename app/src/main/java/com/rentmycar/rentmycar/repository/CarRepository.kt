@@ -73,4 +73,24 @@ class CarRepository {
 
         return request.body
     }
+
+    suspend fun getCarsByUser(): MutableList<Car> {
+        val carList = mutableListOf<Car>()
+        val request = NetworkLayer.carClient.getCarsByUser()
+
+        if (request.failed || !request.isSuccessful) {
+            return carList
+        }
+
+        request.body.forEach { item ->
+
+            val resource = getCarResourcesByCar(item.id)
+            val car: Car = CarMapper.buildFrom(
+                response = item,
+                resources = resource
+            )
+            carList.add(car)
+        }
+        return carList
+    }
 }

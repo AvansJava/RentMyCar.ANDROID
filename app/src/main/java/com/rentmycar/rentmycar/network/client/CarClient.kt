@@ -20,4 +20,8 @@ class CarClient(
     suspend fun getCarResources(id: Int): SimpleResponse<List<GetCarResourceResponse>> {
         return safeApiCall { carService.getCarResources(id) }
     }
+
+    suspend fun getCarsByUser(): SimpleResponse<List<GetCarResponse>> {
+        return safeApiCall { carService.getCarsByUser() }
+    }
 }

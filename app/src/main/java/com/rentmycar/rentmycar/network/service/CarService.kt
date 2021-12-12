@@ -20,4 +20,7 @@ interface CarService {
     suspend fun getCarResources(
         @Path("id") id: Int
     ): Response<List<GetCarResourceResponse>>
+
+    @GET("cars/")
+    suspend fun getCarsByUser(): Response<List<GetCarResponse>>
 }

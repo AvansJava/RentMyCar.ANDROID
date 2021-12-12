@@ -44,4 +44,11 @@ class CarViewModel: ViewModel() {
             _carByIdLiveData.postValue(response)
         }
     }
+
+    fun getCarsByUser() {
+        viewModelScope.launch {
+            val response = carRepository.getCarsByUser()
+            _carListLiveData.postValue(response)
+        }
+    }
 }

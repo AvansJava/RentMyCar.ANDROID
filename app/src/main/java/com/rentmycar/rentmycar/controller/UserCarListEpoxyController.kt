@@ -1,11 +1,13 @@
 package com.rentmycar.rentmycar.controller
 
+import android.util.Log
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.config.Config
+import com.rentmycar.rentmycar.config.Config.NO_IMAGE_AVAILABLE_URL
 import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
@@ -15,7 +17,7 @@ import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
 
-class CarListEpoxyController(
+class UserCarListEpoxyController(
     private val onCarSelected: (Int) -> Unit
 ): EpoxyController() {
     var isLoading: Boolean = true
@@ -39,7 +41,7 @@ class CarListEpoxyController(
             return
         }
 
-        HeaderEpoxyModel(RentMyCarApplication.context.getString(R.string.choose_a_car))
+        HeaderEpoxyModel(RentMyCarApplication.context.getString(R.string.my_cars))
             .id("header").addTo(this)
 
         if (cars.isEmpty()) {
@@ -56,20 +58,11 @@ class CarListEpoxyController(
                 CarListItemHeaderModel(car, onCarSelected).id("header_{$car.id}").addTo(this)
 
                 var items = car.resources.map { resource ->
-                    UserCarListEpoxyController.ImagesCarouselItemEpoxyModel(
-                        car.id,
-                        resource.filePath,
-                        onCarSelected
-                    ).id(resource.id)
+                    ImagesCarouselItemEpoxyModel(car.id, resource.filePath, onCarSelected).id(resource.id)
                 }
 
                 if (items.isEmpty()) {
-                    items = listOf(
-                        UserCarListEpoxyController.ImagesCarouselItemEpoxyModel(
-                            car.id,
-                            Config.NO_IMAGE_AVAILABLE_URL,
-                            onCarSelected
-                        ).id("no_image"))
+                    items = listOf(ImagesCarouselItemEpoxyModel(car.id, NO_IMAGE_AVAILABLE_URL, onCarSelected).id("no_image"))
 
                 }
 
@@ -82,7 +75,7 @@ class CarListEpoxyController(
                     .numViewsToShowOnScreen(1f)
                     .addTo(this)
 
-                CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_{$car.id}").addTo(this)
+                CarListItemFooterEpoxyModel(car.id, RentMyCarApplication.context.getString(R.string.view_car_details), onCarSelected).id("footer_{$car.id}").addTo(this)
             }
         }
     }
@@ -123,12 +116,12 @@ class CarListEpoxyController(
 
     data class ImagesCarouselItemEpoxyModel(
         val carId: Int,
-        val carResource: CarResource,
+        val filePath: String,
         val onCarSelected: (Int) -> Unit
     ): ViewBindingKotlinModel<ModelCarImageCarouselItemBinding>(R.layout.model_car_image_carousel_item) {
 
         override fun ModelCarImageCarouselItemBinding.bind() {
-            Picasso.get().load(carResource.filePath).into(headerImageView)
+            Picasso.get().load(filePath).into(headerImageView)
 
             root.setOnClickListener {
                 onCarSelected(carId)
@@ -138,11 +131,11 @@ class CarListEpoxyController(
 
     data class CarListItemFooterEpoxyModel(
         val carId: Int,
-        val carPrice: Double,
+        val description: String,
         val onCarSelected: (Int) -> Unit
-    ): ViewBindingKotlinModel<ModelCarListItemFooterBinding>(R.layout.model_car_list_item_footer) {
-        override fun ModelCarListItemFooterBinding.bind() {
-            carPriceTextView.text = RentMyCarApplication.context.getString(R.string.car_price, carPrice)
+    ): ViewBindingKotlinModel<ModelUserCarListItemFooterBinding>(R.layout.model_user_car_list_item_footer) {
+        override fun ModelUserCarListItemFooterBinding.bind() {
+            carPriceTextView.text = description
 
             root.setOnClickListener {
                 onCarSelected(carId)

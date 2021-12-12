@@ -30,6 +30,8 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_details.xml" value="0.36186594202898553" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_list.xml" value="0.36186594202898553" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_maps.xml" value="0.36186594202898553" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_car_details.xml" value="0.34193840579710144" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_car_list.xml" value="0.20572916666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_confirmation.xml" value="0.3663949275362319" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_login.xml" value="0.20520833333333333" />
@@ -55,6 +57,7 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_details_map.xml" value="0.34193840579710144" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_list_header.xml" value="0.20572916666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_list_item.xml" value="0.34193840579710144" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_car_list_item_footer.xml" value="0.20572916666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_data.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_login_header.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/register.xml" value="0.33" />
