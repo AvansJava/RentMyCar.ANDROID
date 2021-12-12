@@ -27,7 +27,7 @@ import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
 import com.rentmycar.rentmycar.viewmodel.LocationViewModel
 
-class CarDetailsFragment: Fragment(), OnMapReadyCallback {
+class CarDetailsFragment: Fragment() {
 
     var location: Location? = null
     private lateinit var mMap: GoogleMap
@@ -46,7 +46,7 @@ class CarDetailsFragment: Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_car_list, container, false)
+        return inflater.inflate(R.layout.fragment_car_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,39 +68,10 @@ class CarDetailsFragment: Fragment(), OnMapReadyCallback {
             }
         }
 
-        checkPermissions()
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(this)
-
         val carId = safeArgs.carId
         viewModel.getCarById(id = carId)
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
-    }
-
-    private fun checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ), 101)
-        }
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        val latLng = LatLng(location!!.latitude.toDouble(), location!!.latitude.toDouble())
-        mMap.addMarker(
-            MarkerOptions().position(latLng).title(location!!.street+ " " + location!!.houseNumber))?.showInfoWindow()
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
-
     }
 }

@@ -138,6 +138,13 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+        <action
+            android:id="@+id/action_locationListFragment_to_locationCreateFragment"
+            app:destination="@id/locationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/locationDetailsFragment"
@@ -145,6 +152,9 @@
         android:label="@string/location_details"
         tools:layout="@layout/fragment_location_details">
 
+        <argument android:name="locationId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 
     <fragment android:id="@+id/carDetailsFragment"

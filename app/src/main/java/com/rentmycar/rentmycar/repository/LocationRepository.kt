@@ -1,6 +1,9 @@
 package com.rentmycar.rentmycar.repository
 
+import android.util.Log
+import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.domain.mapper.LocationMapper
+import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.network.NetworkLayer
 
@@ -24,5 +27,22 @@ class LocationRepository {
         }
 
         return LocationMapper.buildFrom(response = request.body)
+    }
+
+    suspend fun getLocations(): List<Location> {
+        val locationList = mutableListOf<Location>()
+        val request = NetworkLayer.locationClient.getLocations()
+
+        if (request.failed || !request.isSuccessful) {
+            return emptyList()
+        }
+
+        request.body.forEach { item ->
+            val location: Location = LocationMapper.buildFrom(
+                response = item
+            )
+            locationList.add(location)
+        }
+        return locationList
     }
 }

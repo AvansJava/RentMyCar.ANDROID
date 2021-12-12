@@ -18,4 +18,6 @@ interface LocationService {
     @POST("location/")
     suspend fun postLocation(@Body location: Location): Response<GetLocationResponse>
 
+    @GET("location/")
+    suspend fun getLocations(): Response<List<GetLocationResponse>>
 }

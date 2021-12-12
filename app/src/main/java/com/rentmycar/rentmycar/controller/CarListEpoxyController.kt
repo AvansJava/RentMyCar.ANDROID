@@ -9,6 +9,7 @@ import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.LocalException
+import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
@@ -45,7 +46,7 @@ class CarListEpoxyController(
                 RentMyCarApplication.context.getString(R.string.no_cars_found),
                 RentMyCarApplication.context.getString(R.string.no_cars_available)
             )
-            EmptyCarListEpoxyModel(localException).id("emptyList").addTo(this)
+            EmptyListEpoxyModel(localException).id("emptyList").addTo(this)
             return
         }
 
@@ -130,16 +131,6 @@ class CarListEpoxyController(
             root.setOnClickListener {
                 onCarSelected(carId)
             }
-        }
-
-    }
-
-    data class EmptyCarListEpoxyModel(
-        val localException: LocalException
-    ): ViewBindingKotlinModel<ModelLocalExceptionErrorStateBinding>(R.layout.model_local_exception_error_state) {
-        override fun ModelLocalExceptionErrorStateBinding.bind() {
-            titleTextView.text = localException.title
-            descriptionTextView.text = localException.description
         }
 
     }

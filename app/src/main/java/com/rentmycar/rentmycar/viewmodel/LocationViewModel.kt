@@ -15,6 +15,9 @@ class LocationViewModel: ViewModel() {
     private val _locationByIdLiveData = MutableLiveData<Location?>()
     val locationByIdLiveData: LiveData<Location?> = _locationByIdLiveData
 
+    private val _locationsListLiveData = MutableLiveData<List<Location?>>()
+    val locationsListLiveData: LiveData<List<Location?>> = _locationsListLiveData
+
     fun getLocationById(id: Int) {
         viewModelScope.launch {
             val response = locationRepository.getLocationById(id)
@@ -26,6 +29,13 @@ class LocationViewModel: ViewModel() {
         viewModelScope.launch {
             val response = locationRepository.postLocation(location)
             _locationByIdLiveData.postValue(response)
+        }
+    }
+
+    fun getLocations() {
+        viewModelScope.launch {
+            val response = locationRepository.getLocations()
+            _locationsListLiveData.postValue(response)
         }
     }
 }

@@ -20,7 +20,6 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="1"
         app:itemSpacing="0dp"
-        tools:listitem="@layout/view_holder_car"
         tools:itemCount="12"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

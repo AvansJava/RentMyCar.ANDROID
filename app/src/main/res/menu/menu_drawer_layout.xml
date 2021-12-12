@@ -16,7 +16,7 @@
                 <item android:id="@+id/userDashboardFragment"
                     android:title="@string/user_dashboard"
                     android:icon="@drawable/ic_baseline_person_24"/>
-                <item android:id="@+id/locationCreateFragment"
+                <item android:id="@+id/locationListFragment"
                     android:title="@string/my_locations"
                     android:icon="@drawable/ic_baseline_location_on_24"/>
             </group>

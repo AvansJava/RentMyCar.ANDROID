@@ -16,4 +16,8 @@ class LocationClient(
     suspend fun postLocation(location: Location): SimpleResponse<GetLocationResponse> {
         return safeApiCall { locationService.postLocation(location) }
     }
+
+    suspend fun getLocations(): SimpleResponse<List<GetLocationResponse>> {
+        return safeApiCall { locationService.getLocations() }
+    }
 }

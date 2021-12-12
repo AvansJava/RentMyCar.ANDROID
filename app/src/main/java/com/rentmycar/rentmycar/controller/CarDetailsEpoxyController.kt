@@ -95,8 +95,6 @@ class CarDetailsEpoxyController: EpoxyController() {
             description = car!!.consumption,
             carType = car!!.carType
         ).id("data_point_4").addTo(this)
-
-        MapEpoxyModel().id("map").addTo(this)
     }
 
     data class HeaderEpoxyModel(
@@ -168,11 +166,5 @@ class CarDetailsEpoxyController: EpoxyController() {
             textView.text = description
         }
 
-    }
-
-    class MapEpoxyModel : ViewBindingKotlinModel<ModelCarDetailsMapBinding>(R.layout.model_car_details_map) {
-        override fun ModelCarDetailsMapBinding.bind() {
-            // nothing to bind
-        }
     }
 }

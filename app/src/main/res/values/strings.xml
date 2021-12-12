@@ -62,4 +62,8 @@
     <string name="no_database_connection">Couldn\'t retrieve data from the database.</string>
     <string name="welcome_user">Welcome back to RentMyCar</string>
     <string name="user_welcome_back">Welcome back</string>
+    <string name="add_location">Add Location</string>
+    <string name="location_list_item">%1$s %2$s, %3$s, %4$s (%5$s)</string>
+    <string name="no_locations_found">No locations found</string>
+    <string name="no_locations_available">There are currently no locations available</string>
 </resources>

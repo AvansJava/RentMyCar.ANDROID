@@ -63,4 +63,8 @@
     <string name="no_database_connection">Kon geen gegevens ophalen uit de database.</string>
     <string name="welcome_user">Welkom terug bij HuurMijnAuto</string>
     <string name="user_welcome_back">Welkom terug</string>
+    <string name="add_location">Voeg Locatie Toe</string>
+    <string name="location_list_item">%1$s %2$s, %3$s, %4$s (%5$s)</string>
+    <string name="no_locations_found">Geen locaties gevonden</string>
+    <string name="no_locations_available">Er zijn geen locaties gevonden.</string>
 </resources>
