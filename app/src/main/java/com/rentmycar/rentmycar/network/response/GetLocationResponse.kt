@@ -9,7 +9,7 @@ data class GetLocationResponse(
     val country: String?,
     val latitude: Double,
     val longitude: Double,
-    val userId: Long,
+    val userId: Int,
     val createdAt: String,
     val updatedAt: String?
 )

@@ -13,7 +13,8 @@ object LocationMapper {
             country = response.country,
             latitude = response.latitude,
             longitude = response.longitude,
-            id = response.id
+            id = response.id,
+            userId = response.userId
         )
     }
 }

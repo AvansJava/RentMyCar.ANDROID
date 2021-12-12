@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/card_background"
+    android:layout_marginHorizontal="8dp">
+
+    <View
+        android:id="@+id/black_line"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="@+id/black_line"
+        app:layout_constraintStart_toStartOf="@+id/black_line"
+        app:layout_constraintTop_toBottomOf="@id/black_line"
+        android:text="@string/location"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/address"
+        android:paddingHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/ic_baseline_house_24"
+        app:drawableTint="@color/black"
+        android:drawablePadding="8dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/addressLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Veemarktstraat 66D" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/postalCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/postal_code"
+        android:paddingHorizontal="8dp"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_baseline_local_post_office_24"
+        app:drawableTint="@color/black"
+        android:gravity="center"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/postalCodeLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="3dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/postalCode"
+        app:layout_constraintTop_toBottomOf="@id/addressLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="4811 ZJ" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postalCode"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/city"
+        android:paddingHorizontal="8dp"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_baseline_location_city_24"
+        app:drawableTint="@color/black"
+        android:gravity="center"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cityLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:paddingHorizontal="8dp"
+        android:textColor="@color/black"
+        android:paddingVertical="2dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/city"
+        app:layout_constraintTop_toBottomOf="@id/postalCodeLine"
+        tools:text="Breda" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/country"
+        android:paddingBottom="8dp"
+        android:paddingHorizontal="8dp"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_baseline_flag_24"
+        app:drawableTint="@color/black"
+        android:gravity="center"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/countryLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/black"
+        android:paddingVertical="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/country"
+        app:layout_constraintTop_toBottomOf="@id/cityLine"
+        tools:text="Netherlands" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

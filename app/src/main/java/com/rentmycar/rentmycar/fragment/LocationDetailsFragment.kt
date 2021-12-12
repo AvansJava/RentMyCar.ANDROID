@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Location
@@ -34,6 +36,7 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
         ViewModelProvider(this)[LocationViewModel::class.java]
     }
     private val safeArgs: LocationDetailsFragmentArgs by navArgs()
+    private val preference = AppPreference(RentMyCarApplication.context)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +53,11 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
             if (location == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
+            }
+
+            if (preference.getUserId() != location.userId) {
+                btnDeleteLocation.visibility = View.GONE
+                btnUpdateLocation.visibility = View.GONE
             }
 
             val latLng = LatLng(

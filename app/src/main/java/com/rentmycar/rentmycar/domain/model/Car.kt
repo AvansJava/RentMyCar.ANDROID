@@ -1,5 +1,7 @@
 package com.rentmycar.rentmycar.domain.model
 
+import com.rentmycar.rentmycar.network.response.GetLocationResponse
+
 data class Car (
     val id: Int,
     val brand: String,
@@ -10,6 +12,7 @@ data class Car (
     val costPrice: Int,
     val carType: String,
     val resources: List<CarResource>,
+    val location: Location?,
     val createdAt: String,
     val updatedAt: String?
 )

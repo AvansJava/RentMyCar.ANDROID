@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.google.android.gms.maps.*
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.CarDetailsEpoxyController
-import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
 import com.rentmycar.rentmycar.viewmodel.LocationViewModel
+import kotlinx.android.synthetic.main.model_car_details_map.*
 
 class CarDetailsFragment: Fragment() {
 
-    var location: Location? = null
-    private lateinit var mMap: GoogleMap
+    private var locationId: Int? = null
     private val viewModel: CarViewModel by lazy {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
@@ -29,7 +29,7 @@ class CarDetailsFragment: Fragment() {
         ViewModelProvider(this)[LocationViewModel::class.java]
     }
 
-    private val epoxyController = CarDetailsEpoxyController()
+    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked)
     private val safeArgs: CarDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -48,14 +48,7 @@ class CarDetailsFragment: Fragment() {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
-        }
-
-        locationViewModel.locationByIdLiveData.observe(viewLifecycleOwner) { location ->
-            epoxyController.location = location
-            if (location == null) {
-                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
-                return@observe
-            }
+            locationId = car.location?.id
         }
 
         val carId = safeArgs.carId
@@ -63,6 +56,14 @@ class CarDetailsFragment: Fragment() {
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
+    }
+
+    private fun onLocationBtnClicked(id: Int) {
+        val directions =
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(
+                locationId!!
+            )
+        findNavController().navigate(directions)
     }
 }
 

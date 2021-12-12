@@ -1,5 +1,7 @@
 package com.rentmycar.rentmycar.controller
 
+import android.util.Log
+import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
@@ -12,10 +14,13 @@ import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
+import com.rentmycar.rentmycar.fragment.CarDetailsFragmentDirections
 import com.squareup.picasso.Picasso
 import java.io.InputStream
 
-class CarDetailsEpoxyController: EpoxyController() {
+class CarDetailsEpoxyController(
+    private val onLocationBtnClicked: (Int) -> Unit
+): EpoxyController() {
 
     var isLoading: Boolean = true
         set(value) {
@@ -26,15 +31,6 @@ class CarDetailsEpoxyController: EpoxyController() {
         }
 
     var car: Car? = null
-        set(value) {
-            field = value
-            if (field != null) {
-                isLoading = false
-                requestModelBuild()
-            }
-        }
-
-    var location: Location? = null
         set(value) {
             field = value
             if (field != null) {
@@ -76,6 +72,8 @@ class CarDetailsEpoxyController: EpoxyController() {
                 .addTo(this)
         }
 
+        TitleEpoxyModel().id("title").addTo(this)
+
         DataPointEpoxyModel(
             title = RentMyCarApplication.context.getString(R.string.brand),
             description = car!!.brand
@@ -96,6 +94,14 @@ class CarDetailsEpoxyController: EpoxyController() {
             description = car!!.consumption,
             carType = car!!.carType
         ).id("data_point_4").addTo(this)
+
+        if (car!!.location != null) {
+            LocationEpoxyModel(
+                location = car!!.location
+            ).id("location").addTo(this)
+
+            MapEpoxyModel(onLocationBtnClicked, locationId = car!!.location?.id).id("map").addTo(this)
+        }
     }
 
     data class HeaderEpoxyModel(
@@ -167,5 +173,39 @@ class CarDetailsEpoxyController: EpoxyController() {
             textView.text = description
         }
 
+    }
+
+    data class MapEpoxyModel(
+        val onLocationBtnClicked: (Int) -> Unit,
+        val locationId: Int?
+    ): ViewBindingKotlinModel<ModelCarDetailsMapBinding>(R.layout.model_car_details_map) {
+        override fun ModelCarDetailsMapBinding.bind() {
+            btnViewOnMap.setOnClickListener {
+                if (locationId != null) {
+                    onLocationBtnClicked(locationId)
+                }
+            }
+        }
+
+    }
+
+    data class LocationEpoxyModel(
+        val location: Location?
+    ): ViewBindingKotlinModel<ModelCarDetailsLocationDataPointBinding>(R.layout.model_car_details_location_data_point) {
+
+        override fun ModelCarDetailsLocationDataPointBinding.bind() {
+            addressLine.text = RentMyCarApplication.context.getString(R.string.address_line, location?.street, location?.houseNumber)
+            postalCodeLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.postalCode)
+            cityLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.city)
+            countryLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.country)
+        }
+
+    }
+
+    class TitleEpoxyModel(): ViewBindingKotlinModel<ModelCarDetailsTitleBinding>(R.layout.model_car_details_title) {
+
+        override fun ModelCarDetailsTitleBinding.bind() {
+//           nothing to bind
+        }
     }
 }

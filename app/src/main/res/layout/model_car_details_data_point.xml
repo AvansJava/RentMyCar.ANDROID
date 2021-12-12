@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
-    android:background="@color/white_smoke">
+    android:background="@color/card_background">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/labelTextView"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textColor="?attr/colorOnBackground"
         android:textSize="18sp"
-        android:paddingVertical="8dp"
+        android:paddingVertical="4dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,14 +23,15 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
         android:textColor="?attr/colorOnBackground"
         android:textSize="18sp"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelTextView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="16.4 kWh / 100km" />
 

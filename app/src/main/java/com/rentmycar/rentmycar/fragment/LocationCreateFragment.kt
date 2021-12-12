@@ -98,7 +98,8 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
             address.countryName,
             address.latitude,
             address.longitude,
-            id = null
+            id = null,
+            userId = null
         )
     }
 
