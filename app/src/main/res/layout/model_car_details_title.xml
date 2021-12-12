@@ -36,6 +36,8 @@
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_edit_24"
-        app:tint="@color/black" />
+        app:tint="@color/black"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

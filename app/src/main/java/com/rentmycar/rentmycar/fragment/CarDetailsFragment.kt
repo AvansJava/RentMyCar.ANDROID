@@ -11,12 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.google.android.gms.maps.*
-import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.CarDetailsEpoxyController
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
-import com.rentmycar.rentmycar.viewmodel.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_location_details.*
 import kotlinx.android.synthetic.main.model_car_details_location_data_point.*
 import kotlinx.android.synthetic.main.model_car_details_map.*
@@ -29,7 +27,7 @@ class CarDetailsFragment: Fragment() {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
 
-    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked)
+    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked, ::onEditLocationBtnClicked)
     private val safeArgs: CarDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -64,6 +62,12 @@ class CarDetailsFragment: Fragment() {
             CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(
                 locationId!!
             )
+        findNavController().navigate(directions)
+    }
+
+    private fun onEditLocationBtnClicked(id: Int) {
+        val directions =
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, locationId!!)
         findNavController().navigate(directions)
     }
 }

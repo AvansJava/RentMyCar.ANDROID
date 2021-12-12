@@ -1,12 +1,10 @@
 package com.rentmycar.rentmycar.controller
 
-import android.util.Log
+import android.graphics.Color
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
-import com.google.android.gms.maps.SupportMapFragment
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
@@ -16,12 +14,11 @@ import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
-import com.rentmycar.rentmycar.fragment.CarDetailsFragmentDirections
 import com.squareup.picasso.Picasso
-import java.io.InputStream
 
 class CarDetailsEpoxyController(
-    private val onLocationBtnClicked: (Int) -> Unit
+    private val onLocationBtnClicked: (Int) -> Unit,
+    private val onEditLocationBtnClicked: (Int) -> Unit
 ): EpoxyController() {
 
     private val preference = AppPreference(RentMyCarApplication.context)
@@ -107,7 +104,8 @@ class CarDetailsEpoxyController(
         if (car!!.location != null) {
             LocationEpoxyModel(
                 location = car!!.location,
-                hideEditButtons
+                hideEditButtons,
+                onEditLocationBtnClicked
             ).id("location").addTo(this)
 
             MapEpoxyModel(onLocationBtnClicked, locationId = car!!.location?.id).id("map").addTo(this)
@@ -201,7 +199,8 @@ class CarDetailsEpoxyController(
 
     data class LocationEpoxyModel(
         val location: Location?,
-        private val hideEditButton: Boolean
+        private val hideEditButton: Boolean,
+        val onEditLocationBtnClicked: (Int) -> Unit
     ): ViewBindingKotlinModel<ModelCarDetailsLocationDataPointBinding>(R.layout.model_car_details_location_data_point) {
 
         override fun ModelCarDetailsLocationDataPointBinding.bind() {
@@ -212,6 +211,13 @@ class CarDetailsEpoxyController(
 
             if (hideEditButton) {
                 locationEditImageView.visibility = View.GONE
+            }
+
+            locationEditImageView.setOnClickListener {
+                if (location?.id != null) {
+                    locationEditImageView.setBackgroundColor(Color.parseColor("#BABABA"))
+                    onEditLocationBtnClicked(location.id)
+                }
             }
         }
 
