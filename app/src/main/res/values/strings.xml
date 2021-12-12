@@ -59,4 +59,7 @@
     <string name="password_empty">Please fill in your password.</string>
     <string name="password_incorrect">Password needs to have a minimum of 6 characters.</string>
     <string name="name_incorrect">Name needs to have a minimum of 2 characters.</string>
+    <string name="no_database_connection">Couldn\'t retrieve data from the database.</string>
+    <string name="welcome_user">Welcome back to RentMyCar</string>
+    <string name="user_welcome_back">Welcome back</string>
 </resources>

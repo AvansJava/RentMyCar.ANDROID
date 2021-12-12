@@ -1,5 +1,8 @@
 package com.rentmycar.rentmycar.repository
 
+import android.util.Log
+import com.rentmycar.rentmycar.AppPreference
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.domain.model.Register
 import com.rentmycar.rentmycar.network.NetworkLayer
@@ -8,6 +11,8 @@ import com.rentmycar.rentmycar.network.response.PostLoginResponse
 
 class UserRepository {
 
+    private val preference = AppPreference(RentMyCarApplication.context)
+
     suspend fun postUserLogin(login: Login): PostLoginResponse? {
         val request = NetworkLayer.userClient.postUserLogin(login)
 
@@ -15,6 +20,12 @@ class UserRepository {
             //todo error handling
             return null
         }
+
+        preference.clearPreferences()
+        preference.setToken(request.body.accessToken)
+        preference.setUserId(request.body.userId.toInt())
+        preference.setFirstName(request.body.firstName)
+        preference.setLastName(request.body.lastName)
 
         return request.body
     }
@@ -34,10 +45,10 @@ class UserRepository {
         val request = NetworkLayer.userClient.confirmUser(token)
 
         if (request.failed || !request.isSuccessful) {
-            return request.body
+            return request.toString()
         }
 
-        return request.body
+        return request.toString()
     }
 
     suspend fun getUser(): GetUserResponse? {

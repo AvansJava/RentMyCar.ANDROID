@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/welcome_background_car_grayscale">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".fragment.UserConfirmationFragment">
+
+        <ImageView
+            android:id="@+id/opacity_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_60_opacity"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/welcome_back_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="60dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="8"
+            android:shadowDy="8"
+            android:shadowRadius="8"
+            android:text="@string/welcome_user"
+            android:textColor="@color/white_smoke"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="?attr/colorSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_back_user"
+            android:layout_marginTop="160dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

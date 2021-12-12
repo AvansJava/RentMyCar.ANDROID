@@ -1,12 +1,5 @@
 package com.rentmycar.rentmycar.network
 
-import android.content.Context
-import android.content.SharedPreferences
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.rentmycar.rentmycar.AppPreference
-import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.config.Config
-import com.rentmycar.rentmycar.config.Config.ACCESS_TOKEN
 import com.rentmycar.rentmycar.config.Config.BASE_URL
 import com.rentmycar.rentmycar.network.client.CarClient
 import com.rentmycar.rentmycar.network.client.LocationClient
@@ -25,7 +18,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object NetworkLayer {
 
-    private val preference = AppPreference(RentMyCarApplication.context)
     private val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
     private val retrofit: Retrofit = Retrofit.Builder()
         .client(getLoggingHttpClient())
@@ -56,7 +48,7 @@ object NetworkLayer {
 
     private fun getLoggingHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()
-        client.addInterceptor(JwtInterceptor(preference.getToken()))
+        client.addInterceptor(JwtInterceptor())
         client.addInterceptor(HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BODY)
         })

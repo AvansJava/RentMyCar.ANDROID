@@ -71,7 +71,7 @@ class UserLoginFragment : Fragment() {
                 )
                 viewModel.userLogin(login)
 
-                val directions = UserLoginFragmentDirections.actionUserLoginFragmentToCarListFragment()
+                val directions = UserLoginFragmentDirections.actionUserLoginFragmentToUserWelcomeBackFragment()
                 findNavController().navigate(directions)
             }
         }

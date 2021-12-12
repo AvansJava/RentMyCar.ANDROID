@@ -74,8 +74,8 @@
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
         <action
-            android:id="@+id/action_userLoginFragment_to_carListFragment"
-            app:destination="@id/carListFragment"
+            android:id="@+id/action_userLoginFragment_to_userWelcomeBackFragment"
+            app:destination="@id/userWelcomeBackFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
@@ -155,6 +155,19 @@
         <argument android:name="carId"
             app:argType="integer"
             android:defaultValue="-1"/>
+    </fragment>
+
+    <fragment android:id="@+id/userWelcomeBackFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserWelcomeBackFragment"
+        android:label="@string/user_welcome_back"
+        tools:layout="@layout/fragment_user_welcome">
+        <action
+            android:id="@+id/action_userWelcomeBackFragment_to_carListFragment"
+            app:destination="@id/carListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
 </navigation>

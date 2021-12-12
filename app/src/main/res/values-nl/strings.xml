@@ -60,4 +60,7 @@
     <string name="password_empty">Vul uw wachtwoord in.</string>
     <string name="password_incorrect">Wachtwoord moet tenminste 6 karakters bevatten.</string>
     <string name="name_incorrect">Naam moet tenminste 2 karakters bevatten.</string>
+    <string name="no_database_connection">Kon geen gegevens ophalen uit de database.</string>
+    <string name="welcome_user">Welkom terug bij HuurMijnAuto</string>
+    <string name="user_welcome_back">Welkom terug</string>
 </resources>

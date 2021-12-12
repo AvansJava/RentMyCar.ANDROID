@@ -1,0 +1,33 @@
+package com.rentmycar.rentmycar.fragment
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.rentmycar.rentmycar.R
+import kotlinx.coroutines.*
+import java.util.concurrent.TimeUnit
+
+class UserWelcomeBackFragment: Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_user_welcome, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(TimeUnit.SECONDS.toMillis(2))
+            withContext(Dispatchers.Main) {
+                val directions = UserWelcomeBackFragmentDirections.actionUserWelcomeBackFragmentToCarListFragment()
+                findNavController().navigate(directions)
+            }
+        }
+    }
+}
