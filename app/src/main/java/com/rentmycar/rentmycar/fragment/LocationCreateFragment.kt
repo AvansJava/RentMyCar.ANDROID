@@ -98,8 +98,8 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
             address.postalCode,
             address.locality,
             address.countryName,
-            address.latitude.toFloat(),
-            address.longitude.toFloat(),
+            address.latitude,
+            address.longitude,
             id = null
         )
     }

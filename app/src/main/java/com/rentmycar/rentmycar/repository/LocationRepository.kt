@@ -1,9 +1,6 @@
 package com.rentmycar.rentmycar.repository
 
-import android.util.Log
-import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.domain.mapper.LocationMapper
-import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.network.NetworkLayer
 

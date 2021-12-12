@@ -67,4 +67,11 @@
     <string name="location_list_item">%1$s %2$s, %3$s, %4$s (%5$s)</string>
     <string name="no_locations_found">Geen locaties gevonden</string>
     <string name="no_locations_available">Er zijn geen locaties gevonden.</string>
+    <string name="location_details_header">%1$s %2$s, %3$s</string>
+    <string name="update_location">Update Locatie</string>
+    <string name="address">Adres:</string>
+    <string name="postal_code">Postcode:</string>
+    <string name="city">Stad:</string>
+    <string name="country">Land:</string>
+    <string name="address_line">%1$s %2$s</string>
 </resources>

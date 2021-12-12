@@ -6,7 +6,7 @@ data class Location(
     val postalCode: String?,
     val city: String?,
     val country: String?,
-    val latitude: Float,
-    val longitude: Float,
+    val latitude: Double,
+    val longitude: Double,
     val id: Int?
 )

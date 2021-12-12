@@ -66,4 +66,11 @@
     <string name="location_list_item">%1$s %2$s, %3$s, %4$s (%5$s)</string>
     <string name="no_locations_found">No locations found</string>
     <string name="no_locations_available">There are currently no locations available</string>
+    <string name="location_details_header">%1$s %2$s, %3$s</string>
+    <string name="update_location">Update Location</string>
+    <string name="address">Address:</string>
+    <string name="postal_code">Postalcode:</string>
+    <string name="city">City:</string>
+    <string name="country">Country:</string>
+    <string name="address_line">%1$s %2$s</string>
 </resources>
