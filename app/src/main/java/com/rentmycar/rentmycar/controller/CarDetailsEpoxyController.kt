@@ -1,11 +1,13 @@
 package com.rentmycar.rentmycar.controller
 
 import android.util.Log
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
 import com.google.android.gms.maps.SupportMapFragment
+import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.*
@@ -21,6 +23,9 @@ import java.io.InputStream
 class CarDetailsEpoxyController(
     private val onLocationBtnClicked: (Int) -> Unit
 ): EpoxyController() {
+
+    private val preference = AppPreference(RentMyCarApplication.context)
+    private var hideEditButtons: Boolean = false
 
     var isLoading: Boolean = true
         set(value) {
@@ -50,6 +55,10 @@ class CarDetailsEpoxyController(
             return
         }
 
+        if(preference.getUserId() != car!!.userId) {
+            hideEditButtons = true
+        }
+
         HeaderEpoxyModel(
             brand = car!!.brand,
             brandType = car!!.brandType,
@@ -72,7 +81,7 @@ class CarDetailsEpoxyController(
                 .addTo(this)
         }
 
-        TitleEpoxyModel().id("title").addTo(this)
+        TitleEpoxyModel(hideEditButtons).id("title").addTo(this)
 
         DataPointEpoxyModel(
             title = RentMyCarApplication.context.getString(R.string.brand),
@@ -97,7 +106,8 @@ class CarDetailsEpoxyController(
 
         if (car!!.location != null) {
             LocationEpoxyModel(
-                location = car!!.location
+                location = car!!.location,
+                hideEditButtons
             ).id("location").addTo(this)
 
             MapEpoxyModel(onLocationBtnClicked, locationId = car!!.location?.id).id("map").addTo(this)
@@ -190,7 +200,8 @@ class CarDetailsEpoxyController(
     }
 
     data class LocationEpoxyModel(
-        val location: Location?
+        val location: Location?,
+        private val hideEditButton: Boolean
     ): ViewBindingKotlinModel<ModelCarDetailsLocationDataPointBinding>(R.layout.model_car_details_location_data_point) {
 
         override fun ModelCarDetailsLocationDataPointBinding.bind() {
@@ -198,14 +209,22 @@ class CarDetailsEpoxyController(
             postalCodeLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.postalCode)
             cityLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.city)
             countryLine.text = RentMyCarApplication.context.getString(R.string.location_line, location?.country)
+
+            if (hideEditButton) {
+                locationEditImageView.visibility = View.GONE
+            }
         }
 
     }
 
-    class TitleEpoxyModel(): ViewBindingKotlinModel<ModelCarDetailsTitleBinding>(R.layout.model_car_details_title) {
+    class TitleEpoxyModel(
+        private val hideEditButton: Boolean
+    ): ViewBindingKotlinModel<ModelCarDetailsTitleBinding>(R.layout.model_car_details_title) {
 
         override fun ModelCarDetailsTitleBinding.bind() {
-//           nothing to bind
+            if (hideEditButton) {
+                carEditImageView.visibility = View.GONE
+            }
         }
     }
 }

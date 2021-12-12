@@ -22,7 +22,8 @@ object CarMapper {
             resources = resources.map { CarResourceMapper.buildFrom(it) },
             location = null,
             createdAt = response.createdAt,
-            updatedAt = response.updatedAt
+            updatedAt = response.updatedAt,
+            userId = response.userId
         )
     }
 
@@ -39,7 +40,8 @@ object CarMapper {
             resources = resources.map { CarResourceMapper.buildFrom(it) },
             location = location,
             createdAt = response.createdAt,
-            updatedAt = response.updatedAt
+            updatedAt = response.updatedAt,
+            userId = response.userId
         )
     }
 }

@@ -14,5 +14,6 @@ data class Car (
     val resources: List<CarResource>,
     val location: Location?,
     val createdAt: String,
-    val updatedAt: String?
+    val updatedAt: String?,
+    val userId: Int?
 )
