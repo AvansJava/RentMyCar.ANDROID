@@ -33,7 +33,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/add_location"
-        app:backgroundTint="@color/indigo_500"
+        app:backgroundTint="@color/teal_700"
         app:tint="@color/white_smoke"/>
 
 
