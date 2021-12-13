@@ -89,4 +89,14 @@
     <string name="car_brand_type">Type (e.g. Polo)</string>
     <string name="car_model">Model (e.g. EX-L)</string>
     <string name="car_license_plate">License Plate Number</string>
+    <string name="car_type">Car Type</string>
+    <string name="car_cost_price">Cost Price</string>
+    <string name="car_consumption">Consumption (per 100km)</string>
+    <string name="next">Next</string>
+    <string name="register_car">Register Your Car</string>
+    <string-array name="car_types">
+        <item>Internal combustion engine (ICE)</item>
+        <item>Battery Electric Vehicle (BEV)</item>
+        <item>Fuel Cell Electric Vehicle (FCEV)</item>
+    </string-array>
 </resources>

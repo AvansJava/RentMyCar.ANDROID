@@ -1,24 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.CarCreateFragment"
     android:background="@drawable/welcome_background_car_grayscale">
 
-    <ImageView
-        android:id="@+id/opacity_layer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_60_opacity"
-        android:contentDescription="@null"/>
+        android:layout_height="wrap_content">
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/epoxyRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="24dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <ImageView
+            android:id="@+id/opacity_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_60_opacity"
+            android:contentDescription="@null"/>
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowDx="8"
+            android:shadowDy="8"
+            android:shadowRadius="8"
+            android:textColor="@color/white_smoke"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/register_car" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_brand"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            app:startIconDrawable="@drawable/ic_baseline_directions_car_24"
+            app:startIconContentDescription="@string/car_brand"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_brand_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_brand_type"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_directions_car_24"
+            app:startIconContentDescription="@string/car_brand_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_brand"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_model"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_directions_car_24"
+            app:startIconContentDescription="@string/car_model"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_brand_type"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_license_plate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_license_plate"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_license_plate_number"
+            app:startIconContentDescription="@string/car_license_plate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_model"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_car_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_local_gas_station_24"
+            app:layout_constraintTop_toBottomOf="@+id/car_license_plate"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:hint="@string/car_type"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_consumption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_consumption"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_local_gas_station_24"
+            app:startIconContentDescription="@string/car_consumption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_car_type"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/car_cost_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_cost_price"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_euro_24"
+            app:startIconContentDescription="@string/car_cost_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_consumption"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:backgroundTint="@color/indigo_500"
+            android:layout_marginTop="10dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/next"
+            android:textColor="@color/white_smoke"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/car_cost_price" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
