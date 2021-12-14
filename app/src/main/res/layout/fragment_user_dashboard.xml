@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="fragment.UserDashboardFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/welcome_background_car_grayscale">
+
+    <ImageView
+        android:id="@+id/opacity_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_60_opacity"
+        android:contentDescription="@null"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnUserDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Edit user details"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@color/white_smoke"/>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
         android:layout_width="match_parent"
@@ -16,22 +37,4 @@
         app:spanCount="2"
         tools:itemCount="12"/>
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:drawableEnd="@drawable/ic_baseline_play_circle_filled_24"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:text="@string/get_started"
-        android:textAlignment="textStart"
-        android:textColor="@color/white_smoke"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/indigo_500"/>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,12 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
-import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.UserDashboardEpoxyController
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_welcome_screen.*
+import kotlinx.android.synthetic.main.fragment_user_dashboard.*
 
 class UserDashboardFragment: Fragment() {
 
@@ -47,7 +46,7 @@ class UserDashboardFragment: Fragment() {
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
 
-        btnRegister.setOnClickListener {
+        btnUserDashboard.setOnClickListener {
             val directions = UserDashboardFragmentDirections.actionUserDashboardFragmentToUserRegisterFragment()
             findNavController().navigate(directions)
         }

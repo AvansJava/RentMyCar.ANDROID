@@ -53,7 +53,7 @@ class UserDashboardEpoxyController: EpoxyController() {
 
     data class HeaderEpoxyModel(
         val title: String
-    ) : ViewBindingKotlinModel<ModelHeaderUserDashboardBinding>(R.layout.model_header_user_dashboard) {
+    ) : ViewBindingKotlinModel<ModelHeaderUserDashboardBinding>(R.layout.model_user_dashboard_header) {
 
         override fun ModelHeaderUserDashboardBinding.bind() {
             textViewTitle.text = title
