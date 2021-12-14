@@ -94,6 +94,8 @@
     <string name="car_consumption">Verbruik (per 100km)</string>
     <string name="next">Volgende</string>
     <string name="register_car">Registreer uw auto</string>
+    <string name="loading_app_settings">App instellingen worden geladen…</string>
+    <string name="logout">Uitloggen</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

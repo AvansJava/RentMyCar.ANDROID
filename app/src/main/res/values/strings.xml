@@ -94,6 +94,8 @@
     <string name="car_consumption">Consumption (per 100km)</string>
     <string name="next">Next</string>
     <string name="register_car">Register Your Car</string>
+    <string name="loading_app_settings">Loading app settings…</string>
+    <string name="logout">Log out</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
