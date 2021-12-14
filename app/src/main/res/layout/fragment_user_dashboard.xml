@@ -28,13 +28,15 @@
         app:tint="@color/white_smoke"/>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/epoxyRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/epoxyRecyclerView"
-        app:itemSpacing="8dp"
         android:padding="8dp"
+        app:itemSpacing="8dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:itemCount="12"/>
+        app:spanCount="1"
+        tools:itemCount="12"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
