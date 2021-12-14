@@ -6,6 +6,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +15,6 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Register
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_user_login.*
 import kotlinx.android.synthetic.main.fragment_user_register.*
 import kotlinx.android.synthetic.main.fragment_user_register.email
 import kotlinx.android.synthetic.main.fragment_user_register.password
@@ -38,6 +38,17 @@ class UserRegisterFragment: Fragment() {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
 
+        viewModel.userRegisterLiveData.observe(viewLifecycleOwner) { register ->
+            btnRegister.isEnabled = true
+            btnRegister.text = RentMyCarApplication.context.getString(R.string.create_an_account)
+            btnSpinner.visibility = View.GONE
+
+            if (register == null) {
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
+                return@observe
+            }
+        }
+
         tvSignIn.setOnClickListener {
             tvSignIn.setTextColor(Color.parseColor("#FF018786"))
             val directions =
@@ -58,6 +69,10 @@ class UserRegisterFragment: Fragment() {
                     firstName = userFirstName,
                     lastName = userLastName
                 )
+                btnRegister.isEnabled = false
+                btnRegister.text = RentMyCarApplication.context.getString(R.string.registering)
+                btnSpinner.visibility = View.VISIBLE
+
                 viewModel.registerUser(register)
                 val directions =
                     UserRegisterFragmentDirections.actionUserRegisterFragmentToUserConfirmationFragment()

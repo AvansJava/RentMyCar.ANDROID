@@ -118,6 +118,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
 
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/btnSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            style="?android:attr/progressBarStyleLarge"
+            app:layout_constraintEnd_toEndOf="@id/btnRegister"
+            app:layout_constraintTop_toTopOf="@id/btnRegister"
+            app:layout_constraintBottom_toBottomOf="@id/btnRegister"
+            android:translationZ="10dp"
+            android:visibility="gone"/>
+
         <TextView
             android:id="@+id/register_title"
             android:layout_width="match_parent"
