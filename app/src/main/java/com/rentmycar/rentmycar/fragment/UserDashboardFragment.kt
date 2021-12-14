@@ -48,7 +48,7 @@ class UserDashboardFragment: Fragment() {
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
 
         btnRegister.setOnClickListener {
-            val directions = WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToUserRegisterFragment()
+            val directions = UserDashboardFragmentDirections.actionUserDashboardFragmentToUserRegisterFragment()
             findNavController().navigate(directions)
         }
     }
