@@ -2,12 +2,10 @@ package com.rentmycar.rentmycar.controller
 
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
-import com.rentmycar.rentmycar.databinding.ModelHeaderUserDashboardBinding
-import com.rentmycar.rentmycar.databinding.ModelUserDataBinding
+import com.rentmycar.rentmycar.databinding.ModelUserDashboardHeaderBinding
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetUserResponse
-import com.rentmycar.rentmycar.network.response.PostLoginResponse
 
 class UserDashboardEpoxyController: EpoxyController() {
 
@@ -44,29 +42,29 @@ class UserDashboardEpoxyController: EpoxyController() {
             title = "This is the user dashboard"
         ).id("header").addTo(this)
 
-        UserDataEpoxyModel(
-            firstName = getUserResponse!!.firstName,
-            lastName = getUserResponse!!.lastName
-        ).id("name").addTo(this)
+//        UserDataEpoxyModel(
+//            firstName = getUserResponse!!.firstName,
+//            lastName = getUserResponse!!.lastName
+//        ).id("name").addTo(this)
 
     }
 
     data class HeaderEpoxyModel(
         val title: String
-    ) : ViewBindingKotlinModel<ModelHeaderUserDashboardBinding>(R.layout.model_user_dashboard_header) {
+    ) : ViewBindingKotlinModel<ModelUserDashboardHeaderBinding>(R.layout.model_user_dashboard_header) {
 
-        override fun ModelHeaderUserDashboardBinding.bind() {
-            textViewTitle.text = title
+        override fun ModelUserDashboardHeaderBinding.bind() {
+            userDashboardHeaderWelcome.text = title
         }
     }
 
-    data class UserDataEpoxyModel(
-        val firstName: String,
-        val lastName: String
-    ): ViewBindingKotlinModel<ModelUserDataBinding>(R.layout.model_user_data) {
-
-        override fun ModelUserDataBinding.bind() {
-            textViewName.text = "$firstName $lastName"
-        }
-    }
+//    data class UserDataEpoxyModel(
+//        val firstName: String,
+//        val lastName: String
+//    ): ViewBindingKotlinModel<ModelUserDataBinding>(R.layout.model_user_data) {
+//
+//        override fun ModelUserDataBinding.bind() {
+//            textViewName.text = "$firstName $lastName"
+//        }
+//    }
 }

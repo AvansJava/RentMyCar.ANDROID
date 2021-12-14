@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +14,7 @@
         android:background="@color/indigo_500">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/carTextView"
+            android:id="@+id/userDashboardHeaderWelcome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -26,5 +25,97 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Hi, John Doe" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderStreet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderWelcome"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderWelcome"
+            tools:text="Address line 1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderStreet"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderStreet"
+            tools:text="Address line 1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCity"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCity"
+            tools:text="Address line 1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCountry"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCountry"
+            tools:text="+316123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderPhone"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderPhone"
+            tools:text="john.doe@gmail.com" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </com.google.android.material.card.MaterialCardView>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<com.google.android.material.card.MaterialCardView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:background="@drawable/card_top_corners_rounded"-->
+<!--    android:layout_marginHorizontal="8dp"-->
+<!--    android:layout_marginTop="48dp">-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/indigo_500">-->
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/carTextView"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:textColor="@color/white_smoke"-->
+<!--            android:textSize="28sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:text="Hi, John Doe" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</com.google.android.material.card.MaterialCardView>-->

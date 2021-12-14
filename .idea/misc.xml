@@ -43,6 +43,8 @@
         <entry key="app/src/main/res/layout/model_car_list_header.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layout/model_car_list_item_footer.xml" value="0.23731884057971014" />
         <entry key="app/src/main/res/layout/model_car_list_item_header.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/model_car_type_list_item.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/model_header.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/model_header_user_dashboard.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layout/model_loading.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/model_user_dashboard_header.xml" value="0.25" />
