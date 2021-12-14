@@ -5,6 +5,8 @@ import com.rentmycar.rentmycar.network.client.CarClient
 import com.rentmycar.rentmycar.network.client.LocationClient
 import com.rentmycar.rentmycar.network.client.RentalPlanClient
 import com.rentmycar.rentmycar.network.client.UserClient
+import com.rentmycar.rentmycar.network.interceptor.AuthInterceptor
+import com.rentmycar.rentmycar.network.interceptor.JwtInterceptor
 import com.rentmycar.rentmycar.network.service.CarService
 import com.rentmycar.rentmycar.network.service.LocationService
 import com.rentmycar.rentmycar.network.service.RentalPlanService
@@ -49,6 +51,7 @@ object NetworkLayer {
     private fun getLoggingHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()
         client.addInterceptor(JwtInterceptor())
+        client.addInterceptor(AuthInterceptor())
         client.addInterceptor(HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BODY)
         })

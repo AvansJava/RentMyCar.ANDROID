@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,11 +16,12 @@ import com.google.android.material.navigation.NavigationView
 import java.lang.Math.log
 
 
-class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, GlobalNavigationHandler {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val preference = AppPreference(RentMyCarApplication.context)
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
         drawerLayout = findViewById(R.id.drawer_layout)
 
         appBarConfiguration = AppBarConfiguration(
@@ -51,12 +53,10 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
 
         when (val id = item.itemId) {
             R.id.logout_item -> {
@@ -68,5 +68,21 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
         drawerLayout.closeDrawer(navigationView)
         return true
+    }
+
+    override fun logout() {
+        runOnUiThread {
+            navController.navigate(R.id.userLoginFragment)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        GlobalNavigator.registerHandler(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        GlobalNavigator.unregisterHandler()
     }
 }

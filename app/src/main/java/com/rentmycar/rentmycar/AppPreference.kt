@@ -18,7 +18,7 @@ class AppPreference(context: Context) {
     private val preference: SharedPreferences = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
     fun getToken() : String? {
-        return preference.getString(PREFERENCE_TOKEN, "")
+        return preference.getString(PREFERENCE_TOKEN, "token")
     }
 
     fun setToken(token: String) {
