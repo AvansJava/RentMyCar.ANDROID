@@ -31,12 +31,9 @@ data class Car(
     @Json(name = "carType")
     val carType: String,
 
-    @Json(name = "createdAt")
-    val createdAt: String,
-
-    @Json(name = "updatedAt")
-    val updatedAt: String?,
-
     @Json(name = "userId")
     val userId: Int?,
+
+    @Json(name = "locationId")
+    val locationId: Int?,
 )

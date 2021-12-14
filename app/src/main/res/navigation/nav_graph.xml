@@ -133,6 +133,10 @@
         <argument android:name="locationId"
             app:argType="integer"
             android:defaultValue="-1"/>
+
+        <argument android:name="carId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 
     <fragment android:id="@+id/locationListFragment"
@@ -246,5 +250,11 @@
         android:label="@string/car_create"
         tools:layout="@layout/fragment_car_create">
 
+        <action android:id="@+id/action_carCreateFragment_to_locationCreateFragment"
+            app:destination="@+id/locationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 </navigation>

@@ -54,7 +54,7 @@ class UserCarListEpoxyController(
             if (car != null) {
                 CarListItemHeaderModel(car, onCarSelected).id("header_{$car.id}").addTo(this)
 
-                var items = car.resources.map { resource ->
+                var items = car.resources!!.map { resource ->
                     ImagesCarouselItemEpoxyModel(car.id, resource.filePath, onCarSelected).id(resource.id)
                 }
 

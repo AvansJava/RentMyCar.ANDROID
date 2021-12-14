@@ -100,9 +100,18 @@ class CarRepository {
         return carList
     }
 
-    suspend fun createCar(context: Context, car: CarRoom) {
+    suspend fun createCar(context: Context, car: CarRoom): Long {
         return try {
             dao(context).createCar(car)
+        } catch (e: Exception) {
+            Toast.makeText(context, context.getString(R.string.no_database_connection), Toast.LENGTH_LONG).show()
+            return 0
+        }
+    }
+
+    suspend fun updateCar(context: Context, locationId: Int, carId: Int) {
+        return try {
+            dao(context).updateCar(locationId, carId)
         } catch (e: Exception) {
             Toast.makeText(context, context.getString(R.string.no_database_connection), Toast.LENGTH_LONG).show()
         }
