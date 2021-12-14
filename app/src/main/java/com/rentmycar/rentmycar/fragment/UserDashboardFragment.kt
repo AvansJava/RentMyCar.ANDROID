@@ -13,8 +13,8 @@ import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.UserDashboardEpoxyController
-import com.rentmycar.rentmycar.controller.UserLoginEpoxyController
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_welcome_screen.*
 
 class UserDashboardFragment: Fragment() {
 
@@ -46,5 +46,10 @@ class UserDashboardFragment: Fragment() {
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
+
+        btnRegister.setOnClickListener {
+            val directions = WelcomeScreenFragmentDirections.actionWelcomeScreenFragmentToUserRegisterFragment()
+            findNavController().navigate(directions)
+        }
     }
 }
