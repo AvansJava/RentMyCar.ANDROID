@@ -1,4 +1,4 @@
-package com.rentmycar.rentmycar.network
+package com.rentmycar.rentmycar.network.interceptor
 
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.RentMyCarApplication
