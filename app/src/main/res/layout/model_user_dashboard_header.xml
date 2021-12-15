@@ -23,7 +23,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Hi, John Doe" />
+            tools:text="@string/dashboard_header_welcome" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userDashboardHeaderStreet"
@@ -35,7 +35,7 @@
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/userDashboardHeaderWelcome"
             app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderWelcome"
-            tools:text="Address line 1" />
+            tools:text="@string/dashboard_header_address1" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userDashboardHeaderCity"
@@ -47,7 +47,7 @@
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/userDashboardHeaderStreet"
             app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderStreet"
-            tools:text="Address line 1" />
+            tools:text="@string/dashboard_header_address2" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userDashboardHeaderCountry"
@@ -59,7 +59,7 @@
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCity"
             app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCity"
-            tools:text="Address line 1" />
+            tools:text="@string/dashboard_header_address3" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userDashboardHeaderPhone"
@@ -71,7 +71,7 @@
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCountry"
             app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCountry"
-            tools:text="+316123456789" />
+            tools:text="@string/dashboard_header_phonenumber" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userDashboardHeaderEmail"
@@ -83,7 +83,7 @@
             android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/userDashboardHeaderPhone"
             app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderPhone"
-            tools:text="john.doe@gmail.com" />
+            tools:text="@string/dashboard_header_email" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
