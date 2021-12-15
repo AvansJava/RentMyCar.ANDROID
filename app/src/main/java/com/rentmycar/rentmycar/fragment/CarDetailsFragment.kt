@@ -11,10 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.google.android.gms.maps.*
+import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.CarDetailsEpoxyController
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
+import kotlinx.android.synthetic.main.fragment_car_details.*
 import kotlinx.android.synthetic.main.fragment_location_details.*
 import kotlinx.android.synthetic.main.model_car_details_location_data_point.*
 import kotlinx.android.synthetic.main.model_car_details_map.*
@@ -22,6 +24,7 @@ import kotlinx.android.synthetic.main.model_car_details_title.*
 
 class CarDetailsFragment: Fragment() {
 
+    private val userId = AppPreference(RentMyCarApplication.context).getUserId()
     private var locationId: Int? = null
     private var carId: Int? = null
     private val viewModel: CarViewModel by lazy {
@@ -46,6 +49,12 @@ class CarDetailsFragment: Fragment() {
             if (car == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
+            }
+
+            if (userId == car.userId) {
+                btnAddResource.visibility = View.VISIBLE
+            } else {
+                btnAddResource.visibility = View.GONE
             }
 
             locationId = car.location?.id

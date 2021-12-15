@@ -119,6 +119,7 @@
     <string name="error_post_car">Kan auto niet aanmaken. Probeer het later opnieuw.</string>
     <string name="error_put_car">Kan auto niet bewerken. Probeer het later opnieuw.</string>
     <string name="error_get_user">Geen gebruiker gevonden.</string>
+    <string name="add_resource">Voeg foto toe</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

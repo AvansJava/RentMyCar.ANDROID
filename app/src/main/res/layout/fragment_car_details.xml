@@ -21,4 +21,18 @@
         android:paddingBottom="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_a_photo_24"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="150dp"
+        android:contentDescription="@string/add_resource"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@color/white_smoke"/>
+
 </FrameLayout>
