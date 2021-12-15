@@ -70,7 +70,6 @@ class CarListEpoxyController(
                             Config.NO_IMAGE_AVAILABLE_URL,
                             onCarSelected
                         ).id("no_image"))
-
                 }
 
                 CarouselModel_()

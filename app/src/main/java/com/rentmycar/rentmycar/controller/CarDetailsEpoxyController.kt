@@ -8,6 +8,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.config.Config
 import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
@@ -64,20 +65,25 @@ class CarDetailsEpoxyController(
             carType = car!!.carType
         ).id("header").addTo(this)
 
-        if (car!!.resources!!.isNotEmpty()) {
-            val items = car!!.resources!!.map {
-                ImagesCarouselItemEpoxyModel(it).id(it.id)
-            }
-
-            CarouselModel_()
-                .id("images_carousel")
-                .padding(
-                    Carousel.Padding.dp(8,0,8,0,8)
-                )
-                .models(items)
-                .numViewsToShowOnScreen(1f)
-                .addTo(this)
+        var items = car!!.resources!!.map { resource ->
+            ImagesCarouselItemEpoxyModel(resource.filePath).id(resource.id)
         }
+
+        if (items.isEmpty()) {
+            items = listOf(
+                ImagesCarouselItemEpoxyModel(
+                    Config.NO_IMAGE_AVAILABLE_URL
+                ).id("no_image"))
+        }
+
+        CarouselModel_()
+            .id("images_carousel")
+            .padding(
+                Carousel.Padding.dp(8,0,8,0,8)
+            )
+            .models(items)
+            .numViewsToShowOnScreen(1f)
+            .addTo(this)
 
         TitleEpoxyModel(car, hideEditButtons, onEditCarBtnClicked).id("title").addTo(this)
 
@@ -141,11 +147,11 @@ class CarDetailsEpoxyController(
     }
 
     data class ImagesCarouselItemEpoxyModel(
-        val carResource: CarResource
+        val filePath: String,
     ): ViewBindingKotlinModel<ModelCarImageCarouselItemBinding>(R.layout.model_car_image_carousel_item) {
 
         override fun ModelCarImageCarouselItemBinding.bind() {
-            Picasso.get().load(carResource.filePath).into(headerImageView)
+            Picasso.get().load(filePath).into(headerImageView)
         }
     }
 
