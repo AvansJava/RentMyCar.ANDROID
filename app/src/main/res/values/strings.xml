@@ -111,6 +111,14 @@
     <string name="create_car_continue">Continue</string>
     <string name="back">Go Back</string>
     <string name="update_car">Edit Car</string>
+    <string name="location_linked_to_car">Location cannot be deleted because it still has cars assigned to it.</string>
+    <string name="error_update_location">Could not update location. Please try again later.</string>
+    <string name="error_post_location">Couldn\'t create location. Please try again later.</string>
+    <string name="error_get_location">No location found.</string>
+    <string name="error_get_car">Couldn\'t find car.</string>
+    <string name="error_post_car">Can\'t create car. Please try again later.</string>
+    <string name="error_put_car">Couldn\'t update car. Please try again later.</string>
+    <string name="error_get_user">Couldn\'t find user</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

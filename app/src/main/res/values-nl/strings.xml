@@ -111,6 +111,14 @@
     <string name="create_car_continue">Ga Verder</string>
     <string name="back">Ga Terug</string>
     <string name="update_car">Auto Bewerken</string>
+    <string name="location_linked_to_car">Locatie kan niet verwijderd worden. Er is een auto aan gekoppeld.</string>
+    <string name="error_update_location">Kan locatie niet bewerken. Probeer het later opnieuw.</string>
+    <string name="error_post_location">Kan locatie niet aanmaken. Probeer het later opnieuw.</string>
+    <string name="error_get_location">Geen locatie gevonden.</string>
+    <string name="error_get_car">Geen auto gevonden.</string>
+    <string name="error_post_car">Kan auto niet aanmaken. Probeer het later opnieuw.</string>
+    <string name="error_put_car">Kan auto niet bewerken. Probeer het later opnieuw.</string>
+    <string name="error_get_user">Geen gebruiker gevonden.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

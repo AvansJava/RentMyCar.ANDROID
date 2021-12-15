@@ -3,6 +3,7 @@ package com.rentmycar.rentmycar.repository
 import android.content.Context
 import android.widget.Toast
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.LocationMapper
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.network.NetworkLayer
@@ -19,6 +20,7 @@ class LocationRepository {
         val request =  client().getLocationById(id)
 
         if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_location), Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -29,6 +31,7 @@ class LocationRepository {
         val request =  client().postLocation(location)
 
         if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_post_location), Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -56,7 +59,7 @@ class LocationRepository {
         val request =  client().updateLocationById(id, location)
 
         if (request.failed || !request.isSuccessful) {
-            return null
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_update_location), Toast.LENGTH_LONG).show()
         }
 
         return LocationMapper.buildFrom(response = request.body)
@@ -66,6 +69,9 @@ class LocationRepository {
         val request =  client().deleteLocationById(id)
 
         if (request.failed || !request.isSuccessful) {
+            if (request.data?.code() == 403) {
+                Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.location_linked_to_car), Toast.LENGTH_LONG).show()
+            }
             return null
         }
 

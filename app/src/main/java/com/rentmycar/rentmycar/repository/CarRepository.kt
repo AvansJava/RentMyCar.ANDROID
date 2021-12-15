@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.Location
@@ -47,6 +48,7 @@ class CarRepository {
         val request = client().getCarById(id)
         var location: Location? = null
         if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_car), Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -135,6 +137,7 @@ class CarRepository {
         val request = client().postCarWithLocation(car)
         var location: Location? = null
         if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_post_car), Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -159,6 +162,7 @@ class CarRepository {
     suspend fun putCar(id: Int, car: Car): Car? {
         val request = client().putCar(car, id)
         if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_put_car), Toast.LENGTH_LONG).show()
             return null
         }
 

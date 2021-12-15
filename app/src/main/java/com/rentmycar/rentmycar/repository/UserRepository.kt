@@ -59,7 +59,7 @@ class UserRepository {
         val request = NetworkLayer.userClient.getUser()
 
         if (request.failed || !request.isSuccessful) {
-            //todo error handling
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_user), Toast.LENGTH_LONG).show()
             return null
         }
 
