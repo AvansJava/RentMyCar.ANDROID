@@ -66,8 +66,11 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
                 if (carId > 0 && locationResult > 0) {
                     carViewModel.updateCar(requireContext(), locationResult, carId)
 
-                    // TODO: navigate to car create overview fragment
-                    Log.d("tag", "created car and location in room successfully.")
+                    val directions =
+                        LocationCreateFragmentDirections.actionLocationCreateFragmentToCarCreateOverviewFragment(
+                            locationId = locationResult,
+                            carId = carId)
+                    findNavController().navigate(directions)
                 }
             }
         }

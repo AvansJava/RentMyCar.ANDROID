@@ -11,7 +11,7 @@ interface CarDao {
     @Query(" SELECT * FROM Car WHERE id = :key ")
     suspend fun getCar(key: Int): Car
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun createCar(item: Car): Long
 
     @Query(" DELETE FROM Car WHERE id = :key ")

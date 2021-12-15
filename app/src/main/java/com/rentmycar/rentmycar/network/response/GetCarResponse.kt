@@ -1,7 +1,5 @@
 package com.rentmycar.rentmycar.network.response
 
-import java.time.LocalDateTime
-
 data class GetCarResponse(
     val id: Int,
     val brand: String,

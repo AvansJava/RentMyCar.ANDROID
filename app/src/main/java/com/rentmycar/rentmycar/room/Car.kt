@@ -6,9 +6,9 @@ import com.squareup.moshi.Json
 
 @Entity
 data class Car(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Int?,
 
     @Json(name = "brand")
     val brand: String,
@@ -35,5 +35,5 @@ data class Car(
     val userId: Int?,
 
     @Json(name = "locationId")
-    val locationId: Int?,
+    val locationId: Int? = null,
 )

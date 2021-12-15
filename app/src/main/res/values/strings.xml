@@ -107,6 +107,9 @@
     <string name="dashboard_header_phonenumber">+316123456789</string>
     <string name="dashboard_header_email">john.doe@gmail.com</string>
     <string name="fragment_user_dashboard_edit_button">Edit user details</string>
+    <string name="car_create_overview">Car Overview</string>
+    <string name="create_car_continue">Continue</string>
+    <string name="back">Go Back</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

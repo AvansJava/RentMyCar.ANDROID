@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.network.client
 
+import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.network.response.GetCarResponse
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 import com.rentmycar.rentmycar.network.response.SimpleResponse
@@ -23,5 +24,9 @@ class CarClient(
 
     suspend fun getCarsByUser(): SimpleResponse<List<GetCarResponse>> {
         return safeApiCall { carService.getCarsByUser() }
+    }
+
+    suspend fun postCarWithLocation(car: Car): SimpleResponse<GetCarResponse> {
+        return safeApiCall { carService.postCarWithLocation(car) }
     }
 }

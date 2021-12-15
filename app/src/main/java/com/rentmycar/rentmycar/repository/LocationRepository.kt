@@ -6,6 +6,7 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.domain.mapper.LocationMapper
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.network.NetworkLayer
+import com.rentmycar.rentmycar.room.Car
 import com.rentmycar.rentmycar.room.RentMyCarDatabase
 import com.rentmycar.rentmycar.room.Location as LocationRoom
 
@@ -77,6 +78,15 @@ class LocationRepository {
         } catch (e: Exception) {
             Toast.makeText(context, context.getString(R.string.no_database_connection), Toast.LENGTH_LONG).show()
             return 0
+        }
+    }
+
+    suspend fun getLocation(context: Context, locationId: Int): LocationRoom? {
+        return try {
+            dao(context).getLocation(locationId)
+        } catch (e: Exception) {
+            Toast.makeText(context, context.getString(R.string.no_database_connection), Toast.LENGTH_LONG).show()
+            return null
         }
     }
 }

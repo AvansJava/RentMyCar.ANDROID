@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 // https://developer.android.com/codelabs/kotlin-android-training-room-database#5
 
-@Database(entities = [Car::class, Location::class], version = 1, exportSchema = false)
+@Database(entities = [Car::class, Location::class], version = 2, exportSchema = false)
 abstract class RentMyCarDatabase : RoomDatabase() {
 
     /**

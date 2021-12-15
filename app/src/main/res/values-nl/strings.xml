@@ -100,6 +100,16 @@
     <string name="logging_in_text">Inloggen…</string>
     <string name="registering">Registreren…</string>
     <string name="registration_failed">Registreren mislukt. Probeer het opnieuw.</string>
+    <string name="car_create_overview">Auto Overzicht</string>
+    <string name="dashboard_header_welcome">Hallo, John Doe</string>
+    <string name="dashboard_header_address1">Addressline 1</string>
+    <string name="dashboard_header_address2">Addressline 2</string>
+    <string name="dashboard_header_address3">Addressline 3</string>
+    <string name="dashboard_header_phonenumber">+316123456789</string>
+    <string name="dashboard_header_email">john.doe@gmail.com</string>
+    <string name="fragment_user_dashboard_edit_button">Edit user details</string>
+    <string name="create_car_continue">Ga Verder</string>
+    <string name="back">Ga Terug</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

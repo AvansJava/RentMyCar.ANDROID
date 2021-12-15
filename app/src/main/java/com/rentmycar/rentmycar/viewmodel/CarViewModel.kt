@@ -9,13 +9,16 @@ import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.room.Car as CarRoom
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.repository.CarRepository
+import com.rentmycar.rentmycar.repository.LocationRepository
 import com.rentmycar.rentmycar.repository.RentalPlanRepository
+import com.rentmycar.rentmycar.room.Location
 import kotlinx.coroutines.launch
 
 class CarViewModel: ViewModel() {
 
     private val carRepository = CarRepository()
     private val rentalPlanRepository = RentalPlanRepository()
+    private val locationRepository = LocationRepository()
 
     private val _rentalPlanByIdLiveData = MutableLiveData<RentalPlan?>()
     val rentalPlanByIdLiveData: LiveData<RentalPlan?> = _rentalPlanByIdLiveData
@@ -28,6 +31,9 @@ class CarViewModel: ViewModel() {
 
     private val _carResult = MutableLiveData<Int>()
     val carResult: LiveData<Int> get() = _carResult
+
+    private val _carRoomLiveData = MutableLiveData<CarRoom?>()
+    val carRoomLiveData: LiveData<CarRoom?> = _carRoomLiveData
 
     fun getCarsList() {
         viewModelScope.launch {
@@ -73,6 +79,14 @@ class CarViewModel: ViewModel() {
     fun getCar(context: Context, carId: Int) {
         viewModelScope.launch {
             val response = carRepository.getCar(context, carId)
+            _carRoomLiveData.postValue(response)
+        }
+    }
+
+    fun postCar(car: Car) {
+        viewModelScope.launch {
+            val response = carRepository.postCarWithLocation(car)
+            _carByIdLiveData.postValue(response)
         }
     }
 }

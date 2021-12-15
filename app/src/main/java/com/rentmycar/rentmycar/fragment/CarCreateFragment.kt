@@ -52,7 +52,7 @@ class CarCreateFragment: Fragment() {
         }
 
         btnNext.setOnClickListener {
-            val car: Car = Car(
+            val car = Car(
                 id = null,
                 brand = car_brand.editText?.text?.trim { it <= ' ' }.toString(),
                 brandType = car_brand_type.editText?.text?.trim { it <= ' ' }.toString(),

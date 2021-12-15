@@ -1,6 +1,7 @@
 package com.rentmycar.rentmycar.repository;
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.domain.mapper.CarMapper
@@ -117,7 +118,42 @@ class CarRepository {
         }
     }
 
-    suspend fun getCar(context: Context, carId: Int): CarRoom {
-        return dao(context).getCar(carId)
+    suspend fun getCar(context: Context, carId: Int): CarRoom? {
+        return try {
+            dao(context).getCar(carId)
+        } catch (e: Exception) {
+            Toast.makeText(
+                context,
+                context.getString(R.string.no_database_connection),
+                Toast.LENGTH_LONG
+            ).show()
+            return null
+        }
+    }
+
+    suspend fun postCarWithLocation(car: Car): Car? {
+        val request = client().postCarWithLocation(car)
+        var location: Location? = null
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        if (request.body.locationId != null) {
+            location = locationRepository.getLocationById(request.body.locationId!!)
+        }
+
+        return if (location != null) {
+            CarMapper.buildFromWithLocation(
+                response = request.body,
+                resources = emptyList(),
+                location = location
+            )
+        } else {
+            CarMapper.buildFrom(
+                response = request.body,
+                resources = emptyList(),
+            )
+        }
     }
 }
+
