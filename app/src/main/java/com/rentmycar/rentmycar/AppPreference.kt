@@ -18,10 +18,10 @@ class AppPreference(context: Context) {
     private val preference: SharedPreferences = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
     fun getToken() : String? {
-        return preference.getString(PREFERENCE_TOKEN, "")
+        return preference.getString(PREFERENCE_TOKEN, "token")
     }
 
-    fun setToken(token: String) {
+    fun setToken(token: String?) {
         preference.edit().putString(PREFERENCE_TOKEN, token).apply()
     }
 
@@ -29,7 +29,7 @@ class AppPreference(context: Context) {
         return preference.getString(PREFERENCE_FIRST_NAME, "")
     }
 
-    fun setFirstName(firstName: String) {
+    fun setFirstName(firstName: String?) {
         preference.edit().putString(PREFERENCE_FIRST_NAME, firstName).apply()
     }
 
@@ -37,7 +37,7 @@ class AppPreference(context: Context) {
         return preference.getString(PREFERENCE_LAST_NAME, "")
     }
 
-    fun setLastName(lastName: String) {
+    fun setLastName(lastName: String?) {
         preference.edit().putString(PREFERENCE_LAST_NAME, lastName).apply()
     }
 

@@ -25,4 +25,10 @@
             </group>
         </menu>
     </item>
+
+    <item android:id="@+id/logout_item"
+        android:title="@string/logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 </menu>

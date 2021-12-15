@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.viewmodel.CarViewModel
 import com.rentmycar.rentmycar.viewmodel.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_location_create.*
 import java.io.IOException
@@ -34,10 +36,16 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
     var gMap: GoogleMap? = null
     private val geoCoder = Geocoder(RentMyCarApplication.context, Locale.getDefault())
     private val safeArgs: LocationCreateFragmentArgs by navArgs()
-    private var updateLocation: Boolean = false
+    private val updateLocation = safeArgs.updateLocation
+    val locationId = safeArgs.locationId
+    val carId = safeArgs.carId
 
     private val viewModel: LocationViewModel by lazy {
         ViewModelProvider(this)[LocationViewModel::class.java]
+    }
+
+    private val carViewModel: CarViewModel by lazy {
+        ViewModelProvider(this)[CarViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -49,6 +57,18 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.locationByIdLiveData.observe(viewLifecycleOwner) { location ->
+            if (location == null) {
+                return@observe
+            }
+
+            if (carId > 0 && location.id!! > 0) {
+                carViewModel.updateCar(requireContext(), location.id, carId)
+                Log.d("tag", "successfully updated car wit location")
+            }
+        }
+
 
         checkPermissions()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -65,13 +85,12 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
+
         })
 
         btnSelectLocation.setOnClickListener {
             if (address != null) {
                 val location: com.rentmycar.rentmycar.domain.model.Location = parseAddress(address!!)
-                val updateLocation = safeArgs.updateLocation
-                val locationId = safeArgs.locationId
 
                 if (updateLocation) {
                     viewModel.updateLocation(locationId, location)
@@ -79,9 +98,11 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
                     viewModel.postLocation(location)
                 }
 
-                val directions =
-                    LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
-                findNavController().navigate(directions)
+                if (carId < 0) {
+                    val directions =
+                        LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
+                    findNavController().navigate(directions)
+                }
             } else {
                 Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.no_results_found), Toast.LENGTH_SHORT).show()
             }

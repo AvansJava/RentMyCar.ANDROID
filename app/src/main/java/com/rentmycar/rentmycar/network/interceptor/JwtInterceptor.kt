@@ -1,6 +1,5 @@
-package com.rentmycar.rentmycar.network
+package com.rentmycar.rentmycar.network.interceptor
 
-import android.util.Log
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.RentMyCarApplication
 import okhttp3.Interceptor
@@ -15,7 +14,7 @@ class JwtInterceptor: Interceptor {
         var request: Request = chain.request()
         val requiresAuthentication: Boolean = !request.url.toString().contains("auth")
         val token = preference.getToken()
-        if (token != null && requiresAuthentication) {
+        if (requiresAuthentication) {
             request = request.newBuilder()
                 .addHeader("Authorization", "Bearer $token")
                 .build()

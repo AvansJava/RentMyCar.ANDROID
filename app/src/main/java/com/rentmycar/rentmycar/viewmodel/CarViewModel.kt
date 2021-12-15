@@ -1,10 +1,12 @@
 package com.rentmycar.rentmycar.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rentmycar.rentmycar.domain.model.Car
+import com.rentmycar.rentmycar.room.Car as CarRoom
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.repository.CarRepository
 import com.rentmycar.rentmycar.repository.RentalPlanRepository
@@ -23,6 +25,9 @@ class CarViewModel: ViewModel() {
 
     private val _carByIdLiveData = MutableLiveData<Car?>()
     val carByIdLiveData: LiveData<Car?> = _carByIdLiveData
+
+    private val _carResult = MutableLiveData<Int>()
+    val carResult: LiveData<Int> get() = _carResult
 
     fun getCarsList() {
         viewModelScope.launch {
@@ -49,6 +54,19 @@ class CarViewModel: ViewModel() {
         viewModelScope.launch {
             val response = carRepository.getCarsByUser()
             _carListLiveData.postValue(response)
+        }
+    }
+
+    fun createCar(context: Context, car: CarRoom) {
+        viewModelScope.launch {
+            val response = carRepository.createCar(context, car)
+            _carResult.value = response.toInt()
+        }
+    }
+
+    fun updateCar(context: Context, locationId: Int, carId: Int) {
+        viewModelScope.launch {
+            val response = carRepository.updateCar(context, locationId, carId)
         }
     }
 }

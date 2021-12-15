@@ -1,7 +1,9 @@
 package com.rentmycar.rentmycar.repository
 
 import android.util.Log
+import android.widget.Toast
 import com.rentmycar.rentmycar.AppPreference
+import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.domain.model.Register
@@ -17,7 +19,9 @@ class UserRepository {
         val request = NetworkLayer.userClient.postUserLogin(login)
 
         if (request.failed || !request.isSuccessful) {
-            //todo error handling
+            if (request.data?.code() == 401) {
+                Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.unauthorized), Toast.LENGTH_LONG).show()
+            }
             return null
         }
 
@@ -34,7 +38,7 @@ class UserRepository {
         val request = NetworkLayer.userClient.postUserRegistration(register)
 
         if (request.failed || !request.isSuccessful) {
-            //todo error handling
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.registration_failed), Toast.LENGTH_LONG).show()
             return null
         }
 

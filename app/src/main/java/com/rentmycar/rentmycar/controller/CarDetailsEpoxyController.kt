@@ -63,8 +63,8 @@ class CarDetailsEpoxyController(
             carType = car!!.carType
         ).id("header").addTo(this)
 
-        if (car!!.resources.isNotEmpty()) {
-            val items = car!!.resources.map {
+        if (car!!.resources!!.isNotEmpty()) {
+            val items = car!!.resources!!.map {
                 ImagesCarouselItemEpoxyModel(it).id(it.id)
             }
 

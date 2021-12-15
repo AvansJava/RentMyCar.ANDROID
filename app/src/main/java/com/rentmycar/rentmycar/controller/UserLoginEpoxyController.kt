@@ -1,6 +1,9 @@
 package com.rentmycar.rentmycar.controller
 
+import android.widget.Toast
 import com.airbnb.epoxy.EpoxyController
+import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.network.response.PostLoginResponse
 
@@ -29,7 +32,7 @@ class UserLoginEpoxyController: EpoxyController() {
         }
 
         if (postLoginResponse == null) {
-            // todo error state
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
             return
         }
     }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,7 @@ import com.rentmycar.rentmycar.controller.UserLoginEpoxyController
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_login.*
+import kotlinx.android.synthetic.main.fragment_user_welcome.view.*
 
 class UserLoginFragment : Fragment() {
 
@@ -41,15 +44,22 @@ class UserLoginFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
 
         viewModel.userLoginLiveData.observe(viewLifecycleOwner) {userLogin ->
+            btnLogin.isEnabled = true
+            btnSpinner.visibility = GONE
+            btnLogin.text = RentMyCarApplication.context.getString(R.string.login)
             epoxyController.postLoginResponse = userLogin
             if (userLogin == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
+
             preference.setToken(userLogin.accessToken)
             preference.setUserId(userLogin.userId.toInt())
             preference.setFirstName(userLogin.firstName)
             preference.setLastName(userLogin.lastName)
+
+            val directions = UserLoginFragmentDirections.actionUserLoginFragmentToUserWelcomeBackFragment()
+            findNavController().navigate(directions)
         }
 
         tvSignUp.setOnClickListener {
@@ -69,10 +79,10 @@ class UserLoginFragment : Fragment() {
                     email = userEmail,
                     password = userPassword
                 )
+                btnLogin.isEnabled = false
+                btnLogin.text = RentMyCarApplication.context.getString(R.string.logging_in_text)
+                btnSpinner.visibility = VISIBLE
                 viewModel.userLogin(login)
-
-                val directions = UserLoginFragmentDirections.actionUserLoginFragmentToUserWelcomeBackFragment()
-                findNavController().navigate(directions)
             }
         }
     }
