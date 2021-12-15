@@ -116,4 +116,8 @@ class CarRepository {
             Toast.makeText(context, context.getString(R.string.no_database_connection), Toast.LENGTH_LONG).show()
         }
     }
+
+    suspend fun getCar(context: Context, carId: Int): CarRoom {
+        return dao(context).getCar(carId)
+    }
 }

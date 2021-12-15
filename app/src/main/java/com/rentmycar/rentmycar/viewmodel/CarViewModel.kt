@@ -69,4 +69,10 @@ class CarViewModel: ViewModel() {
             val response = carRepository.updateCar(context, locationId, carId)
         }
     }
+
+    fun getCar(context: Context, carId: Int) {
+        viewModelScope.launch {
+            val response = carRepository.getCar(context, carId)
+        }
+    }
 }

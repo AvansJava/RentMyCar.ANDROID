@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 // https://developer.android.com/codelabs/kotlin-android-training-room-database#5
 
-@Database(entities = [Car::class], version = 1, exportSchema = false)
+@Database(entities = [Car::class, Location::class], version = 1, exportSchema = false)
 abstract class RentMyCarDatabase : RoomDatabase() {
 
     /**
@@ -16,6 +16,7 @@ abstract class RentMyCarDatabase : RoomDatabase() {
      * and returns an instance of the DAO class.
      */
     abstract fun carDao(): CarDao
+    abstract fun locationDao(): LocationDao
 
     /**
      * Define a companion object, this allows us to add functions on the SleepDatabase class.
