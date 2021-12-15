@@ -56,7 +56,7 @@ class CarListEpoxyController(
                 CarListItemHeaderModel(car, onCarSelected).id("header_{$car.id}").addTo(this)
 
                 var items = car.resources!!.map { resource ->
-                    UserCarListEpoxyController.ImagesCarouselItemEpoxyModel(
+                    ImagesCarouselItemEpoxyModel(
                         car.id,
                         resource.filePath,
                         onCarSelected
@@ -65,7 +65,7 @@ class CarListEpoxyController(
 
                 if (items.isEmpty()) {
                     items = listOf(
-                        UserCarListEpoxyController.ImagesCarouselItemEpoxyModel(
+                        ImagesCarouselItemEpoxyModel(
                             car.id,
                             Config.NO_IMAGE_AVAILABLE_URL,
                             onCarSelected
@@ -123,12 +123,12 @@ class CarListEpoxyController(
 
     data class ImagesCarouselItemEpoxyModel(
         val carId: Int,
-        val carResource: CarResource,
+        val filePath: String,
         val onCarSelected: (Int) -> Unit
     ): ViewBindingKotlinModel<ModelCarImageCarouselItemBinding>(R.layout.model_car_image_carousel_item) {
 
         override fun ModelCarImageCarouselItemBinding.bind() {
-            Picasso.get().load(carResource.filePath).into(headerImageView)
+            Picasso.get().load(filePath).into(headerImageView)
 
             root.setOnClickListener {
                 onCarSelected(carId)

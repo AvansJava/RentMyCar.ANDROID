@@ -87,7 +87,7 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
         mapFragment?.getMapAsync(this)
 
         btnUpdateLocation.setOnClickListener {
-            val directions = LocationDetailsFragmentDirections.actionLocationDetailsFragmentToLocationCreateFragment(true, locationId)
+            val directions = LocationDetailsFragmentDirections.actionLocationDetailsFragmentToLocationCreateFragment(updateLocation = true, locationId = locationId)
             findNavController().navigate(directions)
         }
 

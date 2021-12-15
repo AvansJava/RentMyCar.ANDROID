@@ -97,29 +97,28 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
             if (address != null) {
                 val location: com.rentmycar.rentmycar.domain.model.Location = parseAddress(address!!)
 
-                if (updateLocation) {
-
-                    viewModel.updateLocation(locationId, location)
-                } else if (carId < 0) {
-
-                    viewModel.postLocation(location)
-
-                    val directions =
-                        LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
-                    findNavController().navigate(directions)
-                } else {
-                    val roomLocation = Location(
-                        id = null,
-                        street = location.street,
-                        houseNumber = location.houseNumber,
-                        postalCode = location.postalCode,
-                        city = location.city,
-                        country = location.country,
-                        latitude = location.latitude,
-                        longitude = location.longitude
-                    )
-                    viewModel.createLocation(requireContext(), roomLocation)
+                when (true) {
+                    updateLocation -> {
+                        viewModel.updateLocation(locationId, location)
+                    } carId < 0 -> {
+                        viewModel.postLocation(location)
+                    } else -> {
+                        val roomLocation = Location(
+                            id = null,
+                            street = location.street,
+                            houseNumber = location.houseNumber,
+                            postalCode = location.postalCode,
+                            city = location.city,
+                            country = location.country,
+                            latitude = location.latitude,
+                            longitude = location.longitude
+                        )
+                        viewModel.createLocation(requireContext(), roomLocation)
+                    }
                 }
+                val directions =
+                    LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
+                findNavController().navigate(directions)
             } else {
                 Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.no_results_found), Toast.LENGTH_SHORT).show()
             }
