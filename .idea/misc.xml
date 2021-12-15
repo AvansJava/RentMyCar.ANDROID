@@ -4,74 +4,61 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/card_bottom_corners_rounded.xml" value="0.3828125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/card_bottom_corners_rounded_light_bg.xml" value="0.3828125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/card_top_corners_rounded.xml" value="0.3828125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_car_rental_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_euro_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_fcev_24.xml" value="0.25" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_baseline_security_24.xml" value="0.24427083333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/ic_untitled_1.xml" value="0.24427083333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/model_car_details_title.xml" value="0.3769230769230769" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/drawable/model_car_type_list_item.xml" value="0.221875" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_nav_graph.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_car_create.xml" value="0.20572916666666666" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_car_create_overview.xml" value="0.15833333333333333" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_car_details.xml" value="0.35260416666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_car_list.xml" value="0.36666666666666664" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_create.xml" value="0.36186594202898553" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_details.xml" value="0.36186594202898553" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_list.xml" value="0.36186594202898553" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_maps.xml" value="0.36186594202898553" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_car_details.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_car_list.xml" value="0.20572916666666666" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_confirmation.xml" value="0.3663949275362319" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_login.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_register.xml" value="0.2198625858838226" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_welcome.xml" value="0.16614583333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_welcome_screen.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/layout_drawer_header.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/loading.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/login.xml" value="0.36666666666666664" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_form.xml" value="0.20572916666666666" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_header.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_data_point.xml" value="0.35688405797101447" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_header.xml" value="0.33" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_location_data_point.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_map.xml" value="0.35688405797101447" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_title.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_image_carousel_item.xml" value="0.22395833333333334" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_header.xml" value="0.22395833333333334" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_item_footer.xml" value="0.35190217391304346" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_list_item_header.xml" value="0.35190217391304346" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_type_list_item.xml" value="0.20572916666666666" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_header.xml" value="0.3365036231884058" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_header_user_dashboard.xml" value="0.36666666666666664" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_loading.xml" value="0.36186594202898553" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_local_exception_error_state.xml" value="0.228125" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_details_header.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_details_map.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_list_header.xml" value="0.20572916666666666" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_location_list_item.xml" value="0.34193840579710144" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_car_list_item_footer.xml" value="0.20572916666666666" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_data.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_user_login_header.xml" value="0.20520833333333333" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/register.xml" value="0.33" />
-        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/view_holder_car.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/menu/menu_drawer_layout.xml" value="0.7793103448275862" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.25364583333333335" />
+        <entry key="app/src/main/res/layout/activity_nav_graph.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_car_details.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/fragment_car_list.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/fragment_location_details.xml" value="0.2463768115942029" />
+        <entry key="app/src/main/res/layout/fragment_location_list.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/fragment_user_car_list.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/fragment_user_dashboard.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/layout/fragment_user_dashboard_edit_details.xml" value="0.21739130434782608" />
+        <entry key="app/src/main/res/layout/fragment_user_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_user_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_user_welcome.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/fragment_welcome_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/model_car_create_header.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_car_details_data_point.xml" value="0.21739130434782608" />
+        <entry key="app/src/main/res/layout/model_car_details_header.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/model_car_details_location_data_point.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_car_details_map.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/layout/model_car_details_title.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_car_image_carousel_item.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/model_car_list_header.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/layout/model_car_list_item_footer.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/model_car_list_item_header.xml" value="0.23731884057971014" />
+        <entry key="app/src/main/res/layout/model_car_type_list_item.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/model_header.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/model_header_user_dashboard.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/layout/model_loading.xml" value="0.21739130434782608" />
+        <entry key="app/src/main/res/layout/model_local_exception_error_state.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_location_list_header.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_location_list_item.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_user_car_list_item_footer.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/model_user_dashboard_header.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/model_user_dashboard_image.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/model_user_data.xml" value="0.20380434782608695" />
+        <entry key="app/src/main/res/menu/menu_drawer_layout.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -88,6 +88,14 @@
         android:label="@string/dashboard"
         tools:layout="@layout/fragment_user_login">
 
+        <action
+            android:id="@+id/action_userDashboardFragment_to_userRegisterFragment"
+            app:destination="@id/userRegisterFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
         <argument android:name="email"
             app:argType="string"
             app:nullable="true"

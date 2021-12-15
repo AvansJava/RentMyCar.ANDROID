@@ -1,0 +1,100 @@
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/card_top_corners_rounded"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="48dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/indigo_500">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/dashboard_header_welcome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderStreet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderWelcome"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderWelcome"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_house_24"
+            tools:text="@string/dashboard_header_address1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderStreet"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderStreet"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_local_post_office_24"
+            tools:text="@string/dashboard_header_address2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCity"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCity"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_location_city_24"
+            tools:text="@string/dashboard_header_address3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderCountry"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderCountry"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
+            tools:text="@string/dashboard_header_phonenumber" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userDashboardHeaderEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_smoke"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/userDashboardHeaderPhone"
+            app:layout_constraintTop_toBottomOf="@id/userDashboardHeaderPhone"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+            tools:text="@string/dashboard_header_email" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

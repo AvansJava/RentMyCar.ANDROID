@@ -2,12 +2,10 @@ package com.rentmycar.rentmycar.controller
 
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
-import com.rentmycar.rentmycar.databinding.ModelHeaderUserDashboardBinding
-import com.rentmycar.rentmycar.databinding.ModelUserDataBinding
+import com.rentmycar.rentmycar.databinding.ModelUserDashboardHeaderBinding
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetUserResponse
-import com.rentmycar.rentmycar.network.response.PostLoginResponse
 
 class UserDashboardEpoxyController: EpoxyController() {
 
@@ -41,32 +39,31 @@ class UserDashboardEpoxyController: EpoxyController() {
         }
 
         HeaderEpoxyModel(
-            title = "This is the user dashboard"
+            title = "Hi, ${getUserResponse!!.firstName} ${getUserResponse!!.lastName}.",
+            address1 = "${getUserResponse!!.street} ${getUserResponse!!.houseNumber}",
+            address2 = "${getUserResponse!!.postalCode} ${getUserResponse!!.city}",
+            address3 = "${getUserResponse!!.country}",
+            phoneNumber = "${getUserResponse!!.phoneNumber}",
+            emailAddress = getUserResponse!!.email,
         ).id("header").addTo(this)
-
-        UserDataEpoxyModel(
-            firstName = getUserResponse!!.firstName,
-            lastName = getUserResponse!!.lastName
-        ).id("name").addTo(this)
-
     }
 
     data class HeaderEpoxyModel(
-        val title: String
-    ) : ViewBindingKotlinModel<ModelHeaderUserDashboardBinding>(R.layout.model_header_user_dashboard) {
+        val title: String,
+        val address1: String,
+        val address2: String,
+        val address3: String,
+        val phoneNumber: String,
+        val emailAddress: String,
+    ) : ViewBindingKotlinModel<ModelUserDashboardHeaderBinding>(R.layout.model_user_dashboard_header) {
 
-        override fun ModelHeaderUserDashboardBinding.bind() {
-            textViewTitle.text = title
-        }
-    }
-
-    data class UserDataEpoxyModel(
-        val firstName: String,
-        val lastName: String
-    ): ViewBindingKotlinModel<ModelUserDataBinding>(R.layout.model_user_data) {
-
-        override fun ModelUserDataBinding.bind() {
-            textViewName.text = "$firstName $lastName"
+        override fun ModelUserDashboardHeaderBinding.bind() {
+            userDashboardHeaderWelcome.text = title
+            userDashboardHeaderStreet.text = address1
+            userDashboardHeaderCity.text = address2
+            userDashboardHeaderCountry.text = address3
+            userDashboardHeaderPhone.text = phoneNumber
+            userDashboardHeaderEmail.text = emailAddress
         }
     }
 }

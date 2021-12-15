@@ -100,6 +100,13 @@
     <string name="logging_in_text">Logging in…</string>
     <string name="registering">Registering…</string>
     <string name="registration_failed">Registering failed. Please try again.</string>
+    <string name="dashboard_header_welcome">Hi, John Doe</string>
+    <string name="dashboard_header_address1">Addressline 1</string>
+    <string name="dashboard_header_address2">Addressline 2</string>
+    <string name="dashboard_header_address3">Addressline 3</string>
+    <string name="dashboard_header_phonenumber">+316123456789</string>
+    <string name="dashboard_header_email">john.doe@gmail.com</string>
+    <string name="fragment_user_dashboard_edit_button">Edit user details</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
