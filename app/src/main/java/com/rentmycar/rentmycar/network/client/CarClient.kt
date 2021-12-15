@@ -29,4 +29,8 @@ class CarClient(
     suspend fun postCarWithLocation(car: Car): SimpleResponse<GetCarResponse> {
         return safeApiCall { carService.postCarWithLocation(car) }
     }
+
+    suspend fun putCar(car: Car, id: Int): SimpleResponse<GetCarResponse> {
+        return safeApiCall { carService.putCar(id, car) }
+    }
 }

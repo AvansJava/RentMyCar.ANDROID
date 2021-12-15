@@ -4,10 +4,7 @@ import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.network.response.GetCarResponse
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface CarService {
 
@@ -29,6 +26,12 @@ interface CarService {
 
     @POST("cars/")
     suspend fun postCarWithLocation(
+        @Body car: Car
+    ): Response<GetCarResponse>
+
+    @PUT("cars/{id}/")
+    suspend fun putCar(
+        @Path("id") id: Int,
         @Body car: Car
     ): Response<GetCarResponse>
 }

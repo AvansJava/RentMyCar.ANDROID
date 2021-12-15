@@ -89,4 +89,11 @@ class CarViewModel: ViewModel() {
             _carByIdLiveData.postValue(response)
         }
     }
+
+    fun putCar(id: Int, car: Car) {
+        viewModelScope.launch {
+            val response = carRepository.putCar(id, car)
+            _carByIdLiveData.postValue(response)
+        }
+    }
 }

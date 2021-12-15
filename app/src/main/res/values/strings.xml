@@ -110,6 +110,7 @@
     <string name="car_create_overview">Car Overview</string>
     <string name="create_car_continue">Continue</string>
     <string name="back">Go Back</string>
+    <string name="update_car">Edit Car</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

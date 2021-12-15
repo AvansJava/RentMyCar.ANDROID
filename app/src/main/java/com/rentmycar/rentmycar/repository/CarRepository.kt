@@ -155,5 +155,17 @@ class CarRepository {
             )
         }
     }
+
+    suspend fun putCar(id: Int, car: Car): Car? {
+        val request = client().putCar(car, id)
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+
+        return CarMapper.buildFrom(
+            response = request.body,
+            resources = emptyList()
+        )
+    }
 }
 

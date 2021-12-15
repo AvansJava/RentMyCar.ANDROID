@@ -224,6 +224,14 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action
+            android:id="@+id/action_carDetailsFragment_to_carCreateFragment"
+            app:destination="@id/carCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/userWelcomeBackFragment"
@@ -271,6 +279,21 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carCreateFragment_to_carDetailsFragment"
+            app:destination="@+id/carDetailsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <argument android:name="updateCar"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+
+        <argument android:name="carId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 
     <fragment android:id="@+id/carCreateOverviewFragment"

@@ -110,6 +110,7 @@
     <string name="fragment_user_dashboard_edit_button">Edit user details</string>
     <string name="create_car_continue">Ga Verder</string>
     <string name="back">Ga Terug</string>
+    <string name="update_car">Auto Bewerken</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

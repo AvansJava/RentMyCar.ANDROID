@@ -23,11 +23,12 @@ import kotlinx.android.synthetic.main.model_car_details_title.*
 class CarDetailsFragment: Fragment() {
 
     private var locationId: Int? = null
+    private var carId: Int? = null
     private val viewModel: CarViewModel by lazy {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
 
-    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked, ::onEditLocationBtnClicked)
+    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked, ::onEditLocationBtnClicked, ::onEditCarBtnClicked)
     private val safeArgs: CarDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -48,6 +49,7 @@ class CarDetailsFragment: Fragment() {
             }
 
             locationId = car.location?.id
+            carId = car.id
         }
 
         val carId = safeArgs.carId
@@ -68,6 +70,12 @@ class CarDetailsFragment: Fragment() {
     private fun onEditLocationBtnClicked(id: Int) {
         val directions =
             CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, locationId!!)
+        findNavController().navigate(directions)
+    }
+
+    private fun onEditCarBtnClicked(id: Int) {
+        val directions =
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarCreateFragment(updateCar = true, carId!!)
         findNavController().navigate(directions)
     }
 }
