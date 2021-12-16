@@ -11,9 +11,10 @@ import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.room.Car as CarRoom
 import com.rentmycar.rentmycar.room.Location
+import kotlin.reflect.KFunction0
 
 class CarCreateOverviewEpoxyController(
-    private val onContinueSelected: (Int) -> Unit
+    private val onContinueSelected: KFunction0<Unit>
 ): EpoxyController() {
     private var isLoading: Boolean = true
         set(value) {
@@ -163,11 +164,11 @@ class CarCreateOverviewEpoxyController(
 
     data class ButtonsEpoxyModel(
         val carId: Int,
-        private val onContinueSelected: (Int) -> Unit
+        private val onContinueSelected: KFunction0<Unit>
     ): ViewBindingKotlinModel<ModelCarCreateOverviewButtonsBinding>(R.layout.model_car_create_overview_buttons) {
         override fun ModelCarCreateOverviewButtonsBinding.bind() {
             btnContinue.setOnClickListener {
-                onContinueSelected(carId)
+                onContinueSelected()
             }
         }
     }

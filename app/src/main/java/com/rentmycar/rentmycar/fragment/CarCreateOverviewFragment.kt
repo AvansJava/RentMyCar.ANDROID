@@ -129,8 +129,8 @@ class CarCreateOverviewFragment: Fragment() {
         locationViewModel.getLocation(requireContext(), safeArgs.locationId)
     }
 
-    private fun onContinueSelected(carId: Int) {
-        val directions = CarCreateOverviewFragmentDirections.actionCarCreateOverviewFragmentToCarDetailsFragment(carId = carId)
+    private fun onContinueSelected() {
+        val directions = CarCreateOverviewFragmentDirections.actionCarCreateOverviewFragmentToUserCarListFragment()
         findNavController().navigate(directions)
     }
 }
