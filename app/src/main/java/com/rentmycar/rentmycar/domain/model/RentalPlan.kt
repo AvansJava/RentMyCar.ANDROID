@@ -6,7 +6,7 @@ data class RentalPlan(
     val id: Int?,
     val availableFrom: String,
     val availableUntil: String,
-    val price: BigDecimal,
+    val price: Double,
     val userId: Int,
     val carId: Int,
     val createdAt: String,

@@ -6,6 +6,8 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface RentalPlanService {
+    @GET("rentalplan/")
+    suspend fun getRentalPlans(): Response<List<GetRentalPlanResponse>>
 
     @GET("rentalplan/{id}/")
     suspend fun getRentalPlanById(
@@ -26,7 +28,4 @@ interface RentalPlanService {
     suspend fun deleteRentalPlan(
         @Path("id") id: Int
     ): Response<String>
-
-    @GET("rentalplan/")
-    suspend fun getRentalPlans(): Response<List<GetRentalPlanResponse>>
 }
