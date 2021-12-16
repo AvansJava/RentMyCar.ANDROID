@@ -1,6 +1,7 @@
 package com.rentmycar.rentmycar.network.service
 
 import com.rentmycar.rentmycar.domain.model.RentalPlan
+import com.rentmycar.rentmycar.network.request.PostRentalPlanRequest
 import com.rentmycar.rentmycar.network.response.GetRentalPlanResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -21,7 +22,7 @@ interface RentalPlanService {
 
     @POST("rentalplan/")
     suspend fun postRentalPlan(
-        @Body rentalplan: RentalPlan
+        @Body rentalPlan: PostRentalPlanRequest
     ): Response<GetRentalPlanResponse>
 
     @DELETE("rentalplan/{id}/")

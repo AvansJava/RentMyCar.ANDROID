@@ -7,6 +7,7 @@ import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.RentalPlanMapper
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.network.NetworkLayer
+import com.rentmycar.rentmycar.network.request.PostRentalPlanRequest
 
 class RentalPlanRepository {
 
@@ -37,7 +38,7 @@ class RentalPlanRepository {
         return RentalPlanMapper.buildFrom(response = request.body, car = car)
     }
 
-    suspend fun postRentalPlan(rentalPlan: RentalPlan): RentalPlan? {
+    suspend fun postRentalPlan(rentalPlan: PostRentalPlanRequest): RentalPlan? {
         val request = NetworkLayer.rentalPlanClient.postRentalPlan(rentalPlan)
 
         if (request.failed || !request.isSuccessful) {

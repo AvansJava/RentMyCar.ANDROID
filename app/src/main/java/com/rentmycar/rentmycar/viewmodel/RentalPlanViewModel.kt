@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rentmycar.rentmycar.domain.model.RentalPlan
+import com.rentmycar.rentmycar.network.request.PostRentalPlanRequest
 import com.rentmycar.rentmycar.repository.RentalPlanRepository
 import kotlinx.coroutines.launch
 
@@ -45,7 +46,7 @@ class RentalPlanViewModel: ViewModel() {
         }
     }
 
-    fun postRentalPlan(rentalPlan: RentalPlan) {
+    fun postRentalPlan(rentalPlan: PostRentalPlanRequest) {
         viewModelScope.launch {
             val response = rentalPlanRepository.postRentalPlan(rentalPlan)
             _rentalPlanByIdLiveData.postValue(response)

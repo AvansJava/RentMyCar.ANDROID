@@ -2,6 +2,7 @@ package com.rentmycar.rentmycar.network.client
 
 import android.util.Log
 import com.rentmycar.rentmycar.domain.model.RentalPlan
+import com.rentmycar.rentmycar.network.request.PostRentalPlanRequest
 import com.rentmycar.rentmycar.network.response.GetRentalPlanResponse
 import com.rentmycar.rentmycar.network.response.SimpleResponse
 import com.rentmycar.rentmycar.network.service.RentalPlanService
@@ -17,7 +18,7 @@ class RentalPlanClient(
         return safeApiCall { rentalPlanService.getRentalPlanByCar(carId) }
     }
 
-    suspend fun postRentalPlan(rentalPlan: RentalPlan): SimpleResponse<GetRentalPlanResponse> {
+    suspend fun postRentalPlan(rentalPlan: PostRentalPlanRequest): SimpleResponse<GetRentalPlanResponse> {
         return safeApiCall { rentalPlanService.postRentalPlan(rentalPlan) }
     }
 

@@ -2,6 +2,7 @@ package com.rentmycar.rentmycar.controller
 
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.ModelUserDashboardHeaderBinding
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
@@ -39,7 +40,7 @@ class UserDashboardEpoxyController: EpoxyController() {
         }
 
         HeaderEpoxyModel(
-            title = "Hi, ${getUserResponse!!.firstName} ${getUserResponse!!.lastName}.",
+            title = RentMyCarApplication.context.getString(R.string.user_dashboard_title, getUserResponse!!.firstName, getUserResponse!!.lastName),
             address1 = "${getUserResponse!!.street} ${getUserResponse!!.houseNumber}",
             address2 = "${getUserResponse!!.postalCode} ${getUserResponse!!.city}",
             address3 = "${getUserResponse!!.country}",

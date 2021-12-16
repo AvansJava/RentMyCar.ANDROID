@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.fragment
 
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableStringBuilder
@@ -8,19 +9,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelLazy
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.network.request.CarIdRequest
+import com.rentmycar.rentmycar.network.request.PostRentalPlanRequest
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
+import com.rentmycar.rentmycar.viewmodel.RentalPlanViewModel
 import kotlinx.android.synthetic.main.fragment_car_create.*
 import kotlinx.android.synthetic.main.fragment_car_create.autoCompleteTextView
 import kotlinx.android.synthetic.main.fragment_rental_plan_create.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class RentalPlanCreateFragment: Fragment() {
@@ -29,6 +38,10 @@ class RentalPlanCreateFragment: Fragment() {
 
     private val carViewModel: CarViewModel by lazy {
         ViewModelProvider(this)[CarViewModel::class.java]
+    }
+
+    private val viewModel: RentalPlanViewModel by lazy {
+        ViewModelProvider(this)[RentalPlanViewModel::class.java]
     }
 
     private val constraintsBuilder =
@@ -54,6 +67,7 @@ class RentalPlanCreateFragment: Fragment() {
         return inflater.inflate(R.layout.fragment_rental_plan_create, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -71,6 +85,25 @@ class RentalPlanCreateFragment: Fragment() {
         dateRangePicker.addOnPositiveButtonClickListener { dateSelected ->
             start_field.text = SpannableStringBuilder(convertLongToTime(dateSelected.first))
             end_field.text = SpannableStringBuilder(convertLongToTime(dateSelected.second))
+        }
+
+        btnSubmit.setOnClickListener {
+            val stringArray = autoCompleteTextView.text.split("-").toTypedArray()
+            val carId = stringArray[0].trim { it <= ' ' }.toInt()
+
+            val carObject = CarIdRequest(
+                id = carId
+            )
+            val rentalPlan = PostRentalPlanRequest(
+                car = carObject,
+                availableFrom = convertDateToYearMonthDay(start_field.text.toString()),
+                availableUntil = convertDateToYearMonthDay(end_field.text.toString()),
+                price = price_rental_plan.editText?.text.toString().replace(",",".").toDouble()
+            )
+            viewModel.postRentalPlan(rentalPlan)
+
+            val directions = RentalPlanCreateFragmentDirections.actionRentalPlanCreateFragmentToRentalPlanListFragment()
+            findNavController().navigate(directions)
         }
     }
 
@@ -102,6 +135,16 @@ class RentalPlanCreateFragment: Fragment() {
         val date = Date(time)
         val format = SimpleDateFormat(
             "dd-MM-yyyy",
+            Locale.getDefault())
+        return format.format(date)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun convertDateToYearMonthDay(input: String): String {
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val date = LocalDate.parse(input, formatter)
+        val format = SimpleDateFormat(
+            "yyyy-MM-dd",
             Locale.getDefault())
         return format.format(date)
     }

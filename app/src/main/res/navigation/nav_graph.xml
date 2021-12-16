@@ -352,5 +352,12 @@
         android:name="com.rentmycar.rentmycar.fragment.RentalPlanCreateFragment"
         android:label="@string/rental_plan_create"
         tools:layout="@layout/fragment_rental_plan_create">
+
+        <action android:id="@+id/action_rentalPlanCreateFragment_to_rentalPlanListFragment"
+            app:destination="@+id/rentalPlanListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 </navigation>

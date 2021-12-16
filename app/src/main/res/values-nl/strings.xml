@@ -148,6 +148,7 @@
     <string name="submit">Bevestig</string>
     <string name="car_list">%1$d - %2$s %3$s %4$s</string>
     <string name="price_per_hour">Prijs per uur</string>
+    <string name="user_dashboard_title">Hi, %1$s %2$s</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>
