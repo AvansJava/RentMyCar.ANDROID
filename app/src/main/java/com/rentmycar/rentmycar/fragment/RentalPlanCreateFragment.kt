@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.logging.SimpleFormatter
 
 class RentalPlanCreateFragment: Fragment() {
 
@@ -96,8 +97,8 @@ class RentalPlanCreateFragment: Fragment() {
             )
             val rentalPlan = PostRentalPlanRequest(
                 car = carObject,
-                availableFrom = convertDateToYearMonthDay(start_field.text.toString()),
-                availableUntil = convertDateToYearMonthDay(end_field.text.toString()),
+                availableFrom = start_field.text.toString(),
+                availableUntil = end_field.text.toString(),
                 price = price_rental_plan.editText?.text.toString().replace(",",".").toDouble()
             )
             viewModel.postRentalPlan(rentalPlan)
@@ -133,16 +134,6 @@ class RentalPlanCreateFragment: Fragment() {
 
     private fun convertLongToTime(time: Long): String {
         val date = Date(time)
-        val format = SimpleDateFormat(
-            "dd-MM-yyyy",
-            Locale.getDefault())
-        return format.format(date)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun convertDateToYearMonthDay(input: String): String {
-        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        val date = LocalDate.parse(input, formatter)
         val format = SimpleDateFormat(
             "yyyy-MM-dd",
             Locale.getDefault())
