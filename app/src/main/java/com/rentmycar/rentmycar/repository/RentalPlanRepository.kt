@@ -26,18 +26,6 @@ class RentalPlanRepository {
         return RentalPlanMapper.buildFrom(response = request.body, car = car)
     }
 
-    suspend fun getRentalPlanByCar(carId: Int): RentalPlan? {
-        val request = NetworkLayer.rentalPlanClient.getRentalPlanByCar(carId)
-
-        if (request.failed || !request.isSuccessful) {
-            Toast.makeText(RentMyCarApplication.context,
-                RentMyCarApplication.context.getString(R.string.error_get_rental_plan), Toast.LENGTH_LONG).show()
-            return null
-        }
-        val car = carRepository.getCarById(request.body.carId)
-        return RentalPlanMapper.buildFrom(response = request.body, car = car)
-    }
-
     suspend fun postRentalPlan(rentalPlan: PostRentalPlanRequest): RentalPlan? {
         val request = NetworkLayer.rentalPlanClient.postRentalPlan(rentalPlan)
 

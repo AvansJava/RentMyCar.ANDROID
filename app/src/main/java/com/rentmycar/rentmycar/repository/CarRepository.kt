@@ -6,11 +6,14 @@ import android.widget.Toast
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.CarMapper
+import com.rentmycar.rentmycar.domain.mapper.RentalPlanMapper
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.Location
+import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.network.NetworkLayer;
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 import com.rentmycar.rentmycar.room.RentMyCarDatabase
+import com.rentmycar.rentmycar.viewmodel.RentalPlanViewModel
 import com.rentmycar.rentmycar.room.Car as CarRoom
 
 class CarRepository {
@@ -34,10 +37,13 @@ class CarRepository {
                 val location = locationRepository.getLocationById(item.locationId)
             }
 
+            val rentalPlan = getRentalPlanByCar(item.id)
+
             val resource = getCarResourcesByCar(item.id)
             val car: Car = CarMapper.buildFrom(
                 response = item,
-                resources = resource
+                resources = resource,
+                rentalPlan = rentalPlan
             )
             carList.add(car)
         }
@@ -57,17 +63,20 @@ class CarRepository {
         }
 
         val resourceRequest = getCarResourcesByCar(request.body.id)
+        val rentalPlan = getRentalPlanByCar(request.body.id)
 
         return if (location != null) {
             CarMapper.buildFromWithLocation(
                 response = request.body,
                 resources = resourceRequest,
-                location = location
+                location = location,
+                rentalPlan = rentalPlan
             )
         } else {
             CarMapper.buildFrom(
                 response = request.body,
                 resources = resourceRequest,
+                rentalPlan = rentalPlan
             )
         }
     }
@@ -93,10 +102,13 @@ class CarRepository {
 
         request.body.forEach { item ->
 
+            val rentalPlan = getRentalPlanByCar(item.id)
+
             val resource = getCarResourcesByCar(item.id)
             val car: Car = CarMapper.buildFrom(
                 response = item,
-                resources = resource
+                resources = resource,
+                rentalPlan = rentalPlan
             )
             carList.add(car)
         }
@@ -149,12 +161,14 @@ class CarRepository {
             CarMapper.buildFromWithLocation(
                 response = request.body,
                 resources = emptyList(),
-                location = location
+                location = location,
+                rentalPlan = null
             )
         } else {
             CarMapper.buildFrom(
                 response = request.body,
                 resources = emptyList(),
+                rentalPlan = null
             )
         }
     }
@@ -168,8 +182,18 @@ class CarRepository {
 
         return CarMapper.buildFrom(
             response = request.body,
-            resources = emptyList()
+            resources = emptyList(),
+            rentalPlan = null
         )
+    }
+
+    suspend fun getRentalPlanByCar(carId: Int): RentalPlan? {
+        val request = NetworkLayer.rentalPlanClient.getRentalPlanByCar(carId)
+
+        if (request.failed || !request.isSuccessful) {
+            return null
+        }
+        return RentalPlanMapper.buildFrom(response = request.body, car = null)
     }
 }
 

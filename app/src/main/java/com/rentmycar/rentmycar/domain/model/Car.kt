@@ -11,6 +11,7 @@ data class Car (
     val carType: String,
     val resources: List<CarResource>?,
     val location: Location?,
+    val rentalPlan: RentalPlan?,
     val createdAt: String?,
     val updatedAt: String?,
     val userId: Int?

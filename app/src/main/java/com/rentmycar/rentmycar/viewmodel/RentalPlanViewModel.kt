@@ -16,9 +16,6 @@ class RentalPlanViewModel: ViewModel() {
     private val _rentalPlanByIdLiveData = MutableLiveData<RentalPlan?>()
     val rentalPlanByIdLiveData: LiveData<RentalPlan?> = _rentalPlanByIdLiveData
 
-    private val _rentalPlanByCarLiveData = MutableLiveData<RentalPlan?>()
-    val rentalPlanByCarLiveData: LiveData<RentalPlan?> = _rentalPlanByCarLiveData
-
     private val _deleteRentalPlanLiveData = MutableLiveData<String>()
     val deleteRentalPlanLiveData: LiveData<String?> = _deleteRentalPlanLiveData
 
@@ -29,13 +26,6 @@ class RentalPlanViewModel: ViewModel() {
         viewModelScope.launch {
             val response = rentalPlanRepository.getRentalPlanById(id)
             _rentalPlanByIdLiveData.postValue(response)
-        }
-    }
-
-    fun getRentalPlanByCar(carId: Int) {
-        viewModelScope.launch {
-            val response = rentalPlanRepository.getRentalPlanByCar(carId)
-            _rentalPlanByCarLiveData.postValue(response)
         }
     }
 

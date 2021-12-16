@@ -53,7 +53,7 @@ class CarListEpoxyController(
         }
 
         cars.forEach { car ->
-            if (car != null) {
+            if (car?.rentalPlan != null) {
                 CarListItemHeaderModel(car, onCarSelected).id("header_{$car.id}").addTo(this)
 
                 var items = car.resources!!.map { resource ->
@@ -82,7 +82,7 @@ class CarListEpoxyController(
                     .numViewsToShowOnScreen(1f)
                     .addTo(this)
 
-                CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_${car.id}").addTo(this)
+                CarListItemFooterEpoxyModel(car.id, car.rentalPlan!!.price, onCarSelected).id("footer_${car.id}").addTo(this)
             }
         }
     }

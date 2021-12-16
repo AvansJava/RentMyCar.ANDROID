@@ -17,11 +17,6 @@ import kotlinx.coroutines.launch
 class CarViewModel: ViewModel() {
 
     private val carRepository = CarRepository()
-    private val rentalPlanRepository = RentalPlanRepository()
-    private val locationRepository = LocationRepository()
-
-    private val _rentalPlanByIdLiveData = MutableLiveData<RentalPlan?>()
-    val rentalPlanByIdLiveData: LiveData<RentalPlan?> = _rentalPlanByIdLiveData
 
     private val _carListLiveData = MutableLiveData<List<Car?>>()
     val carListLiveData: LiveData<List<Car?>> = _carListLiveData
@@ -42,12 +37,6 @@ class CarViewModel: ViewModel() {
         }
     }
 
-    fun getRentalPlanByCar(carId: Int) {
-        viewModelScope.launch {
-            val response = rentalPlanRepository.getRentalPlanByCar(carId)
-            _rentalPlanByIdLiveData.postValue(response)
-        }
-    }
 
     fun getCarById(id: Int) {
         viewModelScope.launch {

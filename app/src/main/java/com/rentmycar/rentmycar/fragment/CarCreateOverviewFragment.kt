@@ -110,7 +110,8 @@ class CarCreateOverviewFragment: Fragment() {
                             location = newLocation,
                             createdAt = null,
                             updatedAt = null,
-                            resources = null
+                            resources = null,
+                            rentalPlan = null
                         )
                     }
                     viewModel.carByIdLiveData.observe(viewLifecycleOwner) { createdCar ->

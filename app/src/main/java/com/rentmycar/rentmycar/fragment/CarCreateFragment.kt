@@ -87,7 +87,8 @@ class CarCreateFragment: Fragment() {
                     createdAt = null,
                     updatedAt = null,
                     resources = null,
-                    location = null
+                    location = null,
+                    rentalPlan = null
                 ))
                 val directions = CarCreateFragmentDirections.actionCarCreateFragmentToCarDetailsFragment(carId)
                 findNavController().navigate(directions)
