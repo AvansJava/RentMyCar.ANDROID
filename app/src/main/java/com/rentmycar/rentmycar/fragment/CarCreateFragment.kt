@@ -1,7 +1,6 @@
 package com.rentmycar.rentmycar.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import androidx.navigation.fragment.navArgs
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.domain.mapper.CarMapper
 import com.rentmycar.rentmycar.room.Car
 import com.rentmycar.rentmycar.viewmodel.CarViewModel
 import kotlinx.android.synthetic.main.fragment_car_create.*
@@ -31,7 +29,7 @@ class CarCreateFragment: Fragment() {
         super.onResume()
 
         val carTypes = resources.getStringArray(R.array.car_types)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.model_car_type_list_item, carTypes)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.model_dropdown_list_item, carTypes)
         autoCompleteTextView.setAdapter(arrayAdapter)
     }
 

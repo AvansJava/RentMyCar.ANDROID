@@ -145,6 +145,9 @@
     <string name="available_until">End date</string>
     <string name="create_rental_plan">Create Rental Plan</string>
     <string name="car_car">Car</string>
+    <string name="submit">Submit</string>
+    <string name="car_list">%1$d - %2$s %3$s %4$s</string>
+    <string name="price_per_hour">Price per hour</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

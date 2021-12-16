@@ -49,8 +49,10 @@
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/start_field"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="date"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,8 +72,10 @@
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/end_field"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="date"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,19 +98,19 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:hint="@string/car_car"/>
-            
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/car_cost_price"
+            android:id="@+id/price_rental_plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/car_cost_price"
+            android:hint="@string/price_per_hour"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
             android:paddingTop="20dp"
             app:startIconDrawable="@drawable/ic_baseline_euro_24"
-            app:startIconContentDescription="@string/car_cost_price"
+            app:startIconContentDescription="@string/price_per_hour"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/car_car"
@@ -114,7 +118,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,12 +133,12 @@
             android:layout_marginTop="10dp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:text="@string/next"
+            android:text="@string/submit"
             android:textColor="@color/white_smoke"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/car_cost_price" />
+            app:layout_constraintTop_toBottomOf="@+id/price_rental_plan" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

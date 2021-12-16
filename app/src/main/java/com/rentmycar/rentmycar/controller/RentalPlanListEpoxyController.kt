@@ -12,6 +12,8 @@ import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.HeaderEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class RentalPlanListEpoxyController(
     private val onRentalPlanSelected: (Int) -> Unit
@@ -82,13 +84,23 @@ class RentalPlanListEpoxyController(
 
             carTextView.text = RentMyCarApplication.context.getString(R.string.car_brand_model,
                 rentalPlan.car?.brand, rentalPlan.car?.brandType, rentalPlan.car?.model)
-            availableFromTextView.text = rentalPlan.availableFrom
-            availableUntilTextView.text = rentalPlan.availableUntil
+            availableFromTextView.text = convertDate(rentalPlan.availableFrom)
+            availableUntilTextView.text = convertDate(rentalPlan.availableUntil)
             priceTextView.text = RentMyCarApplication.context.getString(R.string.rental_plan_price, rentalPlan.price)
 
             root.setOnClickListener {
                 rentalPlan.id?.let { it1 -> onRentalPlanSelected(it1) }
             }
+        }
+
+
+        private fun convertDate(input: String): String {
+            val date = SimpleDateFormat("yyyy-MM-dd",
+                Locale.getDefault()).parse(input)
+            val format = SimpleDateFormat(
+                "dd-MM-yyyy",
+                Locale.getDefault())
+            return format.format(date!!)
         }
     }
 }
