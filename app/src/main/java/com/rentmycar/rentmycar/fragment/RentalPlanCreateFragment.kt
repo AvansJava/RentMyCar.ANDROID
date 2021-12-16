@@ -116,7 +116,7 @@ class RentalPlanCreateFragment: Fragment() {
             }
 
             cars.forEach { car ->
-                val carName = RentMyCarApplication.context.getString(R.string.car_list, car?.id, car?.brand, car?.brand, car?.model)
+                val carName = RentMyCarApplication.context.getString(R.string.car_list, car?.id, car?.brand, car?.brandType, car?.model)
                 carList = append(carList, carName)
             }
 
