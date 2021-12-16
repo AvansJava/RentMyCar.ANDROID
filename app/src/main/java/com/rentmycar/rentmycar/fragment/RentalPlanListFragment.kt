@@ -1,6 +1,7 @@
 package com.rentmycar.rentmycar.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.controller.LocationListEpoxyController
 import com.rentmycar.rentmycar.controller.RentalPlanListEpoxyController
-import com.rentmycar.rentmycar.viewmodel.LocationViewModel
 import com.rentmycar.rentmycar.viewmodel.RentalPlanViewModel
-import kotlinx.android.synthetic.main.fragment_location_list.*
 import kotlinx.android.synthetic.main.fragment_rental_plan_list.*
 
 class RentalPlanListFragment: Fragment() {

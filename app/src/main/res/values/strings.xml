@@ -128,6 +128,8 @@
     <string name="rental_plan_list">Rental Plan Overview</string>
     <string name="rental_plan_details">Rental Plan Details</string>
     <string name="rental_plan_create">Create Rental Plan</string>
+    <string name="no_rental_plans_found">No rental plans found</string>
+    <string name="no_rental_plans_available">No rental plans available</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

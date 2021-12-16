@@ -10,7 +10,7 @@ import com.rentmycar.rentmycar.network.NetworkLayer
 class RentalPlanRepository {
 
     suspend fun getRentalPlanById(id: Int): RentalPlan? {
-        val request = NetworkLayer.rentalPlantClient.getRentalPlanById(id)
+        val request = NetworkLayer.rentalPlanClient.getRentalPlanById(id)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context,
@@ -22,7 +22,7 @@ class RentalPlanRepository {
     }
 
     suspend fun getRentalPlanByCar(carId: Int): RentalPlan? {
-        val request = NetworkLayer.rentalPlantClient.getRentalPlanByCar(carId)
+        val request = NetworkLayer.rentalPlanClient.getRentalPlanByCar(carId)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context,
@@ -34,7 +34,7 @@ class RentalPlanRepository {
     }
 
     suspend fun postRentalPlan(rentalPlan: RentalPlan): RentalPlan? {
-        val request = NetworkLayer.rentalPlantClient.postRentalPlan(rentalPlan)
+        val request = NetworkLayer.rentalPlanClient.postRentalPlan(rentalPlan)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context,
@@ -46,7 +46,7 @@ class RentalPlanRepository {
     }
 
     suspend fun deleteRentalPlan(id: Int): String? {
-        val request = NetworkLayer.rentalPlantClient.deleteRentalPlan(id)
+        val request = NetworkLayer.rentalPlanClient.deleteRentalPlan(id)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context,
@@ -59,7 +59,7 @@ class RentalPlanRepository {
 
     suspend fun getRentalPlans(): List<RentalPlan?> {
         val rentalPlanList = mutableListOf<RentalPlan>()
-        val request = NetworkLayer.rentalPlantClient.getRentalPlans()
+        val request = NetworkLayer.rentalPlanClient.getRentalPlans()
 
         if (request.failed || !request.isSuccessful) {
             return emptyList()

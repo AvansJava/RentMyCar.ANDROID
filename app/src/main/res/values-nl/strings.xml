@@ -128,6 +128,8 @@
     <string name="rental_plan_list">Verhuurplan Overzicht</string>
     <string name="rental_plan_details">Verhuurplan Details</string>
     <string name="rental_plan_create">Maak nieuw verhuurplan</string>
+    <string name="no_rental_plans_found">Geen verhuurplannen gevonden</string>
+    <string name="no_rental_plans_available">Er zijn geen verhuurplannen beschikbaar.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

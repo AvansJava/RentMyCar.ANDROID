@@ -14,6 +14,7 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.LocationListEpoxyController
 import com.rentmycar.rentmycar.viewmodel.LocationViewModel
+import com.rentmycar.rentmycar.viewmodel.RentalPlanViewModel
 import kotlinx.android.synthetic.main.fragment_location_list.*
 
 class LocationListFragment: Fragment() {
@@ -21,7 +22,7 @@ class LocationListFragment: Fragment() {
     private val epoxyController = LocationListEpoxyController(::onLocationSelected)
     private val viewModel: LocationViewModel by lazy {
         ViewModelProvider(this)[LocationViewModel::class.java]
-}
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

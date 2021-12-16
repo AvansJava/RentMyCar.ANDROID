@@ -46,7 +46,7 @@ object NetworkLayer {
     val userClient = UserClient(userService)
     val carClient = CarClient(carService)
     val locationClient = LocationClient(locationService)
-    val rentalPlantClient = RentalPlanClient(rentalPlanService)
+    val rentalPlanClient = RentalPlanClient(rentalPlanService)
 
     private fun getLoggingHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()

@@ -6,6 +6,7 @@ import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
+import com.rentmycar.rentmycar.epoxy.HeaderEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 
 class RentalPlanListEpoxyController(
@@ -32,13 +33,13 @@ class RentalPlanListEpoxyController(
             return
         }
 
-        LocationListEpoxyController.HeaderEpoxyModel(RentMyCarApplication.context.getString(R.string.my_locations))
+        HeaderEpoxyModel(RentMyCarApplication.context.getString(R.string.my_rental_plans))
             .id("header").addTo(this)
 
-        if (locations.isEmpty()) {
+        if (rentalPlans.isEmpty()) {
             val localException = LocalException(
-                RentMyCarApplication.context.getString(R.string.no_locations_found),
-                RentMyCarApplication.context.getString(R.string.no_locations_available)
+                RentMyCarApplication.context.getString(R.string.no_rental_plans_found),
+                RentMyCarApplication.context.getString(R.string.no_rental_plans_available)
             )
             EmptyListEpoxyModel(localException).id("emptyList").addTo(this)
             return
