@@ -67,8 +67,8 @@ class CarCreateFragment: Fragment() {
                 model = car_model.editText?.text?.trim { it <= ' ' }.toString(),
                 licensePlateNumber = car_license_plate.editText?.text?.trim { it <= ' ' }.toString(),
                 carType = autoCompleteTextView.text.toString(),
-                consumption = car_consumption.editText?.text?.trim { it <= ' ' }.toString().toDouble(),
-                costPrice = car_cost_price.editText?.text?.trim { it <= ' ' }.toString().toInt(),
+                consumption = car_consumption.editText?.text?.trim { it <= ' ' }.toString().replace(",",".").toDouble(),
+                costPrice = car_cost_price.editText?.text?.trim { it <= ' ' }.toString().replace(",",".").toDouble().toInt(),
                 userId = preference.getUserId(),
                 locationId = null
             )

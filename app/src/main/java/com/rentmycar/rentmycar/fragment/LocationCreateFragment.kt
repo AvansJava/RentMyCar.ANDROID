@@ -100,8 +100,14 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
                 when (true) {
                     updateLocation -> {
                         viewModel.updateLocation(locationId, location)
+                        val directions =
+                            LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
+                        findNavController().navigate(directions)
                     } carId < 0 -> {
                         viewModel.postLocation(location)
+                    val directions =
+                        LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
+                    findNavController().navigate(directions)
                     } else -> {
                         val roomLocation = Location(
                             id = null,
@@ -116,9 +122,6 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
                         viewModel.createLocation(requireContext(), roomLocation)
                     }
                 }
-                val directions =
-                    LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
-                findNavController().navigate(directions)
             } else {
                 Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.no_results_found), Toast.LENGTH_SHORT).show()
             }
