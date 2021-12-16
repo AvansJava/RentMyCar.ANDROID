@@ -114,6 +114,11 @@ class CarDetailsEpoxyController(
             carType = car!!.carType
         ).id("data_point_4").addTo(this)
 
+        DataPointEpoxyModel(
+            title = RentMyCarApplication.context.getString(R.string.price),
+            description = RentMyCarApplication.context.getString(R.string.price_value, car!!.rentalPlan?.price)
+        ).id("data_point_3").addTo(this)
+
         if (car!!.location != null) {
             LocationEpoxyModel(
                 location = car!!.location,
