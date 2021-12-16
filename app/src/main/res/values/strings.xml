@@ -120,6 +120,14 @@
     <string name="error_put_car">Couldn\'t update car. Please try again later.</string>
     <string name="error_get_user">Couldn\'t find user</string>
     <string name="add_resource">Add Photo</string>
+    <string name="error_post_rental_plan">Can\'t create rental plan. Please try again later.</string>
+    <string name="error_get_rental_plan">No rental plan found.</string>
+    <string name="error_delete_rental_plan">Cannot delete rental plan because timeslots have been booked</string>
+    <string name="my_rental_plans">Rental Plans</string>
+    <string name="add_rental_plan">Add Rental Plan</string>
+    <string name="rental_plan_list">Rental Plan Overview</string>
+    <string name="rental_plan_details">Rental Plan Details</string>
+    <string name="rental_plan_create">Create Rental Plan</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

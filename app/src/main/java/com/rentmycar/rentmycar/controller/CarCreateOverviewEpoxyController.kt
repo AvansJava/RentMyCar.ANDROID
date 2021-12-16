@@ -6,6 +6,7 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
+import com.rentmycar.rentmycar.epoxy.HeaderEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.room.Car as CarRoom
@@ -105,14 +106,6 @@ class CarCreateOverviewEpoxyController(
 
         if (createdCar != null) {
             ButtonsEpoxyModel(createdCar!!.id, onContinueSelected).id("buttons").addTo(this)
-        }
-    }
-
-    data class HeaderEpoxyModel(
-        val header: String
-    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
-        override fun ModelHeaderBinding.bind() {
-            nameTextView.text = header
         }
     }
 

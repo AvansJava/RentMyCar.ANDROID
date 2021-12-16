@@ -11,6 +11,7 @@ import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
+import com.rentmycar.rentmycar.epoxy.HeaderEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
@@ -84,15 +85,6 @@ class CarListEpoxyController(
                 CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_{$car.id}").addTo(this)
             }
         }
-    }
-
-    data class HeaderEpoxyModel(
-        val header: String
-    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
-        override fun ModelHeaderBinding.bind() {
-            nameTextView.text = header
-        }
-
     }
 
     data class CarListItemHeaderModel(

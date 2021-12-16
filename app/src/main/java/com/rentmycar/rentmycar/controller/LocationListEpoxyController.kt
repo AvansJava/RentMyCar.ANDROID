@@ -3,13 +3,11 @@ package com.rentmycar.rentmycar.controller
 import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.databinding.ModelHeaderBinding
-import com.rentmycar.rentmycar.databinding.ModelLocalExceptionErrorStateBinding
-import com.rentmycar.rentmycar.databinding.ModelLocationListHeaderBinding
 import com.rentmycar.rentmycar.databinding.ModelLocationListItemBinding
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.domain.model.Location
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
+import com.rentmycar.rentmycar.epoxy.HeaderEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 
@@ -54,15 +52,6 @@ class LocationListEpoxyController(
                 LocationListItemModel(location, onLocationSelected).id("header_{location.id}").addTo(this)
             }
         }
-    }
-
-    data class HeaderEpoxyModel(
-        val header: String
-    ): ViewBindingKotlinModel<ModelHeaderBinding>(R.layout.model_header) {
-        override fun ModelHeaderBinding.bind() {
-            nameTextView.text = header
-        }
-
     }
 
     data class LocationListItemModel(

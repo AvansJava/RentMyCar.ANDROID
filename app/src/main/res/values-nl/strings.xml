@@ -120,6 +120,14 @@
     <string name="error_put_car">Kan auto niet bewerken. Probeer het later opnieuw.</string>
     <string name="error_get_user">Geen gebruiker gevonden.</string>
     <string name="add_resource">Voeg foto toe</string>
+    <string name="error_post_rental_plan">Kan geen verhuurplan aanmaken. Probeer het later opnieuw.</string>
+    <string name="error_get_rental_plan">Geen verhuurplan gevonden.</string>
+    <string name="error_delete_rental_plan">Kan verhuurplan niet verwijderen. Gereserveerde tijdsloten gevonden.</string>
+    <string name="my_rental_plans">Verhuurplannen</string>
+    <string name="add_rental_plan">Voeg verhuurplan toe</string>
+    <string name="rental_plan_list">Verhuurplan Overzicht</string>
+    <string name="rental_plan_details">Verhuurplan Details</string>
+    <string name="rental_plan_create">Maak nieuw verhuurplan</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

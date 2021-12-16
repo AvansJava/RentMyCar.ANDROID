@@ -19,6 +19,9 @@
                 <item android:id="@+id/userCarListFragment"
                     android:title="@string/user_car_list"
                     android:icon="@drawable/ic_baseline_directions_car_24"/>
+                <item android:id="@+id/rentalPlanListFragment"
+                    android:title="@string/my_rental_plans"
+                    android:icon="@drawable/ic_baseline_date_range_24"/>
                 <item android:id="@+id/locationListFragment"
                     android:title="@string/my_locations"
                     android:icon="@drawable/ic_baseline_location_on_24"/>

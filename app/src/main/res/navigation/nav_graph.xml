@@ -317,4 +317,40 @@
             app:popExitAnim="@anim/slide_out_to_right"/>
 
     </fragment>
+
+    <fragment android:id="@+id/rentalPlanListFragment"
+        android:name="com.rentmycar.rentmycar.fragment.RentalPlanListFragment"
+        android:label="@string/rental_plan_list"
+        tools:layout="@layout/fragment_rental_plan_list">
+
+        <action android:id="@+id/action_rentalPlanListFragment_to_rentalPlanDetailsFragment"
+            app:destination="@+id/rentalPlanDetailsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_rentalPlanListFragment_to_rentalPlanCreateFragment"
+            app:destination="@+id/rentalPlanCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/rentalPlanDetailsFragment"
+        android:name="com.rentmycar.rentmycar.fragment.RentalPlanDetailsFragment"
+        android:label="@string/rental_plan_details"
+        tools:layout="@layout/fragment_rental_plan_details">
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
+
+    <fragment android:id="@+id/rentalPlanCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.RentalPlanCreateFragment"
+        android:label="@string/rental_plan_create"
+        tools:layout="@layout/fragment_rental_plan_create">
+    </fragment>
 </navigation>
