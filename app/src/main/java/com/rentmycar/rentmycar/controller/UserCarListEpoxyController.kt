@@ -84,7 +84,7 @@ class UserCarListEpoxyController(
     ): ViewBindingKotlinModel<ModelCarListItemHeaderBinding>(R.layout.model_car_list_item_header) {
 
         override fun ModelCarListItemHeaderBinding.bind() {
-            titleTextView.text = RentMyCarApplication.context.getString(R.string.car_brand_model, car.brand, car.brand, car.model)
+            titleTextView.text = RentMyCarApplication.context.getString(R.string.car_brand_model, car.brand, car.brandType, car.model)
             when(car.carType) {
                 "BEV" -> {
                     carTypeImageView.setImageResource(R.drawable.ic_baseline_electric_car_24)
