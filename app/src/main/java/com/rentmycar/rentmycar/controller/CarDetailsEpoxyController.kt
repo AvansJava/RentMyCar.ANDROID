@@ -12,7 +12,9 @@ import com.rentmycar.rentmycar.config.Config
 import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.CarResource
+import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.domain.model.Location
+import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
@@ -50,7 +52,11 @@ class CarDetailsEpoxyController(
         }
 
         if (car == null) {
-            // todo error state
+            val localException = LocalException(
+                RentMyCarApplication.context.getString(R.string.no_car_found),
+                RentMyCarApplication.context.getString(R.string.no_car_available)
+            )
+            EmptyListEpoxyModel(localException).id("emptyList").addTo(this)
             return
         }
 

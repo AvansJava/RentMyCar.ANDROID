@@ -49,7 +49,7 @@ class LocationListEpoxyController(
 
         locations.forEach { location ->
             if (location != null) {
-                LocationListItemModel(location, onLocationSelected).id("header_{location.id}").addTo(this)
+                LocationListItemModel(location, onLocationSelected).id("header_${location.id}").addTo(this)
             }
         }
     }

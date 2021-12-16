@@ -23,6 +23,8 @@
     <string name="choose_a_car">Kies een auto</string>
     <string name="no_cars_found">Geen auto\'s gevonden</string>
     <string name="no_cars_available">Er zijn momenteel geen auto\'s beschikbaar.</string>
+    <string name="no_car_found">Auto niet gevonden</string>
+    <string name="no_car_available">Auto bestaat niet.</string>
     <string name="settings">Instellingen</string>
     <string name="user_dashboard">Gebruiker Dashboard</string>
     <string name="cars">Auto\'s</string>
@@ -130,6 +132,19 @@
     <string name="rental_plan_create">Maak nieuw verhuurplan</string>
     <string name="no_rental_plans_found">Geen verhuurplannen gevonden</string>
     <string name="no_rental_plans_available">Er zijn geen verhuurplannen beschikbaar.</string>
+    <string name="no_rental_plan_found">Geen verhuurplan gevonden</string>
+    <string name="no_rental_plan_available">Dit verhuurplan bestaat niet.</string>
+    <string name="end_date">Einddatum:</string>
+    <string name="start_date">Startdatum:</string>
+    <string name="car">Auto:</string>
+    <string name="price">Prijs (per uur):</string>
+    <string name="rental_plan_price">€%.2f%n</string>
+    <string name="rental_plan">Verhuurplan</string>
+    <string name="select_dates">Selecteer Datums</string>
+    <string name="available_from">Startdatum</string>
+    <string name="available_until">Einddatum</string>
+    <string name="create_rental_plan">Maak verhuurplan</string>
+    <string name="car_car">Auto</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

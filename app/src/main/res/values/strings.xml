@@ -23,6 +23,8 @@
     <string name="choose_a_car">Choose a car</string>
     <string name="no_cars_found">No cars found</string>
     <string name="no_cars_available">There are no cars available at the moment.</string>
+    <string name="no_car_found">Car not found</string>
+    <string name="no_car_available">Car does not exist.</string>
     <string name="settings">Settings</string>
     <string name="user_dashboard">User Dashboard</string>
     <string name="cars">Cars</string>
@@ -130,6 +132,19 @@
     <string name="rental_plan_create">Create Rental Plan</string>
     <string name="no_rental_plans_found">No rental plans found</string>
     <string name="no_rental_plans_available">No rental plans available</string>
+    <string name="no_rental_plan_found">Geen verhuurplan gevonden</string>
+    <string name="no_rental_plan_available">Dit verhuurplan bestaat niet.</string>
+    <string name="end_date">End date:</string>
+    <string name="start_date">Start date:</string>
+    <string name="car">Car:</string>
+    <string name="price">Price (per hour):</string>
+    <string name="rental_plan_price">€%.2f%n</string>
+    <string name="rental_plan">Rental Plan</string>
+    <string name="select_dates">Select Dates</string>
+    <string name="available_from">Start date</string>
+    <string name="available_until">End date</string>
+    <string name="create_rental_plan">Create Rental Plan</string>
+    <string name="car_car">Car</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

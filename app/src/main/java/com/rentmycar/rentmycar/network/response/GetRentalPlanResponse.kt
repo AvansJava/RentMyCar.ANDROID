@@ -8,5 +8,5 @@ data class GetRentalPlanResponse(
     val userId: Int,
     val carId: Int,
     val createdAt: String,
-    val updatedAt: String
+    val updatedAt: String?
 )

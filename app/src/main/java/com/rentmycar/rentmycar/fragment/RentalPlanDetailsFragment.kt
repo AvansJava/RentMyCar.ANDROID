@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.rentmycar.rentmycar.R
 
+
 class RentalPlanDetailsFragment: Fragment() {
 
     override fun onCreateView(
@@ -20,3 +21,4 @@ class RentalPlanDetailsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 }
+

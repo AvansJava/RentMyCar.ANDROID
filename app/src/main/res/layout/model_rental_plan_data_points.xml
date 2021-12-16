@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/card_bottom_corners_rounded"
+    android:layout_marginHorizontal="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:background="@color/card_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/carLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/carTextView"
+            android:text="@string/car"
+            android:paddingHorizontal="8dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_directions_car_24"
+            app:drawableTint="@color/black"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/carTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/carLabelTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Honda H-RV EX-L" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/availableFromLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carLabelTextView"
+            app:layout_constraintEnd_toStartOf="@id/availableFromTextView"
+            android:text="@string/start_date"
+            android:paddingHorizontal="8dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_date_range_24"
+            app:drawableTint="@color/black"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/availableFromTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/availableFromLabelTextView"
+            app:layout_constraintTop_toBottomOf="@id/carTextView"
+            tools:text="2022-02-01" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/availableUntilLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_date_range_24"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="@string/end_date"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/availableUntilTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/availableFromLabelTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/availableUntilTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/availableUntilLabelTextView"
+            app:layout_constraintTop_toBottomOf="@id/availableFromTextView"
+            tools:text="2022-04-30" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/priceLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/availableUntilLabelTextView"
+            app:layout_constraintEnd_toStartOf="@id/priceTextView"
+            android:text="@string/price"
+            android:paddingHorizontal="8dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_euro_24"
+            app:drawableTint="@color/black"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/priceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/priceLabelTextView"
+            app:layout_constraintTop_toBottomOf="@id/availableUntilTextView"
+            tools:text="€80.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

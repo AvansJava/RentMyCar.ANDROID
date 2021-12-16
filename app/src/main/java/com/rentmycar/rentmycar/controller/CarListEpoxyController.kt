@@ -82,7 +82,7 @@ class CarListEpoxyController(
                     .numViewsToShowOnScreen(1f)
                     .addTo(this)
 
-                CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_{$car.id}").addTo(this)
+                CarListItemFooterEpoxyModel(car.id, 80.00, onCarSelected).id("footer_${car.id}").addTo(this)
             }
         }
     }

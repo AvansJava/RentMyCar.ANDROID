@@ -1,16 +1,10 @@
 package com.rentmycar.rentmycar.network
 
 import com.rentmycar.rentmycar.config.Config.BASE_URL
-import com.rentmycar.rentmycar.network.client.CarClient
-import com.rentmycar.rentmycar.network.client.LocationClient
-import com.rentmycar.rentmycar.network.client.RentalPlanClient
-import com.rentmycar.rentmycar.network.client.UserClient
+import com.rentmycar.rentmycar.network.client.*
 import com.rentmycar.rentmycar.network.interceptor.AuthInterceptor
 import com.rentmycar.rentmycar.network.interceptor.JwtInterceptor
-import com.rentmycar.rentmycar.network.service.CarService
-import com.rentmycar.rentmycar.network.service.LocationService
-import com.rentmycar.rentmycar.network.service.RentalPlanService
-import com.rentmycar.rentmycar.network.service.UserService
+import com.rentmycar.rentmycar.network.service.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -43,10 +37,15 @@ object NetworkLayer {
         retrofit.create(RentalPlanService::class.java)
     }
 
+    private val availabilityService: AvailabilityService by lazy {
+        retrofit.create(AvailabilityService::class.java)
+    }
+
     val userClient = UserClient(userService)
     val carClient = CarClient(carService)
     val locationClient = LocationClient(locationService)
     val rentalPlanClient = RentalPlanClient(rentalPlanService)
+    val availabilityClient = AvailabilityClient(availabilityService)
 
     private fun getLoggingHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()
