@@ -32,9 +32,12 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_header.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_create_overview_buttons.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_data_point.xml" value="0.17831813576494426" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_fab_resource_button.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_header.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_map.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_details_title.xml" value="0.17831813576494426" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_floating_resource_button.xml" value="0.15833333333333333" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_image_carousel_item.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_car_type_list_item.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_dropdown_list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/model_header_user_dashboard.xml" value="0.36666666666666664" />
