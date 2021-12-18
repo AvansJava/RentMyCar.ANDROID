@@ -1,6 +1,7 @@
 package com.rentmycar.rentmycar.controller
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.EpoxyModel
@@ -18,8 +19,10 @@ import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityResponse>() {
 
@@ -47,13 +50,10 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
             TimeslotGridTitleEpoxyModel(title = date).id("day").addTo(this)
 
             mapEntry.value.forEach { timeslot ->
-                val timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
-                val startAt = timeslot.startAt
-                val endAt = timeslot.endAt
-                TimeslotGridItemEpoxyModel(timeslot.productId, timeslot.status, startAt, endAt).id("timeslot").addTo(this)
-                super.addModels(mapEntry.value)
+                TimeslotGridItemEpoxyModel(timeslot.productId, timeslot.status, timeslot.startAt, timeslot.endAt).id("timeslot").addTo(this)
             }
         }
+        super.addModels(models)
     }
 
     data class TimeslotGridTitleEpoxyModel(
@@ -76,8 +76,19 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
         val endAt: String
     ): ViewBindingKotlinModel<ModelCarAvailabilityTimeslotBinding>(R.layout.model_car_availability_timeslot) {
         override fun ModelCarAvailabilityTimeslotBinding.bind() {
-            timeslotTextView.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, startAt, endAt)
+            val formattedStartAt = convertDate(startAt)
+            val formattedEndAt = convertDate(endAt)
+
+            timeslotTextView.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
         }
 
+        private fun convertDate(input: String): String {
+            val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss",
+                Locale.getDefault()).parse(input)
+            val format = SimpleDateFormat(
+                "HH:mm",
+                Locale.getDefault())
+            return format.format(date!!)
+        }
     }
 }

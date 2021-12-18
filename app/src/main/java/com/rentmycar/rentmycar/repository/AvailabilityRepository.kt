@@ -27,8 +27,6 @@ class AvailabilityRepository {
     suspend fun getCarAvailability(carId: Int, pageSize: Int, pageNumber: Int): GetAvailabilityPageResponse? {
         val request = client().getCarAvailability(carId, pageSize, pageNumber)
 
-        Log.d("tag", request.toString())
-
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_availability_page), Toast.LENGTH_LONG).show()
             return null
