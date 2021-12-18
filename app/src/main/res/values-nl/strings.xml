@@ -150,6 +150,9 @@
     <string name="price_per_hour">Prijs per uur</string>
     <string name="user_dashboard_title">Hi, %1$s %2$s</string>
     <string name="price_value">€%.2f%n</string>
+    <string name="book_now">Reserveer nu</string>
+    <string name="book_car">Reserveer Auto</string>
+    <string name="edit_car">Bewerk auto</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

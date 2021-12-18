@@ -31,7 +31,8 @@ class CarDetailsFragment: Fragment() {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
 
-    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked, ::onEditLocationBtnClicked, ::onEditCarBtnClicked)
+    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked,
+        ::onEditLocationBtnClicked, ::onEditCarBtnClicked, ::onBookNowBtnClicked)
     private val safeArgs: CarDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -70,21 +71,25 @@ class CarDetailsFragment: Fragment() {
 
     private fun onLocationBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(
-                locationId!!
-            )
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(id)
         findNavController().navigate(directions)
     }
 
     private fun onEditLocationBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, locationId!!)
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, id)
         findNavController().navigate(directions)
     }
 
     private fun onEditCarBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarCreateFragment(updateCar = true, carId!!)
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarCreateFragment(updateCar = true, id)
+        findNavController().navigate(directions)
+    }
+
+    private fun onBookNowBtnClicked(id: Int) {
+        val directions =
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarAvailabilityFragment(id)
         findNavController().navigate(directions)
     }
 }

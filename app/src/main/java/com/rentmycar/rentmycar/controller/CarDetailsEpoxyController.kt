@@ -22,7 +22,8 @@ import com.squareup.picasso.Picasso
 class CarDetailsEpoxyController(
     private val onLocationBtnClicked: (Int) -> Unit,
     private val onEditLocationBtnClicked: (Int) -> Unit,
-    private val onEditCarBtnClicked: (Int) -> Unit
+    private val onEditCarBtnClicked: (Int) -> Unit,
+    private val onBookNowBtnClicked: (Int) -> Unit
 ): EpoxyController() {
 
     private val preference = AppPreference(RentMyCarApplication.context)
@@ -90,6 +91,8 @@ class CarDetailsEpoxyController(
             .models(items)
             .numViewsToShowOnScreen(1f)
             .addTo(this)
+
+        ActionButtonEpoxyModel(car, onBookNowBtnClicked).id("btn_action").addTo(this)
 
         TitleEpoxyModel(car, hideEditButtons, onEditCarBtnClicked).id("title").addTo(this)
 
@@ -260,6 +263,20 @@ class CarDetailsEpoxyController(
                 if (car?.id != null) {
                     carEditImageView.setBackgroundColor(Color.parseColor("#BABABA"))
                     onEditCarBtnClicked(car.id)
+                }
+            }
+        }
+    }
+
+    data class ActionButtonEpoxyModel(
+        val car: Car?,
+        val onBookNowBtnClicked: (Int) -> Unit
+    ): ViewBindingKotlinModel<ModelCarDetailsActionButtonBinding>(R.layout.model_car_details_action_button) {
+        override fun ModelCarDetailsActionButtonBinding.bind() {
+
+            btnBookNow.setOnClickListener {
+                if (car?.id != null) {
+                    onBookNowBtnClicked(car.id)
                 }
             }
         }
