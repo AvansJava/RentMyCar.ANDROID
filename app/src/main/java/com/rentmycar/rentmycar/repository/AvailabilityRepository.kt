@@ -1,8 +1,13 @@
 package com.rentmycar.rentmycar.repository
 
+import android.util.Log
+import android.widget.Toast
+import com.rentmycar.rentmycar.R
+import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.AvailabilityMapper
 import com.rentmycar.rentmycar.domain.model.Availability
 import com.rentmycar.rentmycar.network.NetworkLayer
+import com.rentmycar.rentmycar.network.response.GetAvailabilityPageResponse
 import com.rentmycar.rentmycar.network.response.GetTimeslotResponse
 
 class AvailabilityRepository {
@@ -19,20 +24,16 @@ class AvailabilityRepository {
         return request.body
     }
 
-    suspend fun getCarAvailability(carId: Int): List<Availability> {
-        val availabilityList = mutableListOf<Availability>()
-        val request = client().getCarAvailability(carId)
+    suspend fun getCarAvailability(carId: Int, pageSize: Int, pageNumber: Int): GetAvailabilityPageResponse? {
+        val request = client().getCarAvailability(carId, pageSize, pageNumber)
+
+        Log.d("tag", request.toString())
 
         if (request.failed || !request.isSuccessful) {
-            return emptyList()
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_availability_page), Toast.LENGTH_LONG).show()
+            return null
         }
 
-        request.body.forEach { item ->
-            val availability: Availability = AvailabilityMapper.buildFrom(
-                response = item
-            )
-            availabilityList.add(availability)
-        }
-        return availabilityList
+        return request.body
     }
 }

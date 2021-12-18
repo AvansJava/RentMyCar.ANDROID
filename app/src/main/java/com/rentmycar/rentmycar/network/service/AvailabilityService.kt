@@ -1,10 +1,12 @@
 package com.rentmycar.rentmycar.network.service
 
+import com.rentmycar.rentmycar.network.response.GetAvailabilityPageResponse
 import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
 import com.rentmycar.rentmycar.network.response.GetTimeslotResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface AvailabilityService {
 
@@ -13,6 +15,8 @@ interface AvailabilityService {
 
     @GET("rent/{carId}/availability/")
     suspend fun getCarAvailability(
-        @Path("carId") carId: Int
-    ): Response<List<GetAvailabilityResponse>>
+        @Path("carId") carId: Int,
+        @Query("pageSize") pageSize: Int,
+        @Query("pageNumber") pageNumber: Int,
+    ): Response<GetAvailabilityPageResponse>
 }

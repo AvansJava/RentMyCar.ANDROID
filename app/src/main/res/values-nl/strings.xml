@@ -153,6 +153,10 @@
     <string name="book_now">Reserveer nu</string>
     <string name="book_car">Reserveer Auto</string>
     <string name="edit_car">Bewerk auto</string>
+    <string name="no_timeslots_found">Geen tijdsloten gevonden</string>
+    <string name="no_timeslots_available">Het lijkt erop dat er geen tijdsloten beschikbaar zijn voor deze auto.</string>
+    <string name="timeslot_start_end">%1$s - %2$s</string>
+    <string name="error_get_availability_page">Kan beschikbaarheid van auto niet ophalen. Probeer het later opnieuw.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>
