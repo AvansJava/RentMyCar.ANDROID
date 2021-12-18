@@ -20,7 +20,7 @@
             android:textColor="@color/white_smoke"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:drawableLeftCompat="@drawable/ic_baseline_date_range_24"
+            app:drawableStartCompat="@drawable/ic_baseline_date_range_24"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="1 november, 2022"

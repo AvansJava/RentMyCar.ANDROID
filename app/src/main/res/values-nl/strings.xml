@@ -157,6 +157,7 @@
     <string name="no_timeslots_available">Het lijkt erop dat er geen tijdsloten beschikbaar zijn voor deze auto.</string>
     <string name="timeslot_start_end">%1$s - %2$s</string>
     <string name="error_get_availability_page">Kan beschikbaarheid van auto niet ophalen. Probeer het later opnieuw.</string>
+    <string name="date_calendar">%1$s</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

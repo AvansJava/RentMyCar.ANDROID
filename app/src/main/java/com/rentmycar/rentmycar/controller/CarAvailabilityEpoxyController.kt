@@ -22,6 +22,7 @@ import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.*
 
 class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityResponse>() {
@@ -47,10 +48,10 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
         }.forEach { mapEntry ->
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val date = LocalDate.parse(mapEntry.key, formatter).toString()
-            TimeslotGridTitleEpoxyModel(title = date).id("day").addTo(this)
+            TimeslotGridTitleEpoxyModel(title = date).id("day_${mapEntry.key}").addTo(this)
 
             mapEntry.value.forEach { timeslot ->
-                TimeslotGridItemEpoxyModel(timeslot.productId, timeslot.status, timeslot.startAt, timeslot.endAt).id("timeslot").addTo(this)
+                TimeslotGridItemEpoxyModel(timeslot.productId, timeslot.status, timeslot.startAt, timeslot.endAt).id("timeslot_${timeslot.startAt}").addTo(this)
             }
         }
         super.addModels(models)
@@ -60,12 +61,19 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
         val title: String
     ): ViewBindingKotlinModel<ModelCarAvailabilityTitleBinding>(R.layout.model_car_availability_title) {
 
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun ModelCarAvailabilityTitleBinding.bind() {
-            titleTextView.text = title
+            titleTextView.text = convertDate(title)
         }
 
         override fun getSpanSize(totalSpanCount: Int, position: Int, itemCount: Int): Int {
             return totalSpanCount
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        private fun convertDate(input: String): String {
+            val date = LocalDate.parse(input)
+            return RentMyCarApplication.context.getString(R.string.date_calendar, date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)))
         }
     }
 
@@ -75,11 +83,18 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
         val startAt: String,
         val endAt: String
     ): ViewBindingKotlinModel<ModelCarAvailabilityTimeslotBinding>(R.layout.model_car_availability_timeslot) {
+        @RequiresApi(Build.VERSION_CODES.M)
         override fun ModelCarAvailabilityTimeslotBinding.bind() {
             val formattedStartAt = convertDate(startAt)
             val formattedEndAt = convertDate(endAt)
+            timeslotCheckbox.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
 
-            timeslotTextView.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
+            if (productId != null) {
+                timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
+                timeslotCheckbox.isEnabled = false
+            } else {
+                timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_green))
+            }
         }
 
         private fun convertDate(input: String): String {
