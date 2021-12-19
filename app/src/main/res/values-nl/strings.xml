@@ -159,6 +159,22 @@
     <string name="error_get_availability_page">Kan beschikbaarheid van auto niet ophalen. Probeer het later opnieuw.</string>
     <string name="date_calendar">%1$s</string>
     <string name="make_reservation">Maak een reservering</string>
+    <string name="select_insurance">Selecteer een verzekering</string>
+    <string name="price_insurance">Prijs:</string>
+    <string name="description_insurance">Beschrijving:</string>
+    <string name="title_all_risk">All risk verzekering</string>
+    <string name="description_all_risk">Altijd verzekerd bij schade zonder eigen risico, zelfs als u het zelf veroorzaakt.</string>
+    <string name="title_all_risk_international">All risk verzekering internationaal</string>
+    <string name="description_basic_coverage">Basis verzekering bij diefstal schade of pech. €300,- eigen risico.</string>
+    <string name="description_all_risk_international">Altijd verzekerd bij schade zonder eigen risico, zelfs als u het zelf veroorzaakt. Ook in het buitenland.</string>
+    <string name="title_basic_coverage">Basis verzekering</string>
+    <string name="title_basic_coverage_international">Basis verzekering internationaal</string>
+    <string name="description_basic_coverage_international">Basis verzekering bij diefstal schade of pech, ook in het buitenland. €300,- eigen risico.</string>
+    <string name="insurance_price">€%.2f%n</string>
+    <string name="no_insurance_types_available">Er zijn momenteel geen verzekeringen beschikbaar.</string>
+    <string name="no_insurance_types_found">Geen verzekering gevonden</string>
+    <string name="error_post_reservation">Kon geen reservering aanmaken. Probeer het later opnieuw.</string>
+    <string name="reservation_overview">Reservering</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

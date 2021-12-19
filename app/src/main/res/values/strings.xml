@@ -159,6 +159,22 @@
     <string name="error_get_availability_page">Can\'t get car availability. Please try again later.</string>
     <string name="date_calendar">%1$s</string>
     <string name="make_reservation">Make a reservation</string>
+    <string name="select_insurance">Select your insurance</string>
+    <string name="price_insurance">Price:</string>
+    <string name="description_insurance">Description:</string>
+    <string name="title_all_risk">All risk insurance</string>
+    <string name="description_all_risk">Always insured with damage without excess, even if you cause it yourself.</string>
+    <string name="title_all_risk_international">All risk insurance international</string>
+    <string name="description_basic_coverage">"Basic insurance in case of theft, damage or breakdown. €300,- excess."</string>
+    <string name="description_all_risk_international">Always insured with damage without excess, even if you cause it yourself. Also internationally.</string>
+    <string name="title_basic_coverage">Basic insurance</string>
+    <string name="title_basic_coverage_international">Basic insurance international</string>
+    <string name="description_basic_coverage_international">Basic insurance in case of theft, damage or breakdown, also internationally. €300,- excess.</string>
+    <string name="insurance_price">€%.2f%n</string>
+    <string name="no_insurance_types_available">There are currently no insurances available</string>
+    <string name="no_insurance_types_found">No insurance found</string>
+    <string name="error_post_reservation">Could not create reservation. Try again later.</string>
+    <string name="reservation_overview">Reservation</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

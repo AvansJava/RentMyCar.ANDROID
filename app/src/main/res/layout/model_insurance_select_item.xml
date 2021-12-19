@@ -1,0 +1,111 @@
+<com.google.android.material.card.MaterialCardView android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/card_top_corners_rounded"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/indigo_500">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/insuranceTypeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toStartOf="@id/insuranceImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text= "All risk verzekering internationaal" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/insuranceImageView"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/insuranceTypeTextView"
+            app:srcCompat="@drawable/ic_baseline_work_24"
+            app:tint="@color/white_smoke"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_background"
+            app:layout_constraintTop_toBottomOf="@id/insuranceTypeTextView">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="@string/price_insurance"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_baseline_euro_24"
+                app:drawableTint="@color/black"
+                android:drawablePadding="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/priceLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|end"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toEndOf="@id/price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="€69.99" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/price"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="@string/description_insurance"
+                android:paddingHorizontal="8dp"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_baseline_description_24"
+                app:drawableTint="@color/black"
+                android:gravity="center"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/descriptionLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:layout_marginHorizontal="8dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toBottomOf="@id/description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Altijd verzekerd bij schade zonder eigen risico,
+                 zelfs als u het zelf veroorzaakt. Ook in het buitenland." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

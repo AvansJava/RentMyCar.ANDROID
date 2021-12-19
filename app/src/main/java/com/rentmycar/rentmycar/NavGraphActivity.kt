@@ -2,19 +2,15 @@ package com.rentmycar.rentmycar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.rentmycar.rentmycar.fragment.ReservationCreateFragment
-import java.lang.Math.log
 
 
 class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, GlobalNavigationHandler {
