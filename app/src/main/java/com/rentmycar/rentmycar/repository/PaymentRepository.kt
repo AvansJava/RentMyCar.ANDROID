@@ -3,8 +3,6 @@ package com.rentmycar.rentmycar.repository
 import android.widget.Toast
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.domain.mapper.ReservationMapper
-import com.rentmycar.rentmycar.domain.model.Reservation
 import com.rentmycar.rentmycar.network.NetworkLayer
 import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
@@ -40,11 +38,9 @@ class PaymentRepository {
         val request = client().postPaymentCallback(id, callback)
 
         if (request.failed || !request.isSuccessful) {
-            Toast.makeText(RentMyCarApplication.context,
-                RentMyCarApplication.context.getString(R.string.payment_callback_failed), Toast.LENGTH_LONG).show()
-            return null
+            return request.toString()
         }
 
-        return request.body
+        return request.toString()
     }
 }
