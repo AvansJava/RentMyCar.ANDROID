@@ -150,6 +150,11 @@
     <string name="price_per_hour">Prijs per uur</string>
     <string name="user_dashboard_title">Hi, %1$s %2$s</string>
     <string name="price_value">€%.2f%n</string>
+    <string name="dashboard_edit_detail">Dashboard details aanpassen</string>
+    <string name="street_number">Straat + huis nummer</string>
+    <string name="postal_city">Postcode</string>
+    <string name="phone_number">Telefoonnummer</string>
+    <string name="edit_details">Aanpassen</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

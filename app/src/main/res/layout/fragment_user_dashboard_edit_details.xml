@@ -1,40 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/welcome_background_car_grayscale">
 
-    <ImageView
-        android:id="@+id/opacity_layer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_60_opacity"
-        android:contentDescription="@null"/>
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnUserEditDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_baseline_edit_24"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="Edit user details"
-        app:backgroundTint="@color/teal_700"
-        app:tint="@color/white_smoke"/>
+        <ImageView
+            android:id="@+id/opacity_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_60_opacity"
+            android:contentDescription="@null"/>
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/epoxyRecyclerView"
-        app:itemSpacing="8dp"
-        android:padding="8dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:itemCount="12"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="50dp"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconContentDescription="@string/first_name"
+            app:endIconMode="clear_text">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconContentDescription="@string/last_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_name"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/street_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/street_number"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_house_24"
+            app:startIconContentDescription="@string/street_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_name"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/postal_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/postal_city"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_local_post_office_24"
+            app:startIconContentDescription="@string/postal_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/street_number"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/country"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_location_city_24"
+            app:startIconContentDescription="@string/country"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postal_city"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
+            app:startIconContentDescription="@string/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/country"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_phone_iphone_24"
+            app:startIconContentDescription="@string/phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnEditDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:backgroundTint="@color/indigo_500"
+            android:layout_marginTop="10dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/edit_details"
+            android:textColor="@color/white_smoke"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/btnSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            style="?android:attr/progressBarStyleLarge"
+            app:layout_constraintEnd_toEndOf="@id/btnEditDetails"
+            app:layout_constraintTop_toTopOf="@id/btnEditDetails"
+            app:layout_constraintBottom_toBottomOf="@id/btnEditDetails"
+            android:translationZ="10dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/horizontal_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEditDetails">
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

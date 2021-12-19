@@ -150,6 +150,11 @@
     <string name="price_per_hour">Price per hour</string>
     <string name="user_dashboard_title">Hi, %1$s %2$s</string>
     <string name="price_value">€%.2f%n</string>
+    <string name="dashboard_edit_detail">Dashboard Edit Detail</string>
+    <string name="street_number">Street + house number</string>
+    <string name="postal_city">Postcode</string>
+    <string name="phone_number">Phone number</string>
+    <string name="edit_details">Edit details</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

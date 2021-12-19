@@ -89,8 +89,8 @@
         tools:layout="@layout/fragment_user_login">
 
         <action
-            android:id="@+id/action_userDashboardFragment_to_userRegisterFragment"
-            app:destination="@id/userRegisterFragment"
+            android:id="@+id/action_userDashboardFragment_to_userDashboardEditDetailsFragment"
+            app:destination="@id/userDashboardEditDetailsFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
@@ -104,6 +104,14 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDashboardEditDetailsFragment"
+        android:name="com.rentmycar.rentmycar.fragment.UserDashboardEditDetailsFragment"
+        android:label="Edit Details"
+        tools:layout="@layout/fragment_user_dashboard_edit_details">
+
     </fragment>
 
     <fragment
