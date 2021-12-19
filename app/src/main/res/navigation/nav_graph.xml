@@ -376,5 +376,26 @@
         <argument android:name="carId"
             app:argType="integer"
             android:defaultValue="-1"/>
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationCreateFragment"
+        android:label="@string/make_reservation"
+        tools:layout="@layout/fragment_reservation_create">
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
 </navigation>

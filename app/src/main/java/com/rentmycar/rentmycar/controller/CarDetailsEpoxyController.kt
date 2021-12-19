@@ -23,7 +23,7 @@ class CarDetailsEpoxyController(
     private val onLocationBtnClicked: (Int) -> Unit,
     private val onEditLocationBtnClicked: (Int) -> Unit,
     private val onEditCarBtnClicked: (Int) -> Unit,
-    private val onBookNowBtnClicked: (Int) -> Unit
+    private val onBookNowBtnClicked: (Int, Int) -> Unit
 ): EpoxyController() {
 
     private val preference = AppPreference(RentMyCarApplication.context)
@@ -270,13 +270,13 @@ class CarDetailsEpoxyController(
 
     data class ActionButtonEpoxyModel(
         val car: Car?,
-        val onBookNowBtnClicked: (Int) -> Unit
+        val onBookNowBtnClicked: (Int, Int) -> Unit
     ): ViewBindingKotlinModel<ModelCarDetailsActionButtonBinding>(R.layout.model_car_details_action_button) {
         override fun ModelCarDetailsActionButtonBinding.bind() {
 
             btnBookNow.setOnClickListener {
                 if (car?.id != null) {
-                    onBookNowBtnClicked(car.id)
+                    car.rentalPlan!!.id?.let { it1 -> onBookNowBtnClicked(car.id, it1) }
                 }
             }
         }

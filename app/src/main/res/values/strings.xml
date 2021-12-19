@@ -158,6 +158,7 @@
     <string name="timeslot_start_end">%1$s - %2$s</string>
     <string name="error_get_availability_page">Can\'t get car availability. Please try again later.</string>
     <string name="date_calendar">%1$s</string>
+    <string name="make_reservation">Make a reservation</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
