@@ -21,10 +21,12 @@
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_create.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_details.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_location_list.xml" value="0.17831813576494426" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_payment.xml" value="0.35054347826086957" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_rental_plan_create.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_rental_plan_details.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_rental_plan_list.xml" value="0.36666666666666664" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_reservation_create.xml" value="0.35597826086956524" />
+        <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_reservation_payment.xml" value="0.5" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_car_list.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_confirmation.xml" value="0.17831813576494426" />
         <entry key="..\:/development/RentMyCar.ANDROID/app/src/main/res/layout/fragment_user_dashboard.xml" value="0.36666666666666664" />

@@ -1,6 +1,6 @@
 package com.rentmycar.rentmycar.network.response
 
-data class PostPaymentResponse(
+data class GetPaymentResponse(
     val id: Int,
     val reservationNumber: String,
     val userId: Int,

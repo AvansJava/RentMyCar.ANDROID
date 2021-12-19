@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ReservationPaymentFragment"
+    android:background="@drawable/welcome_background_car_grayscale">
+
+    <ImageView
+        android:id="@+id/opacity_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_60_opacity"
+        android:contentDescription="@null"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/card_top_corners_rounded"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="48dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/indigo_500">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/paymentTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textColor="@color/white_smoke"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintEnd_toStartOf="@id/paymentImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Payment of €1234.99" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/paymentImageView"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/paymentTitle"
+                    app:srcCompat="@drawable/ic_baseline_euro_symbol_24"
+                    app:tint="@color/white_smoke"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/card_background"
+                    app:layout_constraintTop_toBottomOf="@id/paymentTitle">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reservationTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@string/reservation_number"
+                        android:paddingHorizontal="8dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                        app:drawableTint="@color/black"
+                        android:drawablePadding="8dp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reservationLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toEndOf="@id/reservationTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="UV148X6HSY" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/paymentMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reservationTitle"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@string/payment_method_used"
+                        android:paddingHorizontal="8dp"
+                        android:drawablePadding="8dp"
+                        android:drawableLeft="@drawable/ic_baseline_money_24"
+                        app:drawableTint="@color/black"
+                        android:gravity="center"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/paymentMethodLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:paddingHorizontal="8dp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="2dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/paymentMethod"
+                        app:layout_constraintTop_toBottomOf="@id/reservationLine"
+                        tools:text="iDeal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/paymentMethod"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@string/status"
+                        android:paddingHorizontal="8dp"
+                        android:drawablePadding="8dp"
+                        tools:drawableLeft="@drawable/ic_baseline_access_time_24"
+                        app:drawableTint="@color/black"
+                        android:gravity="center"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/statusLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:paddingHorizontal="8dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="@color/black"
+                        android:paddingVertical="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toEndOf="@id/status"
+                        app:layout_constraintTop_toBottomOf="@id/paymentMethodLine"
+                        tools:text="@string/status_pending" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/priceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/status"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@string/price_insurance"
+                        android:paddingHorizontal="8dp"
+                        android:drawablePadding="8dp"
+                        android:drawableLeft="@drawable/ic_baseline_euro_symbol_24"
+                        app:drawableTint="@color/black"
+                        android:gravity="center"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/priceLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|end"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toEndOf="@id/priceTitle"
+                        app:layout_constraintTop_toBottomOf="@id/statusLine"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="€1234.99" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/poc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="8dp"
+                        android:textStyle="bold"
+                        android:paddingBottom="16dp"
+                        android:textColor="@color/light_red"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/priceLine"
+                        android:text="@string/proof_of_concept" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:layout_marginTop="8dp"
+            android:id="@+id/btnFailed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_red"
+            android:paddingVertical="16dp"
+            android:text="@string/failure"
+            android:textColor="@color/white_smoke"
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintEnd_toStartOf="@id/btnSuccess"/>
+
+        <Button
+            android:layout_marginTop="8dp"
+            android:id="@+id/btnSuccess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/btn_payment_green"
+            android:paddingVertical="16dp"
+            android:text="@string/success"
+            android:textColor="@color/white_smoke"
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnFailed"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
