@@ -25,7 +25,9 @@ class AvailabilityDataSource(
                 return@launch
             }
 
-            callback.onResult(page.content, null, page.number + 1)
+            if (page.content.isNotEmpty()) {
+                callback.onResult(page.content, null, page.number + 1)
+            }
         }
     }
 
@@ -43,7 +45,7 @@ class AvailabilityDataSource(
         coroutineScope.launch {
             val page = repository.getCarAvailability(carId, DEFAULT_PAGE_SIZE, params.key)
 
-            if (page == null) {
+            if (page == null || page.last) {
                 callback.onResult(emptyList(), null)
                 return@launch
             }

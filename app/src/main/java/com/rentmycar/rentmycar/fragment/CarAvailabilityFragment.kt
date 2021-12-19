@@ -39,7 +39,7 @@ class CarAvailabilityFragment: Fragment() {
         }
 
         viewModel =
-            ViewModelProvider(requireActivity(), AvailabilityViewModelFactory(carId = safeArgs.carId))[AvailabilityViewModel::class.java]
+            ViewModelProvider(this, AvailabilityViewModelFactory(carId = safeArgs.carId))[AvailabilityViewModel::class.java]
 
         viewModel.availabilityPagedListLiveData.observe(viewLifecycleOwner) { pagedList ->
             epoxyController.submitList(pagedList)

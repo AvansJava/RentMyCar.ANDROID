@@ -419,8 +419,7 @@
         tools:layout="@layout/fragment_reservation_create">
 
         <argument android:name="reservationNumber"
-            app:argType="String"
-            app:nullable="true"
-            android:defaultValue=""/>
+            app:argType="string"
+            app:nullable="true"/>
     </fragment>
 </navigation>

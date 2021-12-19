@@ -60,11 +60,10 @@ class CarAvailabilityEpoxyController(
                     timeslot.status,
                     timeslot.startAt,
                     timeslot.endAt,
-                    timeslot.timeslotSelected).id("timeslot_${timeslot.id}").addTo(this)
+                    timeslot.timeslotSelected
+                ).id("timeslot_${timeslot.id}").addTo(this)
             }
         }
-
-        super.addModels(models)
     }
 
     data class TimeslotGridTitleEpoxyModel(
@@ -105,8 +104,11 @@ class CarAvailabilityEpoxyController(
             if (productId != null) {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
                 timeslotCheckbox.isEnabled = false
+                timeslotCheckbox.isChecked = false
             } else {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_green))
+                timeslotCheckbox.isEnabled = true
+                timeslotCheckbox.isChecked = false
             }
 
             timeslotCheckbox.setOnClickListener {
