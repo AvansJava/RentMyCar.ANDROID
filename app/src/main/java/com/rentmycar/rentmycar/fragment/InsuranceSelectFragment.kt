@@ -22,7 +22,6 @@ import com.rentmycar.rentmycar.viewmodel.ReservationViewModel
 
 class InsuranceSelectFragment: Fragment() {
 
-    private val safeArgs: InsuranceSelectFragmentArgs by navArgs()
     private val epoxyController = InsuranceSelectEpoxyController(::onInsuranceSelected)
     private val insuranceViewModel: InsuranceViewModel by lazy {
         ViewModelProvider(this)[InsuranceViewModel::class.java]
@@ -51,10 +50,10 @@ class InsuranceSelectFragment: Fragment() {
     private fun onInsuranceSelected(insuranceTypeId: String, insurancePrice: Double) {
 
         val reservation = PostReservationRequest(
-            rentalPlan = RentalPlanIdRequest(id = safeArgs.rentalPlanId),
+            rentalPlan = RentalPlanIdRequest(id = requireArguments().getInt("rentalPlanId")),
             insuranceTypeId = insuranceTypeId,
             insurancePrice = insurancePrice,
-            timeslots = requireArguments().getParcelableArrayList<TimeslotIdRequest>("selectedTimeslots")!!.toList()
+            timeslots = requireArguments().getParcelableArrayList("selectedTimeslots")!!
         )
 
         reservationViewModel.postReservation(reservation)
@@ -80,11 +79,10 @@ class InsuranceSelectFragment: Fragment() {
     private fun observeReservation() {
         reservationViewModel.reservationLiveData.observe(viewLifecycleOwner) { reservation ->
             if (reservation != null) {
-
-//                todo implement parcelable
+                val reservationNumber = reservation.reservationNumber
 
                 val directions =
-                    InsuranceSelectFragmentDirections.actionInsuranceSelectFragmentToReservationCreateFragment()
+                    CarAvailabilityFragmentDirections.actionCarAvailabilityFragmentToReservationCreateFragment(reservationNumber)
                 findNavController().navigate(directions)
             }
         }

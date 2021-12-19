@@ -387,6 +387,13 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/insuranceSelectFragment"
@@ -410,5 +417,10 @@
         android:name="com.rentmycar.rentmycar.fragment.ReservationCreateFragment"
         android:label="@string/reservation_overview"
         tools:layout="@layout/fragment_reservation_create">
+
+        <argument android:name="reservationNumber"
+            app:argType="String"
+            app:nullable="true"
+            android:defaultValue=""/>
     </fragment>
 </navigation>
