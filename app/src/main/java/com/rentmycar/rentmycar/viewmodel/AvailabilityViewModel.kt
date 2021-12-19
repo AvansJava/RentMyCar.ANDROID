@@ -9,15 +9,13 @@ import androidx.paging.PagedList
 import com.rentmycar.rentmycar.config.Config.DEFAULT_PAGE_SIZE
 import com.rentmycar.rentmycar.config.Config.PREFETCH_DISTANCE
 import com.rentmycar.rentmycar.domain.AvailabilityDataSourceFactory
-import com.rentmycar.rentmycar.domain.model.Availability
 import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
 import com.rentmycar.rentmycar.network.response.GetTimeslotResponse
 import com.rentmycar.rentmycar.repository.AvailabilityRepository
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class AvailabilityViewModel(
-    private val carId: Int
+    carId: Int
 ): ViewModel() {
 
     private val availabilityRepository = AvailabilityRepository()

@@ -8,10 +8,7 @@ import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging.PagedListEpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
-import com.rentmycar.rentmycar.databinding.ModelCarAvailabilityTimeslotBinding
-import com.rentmycar.rentmycar.databinding.ModelCarAvailabilityTitleBinding
-import com.rentmycar.rentmycar.databinding.ModelCarDetailsTitleBinding
-import com.rentmycar.rentmycar.databinding.ModelCarListItemHeaderBinding
+import com.rentmycar.rentmycar.databinding.*
 import com.rentmycar.rentmycar.domain.model.Availability
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.LocalException
@@ -25,15 +22,20 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 
-class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityResponse>() {
+class CarAvailabilityEpoxyController(
+    private val timeslotSelected: (Int) -> Unit
+): PagedListEpoxyController<GetAvailabilityResponse>() {
 
     override fun buildItemModel(currentPosition: Int, item: GetAvailabilityResponse?): EpoxyModel<*> {
         return TimeslotGridItemEpoxyModel(
-            productId = item!!.productId,
+            id = item!!.id,
+            rentalPlanId = item.rentalPlanId,
+            productId = item.productId,
             status = item.status,
             startAt = item.startAt,
-            endAt = item.endAt
-        ).id(item.startAt)
+            endAt = item.endAt,
+            timeslotSelected = timeslotSelected
+        ).id(item.id)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -51,10 +53,17 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
             TimeslotGridTitleEpoxyModel(title = date).id("day_${mapEntry.key}").addTo(this)
 
             mapEntry.value.forEach { timeslot ->
-                TimeslotGridItemEpoxyModel(timeslot.productId, timeslot.status, timeslot.startAt, timeslot.endAt).id("timeslot_${timeslot.startAt}").addTo(this)
+                TimeslotGridItemEpoxyModel(
+                    timeslot.id,
+                    timeslot.rentalPlanId,
+                    timeslot.productId,
+                    timeslot.status,
+                    timeslot.startAt,
+                    timeslot.endAt,
+                    timeslot.timeslotSelected
+                ).id("timeslot_${timeslot.id}").addTo(this)
             }
         }
-        super.addModels(models)
     }
 
     data class TimeslotGridTitleEpoxyModel(
@@ -78,10 +87,13 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
     }
 
     data class TimeslotGridItemEpoxyModel(
+        val id: Int,
+        val rentalPlanId: Int,
         val productId: Int?,
         val status: String,
         val startAt: String,
-        val endAt: String
+        val endAt: String,
+        val timeslotSelected: (Int) -> Unit
     ): ViewBindingKotlinModel<ModelCarAvailabilityTimeslotBinding>(R.layout.model_car_availability_timeslot) {
         @RequiresApi(Build.VERSION_CODES.M)
         override fun ModelCarAvailabilityTimeslotBinding.bind() {
@@ -92,8 +104,15 @@ class CarAvailabilityEpoxyController: PagedListEpoxyController<GetAvailabilityRe
             if (productId != null) {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
                 timeslotCheckbox.isEnabled = false
+                timeslotCheckbox.isChecked = false
             } else {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_green))
+                timeslotCheckbox.isEnabled = true
+                timeslotCheckbox.isChecked = false
+            }
+
+            timeslotCheckbox.setOnClickListener {
+                timeslotSelected(id)
             }
         }
 

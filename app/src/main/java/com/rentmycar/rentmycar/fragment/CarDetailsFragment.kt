@@ -25,8 +25,6 @@ import kotlinx.android.synthetic.main.model_car_details_title.*
 class CarDetailsFragment: Fragment() {
 
     private val userId = AppPreference(RentMyCarApplication.context).getUserId()
-    private var locationId: Int? = null
-    private var carId: Int? = null
     private val viewModel: CarViewModel by lazy {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
@@ -57,9 +55,6 @@ class CarDetailsFragment: Fragment() {
             } else {
                 btnAddResource.visibility = View.GONE
             }
-
-            locationId = car.location?.id
-            carId = car.id
         }
 
         val carId = safeArgs.carId
@@ -87,9 +82,9 @@ class CarDetailsFragment: Fragment() {
         findNavController().navigate(directions)
     }
 
-    private fun onBookNowBtnClicked(id: Int) {
+    private fun onBookNowBtnClicked(carId: Int, rentalPlanId: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarAvailabilityFragment(id)
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarAvailabilityFragment(carId = carId, rentalPlanId = rentalPlanId)
         findNavController().navigate(directions)
     }
 }
