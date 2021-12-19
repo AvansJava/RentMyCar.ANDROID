@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.network.service
 
+import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
 import com.rentmycar.rentmycar.network.response.GetPaymentResponse
 import retrofit2.Response
@@ -19,4 +20,10 @@ interface PaymentService {
     suspend fun getPayment(
         @Path("id") id: Int
     ): Response<GetPaymentResponse>
+
+    @POST("payment/{id}/callback/")
+    suspend fun postPaymentCallback(
+        @Path("id") id: Int,
+        @Body callback: PostPaymentCallbackRequest
+    ): Response<String>
 }

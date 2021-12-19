@@ -82,6 +82,7 @@ class ReservationCreateFragment: Fragment() {
         if (!paymentMethods.contains(paymentMethod)) {
             autoCompleteTextView.error = RentMyCarApplication.context.getString(R.string.payment_method_empty)
         }
+        autoCompleteTextView.error = null
 
         val paymentRequest = PostPaymentRequest(
             reservation = ReservationNumberRequest(reservationNumber),

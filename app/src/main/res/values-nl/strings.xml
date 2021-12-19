@@ -212,6 +212,8 @@
     <string name="paypal">PayPal</string>
     <string name="mastercard">Mastercard</string>
     <string name="invalid_payment_method">Betaalmethode ongeldig</string>
+    <string name="payment_callback_failed">Betaling callback mislukt</string>
+    <string name="reservation_overview_title">Overzicht reserveringen</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

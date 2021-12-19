@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
+import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.response.GetPaymentResponse
 import com.rentmycar.rentmycar.viewmodel.PaymentViewModel
 import kotlinx.android.synthetic.main.fragment_reservation_payment.*
@@ -17,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_reservation_payment.*
 class ReservationPaymentFragment: Fragment() {
 
     private val safeArgs: ReservationPaymentFragmentArgs by navArgs()
+    private var paymentCallbackStatus: String? = null
 
     private val viewModel: PaymentViewModel by lazy {
         ViewModelProvider(this)[PaymentViewModel::class.java]
@@ -37,11 +40,33 @@ class ReservationPaymentFragment: Fragment() {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
-
             setBindings(payment)
 
+            btnFailed.setOnClickListener {
+                paymentCallbackStatus = "CANCELED"
+
+                postPaymentCallback(payment, paymentCallbackStatus!!)
+            }
+
+            btnSuccess.setOnClickListener {
+                paymentCallbackStatus = "SUCCESS"
+
+                postPaymentCallback(payment, paymentCallbackStatus!!)
+            }
         }
         viewModel.getPayment(safeArgs.paymentId)
+
+        viewModel.paymentCallbackLiveData.observe(viewLifecycleOwner) { callback ->
+
+            if (callback == null) {
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.payment_callback_failed), Toast.LENGTH_LONG).show()
+                return@observe
+            }
+
+            val directions =
+                ReservationPaymentFragmentDirections.actionReservationPaymentFragmentToReservationOverviewFragment()
+            findNavController().navigate(directions)
+        }
     }
 
     private fun setBindings(payment: GetPaymentResponse) {
@@ -90,5 +115,14 @@ class ReservationPaymentFragment: Fragment() {
                 status.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_cancel_24, 0, 0, 0)
             }
         }
+    }
+
+    private fun postPaymentCallback(payment: GetPaymentResponse, paymentCallbackStatus: String) {
+        val callbackRequest = PostPaymentCallbackRequest(
+            externalReference = payment.reservationNumber,
+            status = paymentCallbackStatus
+        )
+
+        viewModel.postPaymentCallback(payment.id, callbackRequest)
     }
 }

@@ -6,6 +6,7 @@ import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.mapper.ReservationMapper
 import com.rentmycar.rentmycar.domain.model.Reservation
 import com.rentmycar.rentmycar.network.NetworkLayer
+import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
 import com.rentmycar.rentmycar.network.response.GetPaymentResponse
 
@@ -29,6 +30,18 @@ class PaymentRepository {
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context,
                 RentMyCarApplication.context.getString(R.string.error_get_payment), Toast.LENGTH_LONG).show()
+            return null
+        }
+
+        return request.body
+    }
+
+    suspend fun postPayment(id: Int, callback: PostPaymentCallbackRequest): String? {
+        val request = client().postPaymentCallback(id, callback)
+
+        if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context,
+                RentMyCarApplication.context.getString(R.string.payment_callback_failed), Toast.LENGTH_LONG).show()
             return null
         }
 
