@@ -175,9 +175,33 @@
     <string name="no_insurance_types_found">No insurance found</string>
     <string name="error_post_reservation">Could not create reservation. Try again later.</string>
     <string name="reservation_overview">Reservation</string>
+    <string name="error_get_timeslots">Unable to retrieve timeslots. Try again later.</string>
+    <string name="reservation_number">Reservation Number:</string>
+    <string name="price_reservation">Total:</string>
+    <string name="price_amount_reservation">€%.2f%n</string>
+    <string name="price_product">Rent Car:</string>
+    <string name="price_reservation_insurance">Price Insurance:</string>
+    <string name="insurance_type">Insurance Type:</string>
+    <string name="description">Description:</string>
+    <string name="status_completed">COMPLETED</string>
+    <string name="status_pending">PENDING</string>
+    <string name="status_canceled">CANCELED</string>
+    <string name="status_expired">EXPIRED</string>
+    <string name="status">Status:</string>
+    <string name="error_get_reservation">Reservation not found. Try again later.</string>
+    <string name="pay">Pay Now</string>
+    <string name="payment_method">Select payment method</string>
+    <string name="payment_method_empty">Please select a payment method</string>
+    <string name="error_post_payment">Cannot create payment. Please try again later.</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
         <item>Fuel Cell Electric Vehicle (FCEV)</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>iDeal</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>PayPal</item>
     </string-array>
 </resources>

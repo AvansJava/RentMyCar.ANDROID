@@ -49,6 +49,10 @@ object NetworkLayer {
         retrofit.create(ReservationService::class.java)
     }
 
+    private val paymentService: PaymentService by lazy {
+        retrofit.create(PaymentService::class.java)
+    }
+
     val userClient = UserClient(userService)
     val carClient = CarClient(carService)
     val locationClient = LocationClient(locationService)
@@ -56,6 +60,7 @@ object NetworkLayer {
     val availabilityClient = AvailabilityClient(availabilityService)
     val insuranceClient = InsuranceClient(insuranceService)
     val reservationClient = ReservationClient(reservationService)
+    val paymentClient = PaymentClient(paymentService)
 
     private fun getLoggingHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()

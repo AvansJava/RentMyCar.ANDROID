@@ -175,9 +175,33 @@
     <string name="no_insurance_types_found">Geen verzekering gevonden</string>
     <string name="error_post_reservation">Kon geen reservering aanmaken. Probeer het later opnieuw.</string>
     <string name="reservation_overview">Reservering</string>
+    <string name="error_get_timeslots">Kan tijdsloten niet ophalen. Probeer het later opnieuw.</string>
+    <string name="reservation_number">Reserveringsnummer:</string>
+    <string name="price_reservation">Totaal:</string>
+    <string name="price_amount_reservation">€%.2f%n</string>
+    <string name="price_product">Huur Auto:</string>
+    <string name="price_reservation_insurance">Prijs verzekering:</string>
+    <string name="insurance_type">Soort verzekering:</string>
+    <string name="description">Beschrijving:</string>
+    <string name="status_completed">AFGEROND</string>
+    <string name="status_pending">IN BEHANDELING</string>
+    <string name="status_canceled">GECANCELD</string>
+    <string name="status_expired">VERLOPEN</string>
+    <string name="status">Status:</string>
+    <string name="error_get_reservation">Reservering niet gevonden. Probeer het later opnieuw.</string>
+    <string name="pay">Betalen</string>
+    <string name="payment_method">Selecteer betaalmethode</string>
+    <string name="payment_method_empty">Selecteer een betaalmethode</string>
+    <string name="error_post_payment">Kan betaling niet starten. Probeer het later opnieuw.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>
         <item>Waterstof Auto (FCEV)</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>iDeal</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>PayPal</item>
     </string-array>
 </resources>

@@ -92,7 +92,9 @@ class CarDetailsEpoxyController(
             .numViewsToShowOnScreen(1f)
             .addTo(this)
 
-        ActionButtonEpoxyModel(car, onBookNowBtnClicked).id("btn_action").addTo(this)
+        if (car?.rentalPlan != null) {
+            ActionButtonEpoxyModel(car, onBookNowBtnClicked).id("btn_action").addTo(this)
+        }
 
         TitleEpoxyModel(car, hideEditButtons, onEditCarBtnClicked).id("title").addTo(this)
 
@@ -171,7 +173,12 @@ class CarDetailsEpoxyController(
 
         override fun ModelCarImageCarouselItemBinding.bind() {
             Picasso.get().load(filePath).into(headerImageView)
+
+            root.setOnClickListener {
+                // unset carlist listener
+            }
         }
+
     }
 
     data class DataPointConsumptionEpoxyModel(

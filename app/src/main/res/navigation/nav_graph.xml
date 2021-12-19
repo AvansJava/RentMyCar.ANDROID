@@ -420,6 +420,13 @@
 
         <argument android:name="reservationNumber"
             app:argType="string"
-            app:nullable="true"/>
+            android:defaultValue=""/>
+
+        <action android:id="@+id/action_reservationCreateFragment_to_carListFragment"
+            app:destination="@+id/carListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 </navigation>

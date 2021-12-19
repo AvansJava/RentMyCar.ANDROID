@@ -82,8 +82,14 @@ class InsuranceSelectFragment: Fragment() {
                 val reservationNumber = reservation.reservationNumber
 
                 val directions =
-                    CarAvailabilityFragmentDirections.actionCarAvailabilityFragmentToReservationCreateFragment(reservationNumber)
-                findNavController().navigate(directions)
+                    reservationNumber?.let {
+                        CarAvailabilityFragmentDirections.actionCarAvailabilityFragmentToReservationCreateFragment(
+                            it
+                        )
+                    }
+                if (directions != null) {
+                    findNavController().navigate(directions)
+                }
             }
         }
     }
