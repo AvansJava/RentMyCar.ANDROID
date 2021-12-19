@@ -41,11 +41,11 @@ class UserDashboardEpoxyController: EpoxyController() {
 
         HeaderEpoxyModel(
             title = RentMyCarApplication.context.getString(R.string.user_dashboard_title, getUserResponse!!.firstName, getUserResponse!!.lastName),
-            address1 = "${getUserResponse!!.street} ${getUserResponse!!.houseNumber}",
-            address2 = "${getUserResponse!!.postalCode} ${getUserResponse!!.city}",
-            address3 = "${getUserResponse!!.country}",
-            phoneNumber = "${getUserResponse!!.phoneNumber}",
-            emailAddress = getUserResponse!!.email,
+            address1 = RentMyCarApplication.context.getString(R.string.user_dashboard_address1, getUserResponse!!.street, getUserResponse!!.houseNumber),
+            address2 = RentMyCarApplication.context.getString(R.string.user_dashboard_address2, getUserResponse!!.postalCode, getUserResponse!!.city),
+            address3 = RentMyCarApplication.context.getString(R.string.user_dashboard_address3, getUserResponse!!.country),
+            phoneNumber = RentMyCarApplication.context.getString(R.string.user_dashboard_phone, getUserResponse!!.phoneNumber),
+            emailAddress = RentMyCarApplication.context.getString(R.string.user_dashboard_email, getUserResponse!!.email),
         ).id("header").addTo(this)
     }
 
