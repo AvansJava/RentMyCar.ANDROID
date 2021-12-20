@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -109,7 +110,7 @@ class CarDetailsFragment: Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 101) {
+        if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
             val uri = data?.data
             val file = File(uri?.path)
             val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
