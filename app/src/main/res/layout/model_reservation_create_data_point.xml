@@ -1,0 +1,39 @@
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/card_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginHorizontal="8dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="@string/price_insurance"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:gravity="center"
+        tools:drawableLeft="@drawable/ic_baseline_euro_symbol_24"
+        app:drawableTint="@color/black"
+        android:drawablePadding="8dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/titleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="€1129.99" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

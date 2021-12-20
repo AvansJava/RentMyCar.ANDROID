@@ -48,6 +48,7 @@ class CarCreateFragment: Fragment() {
 
         if (updateCar) {
             btnNext.text = RentMyCarApplication.context.getString(R.string.update_car)
+            nameTextView.text = RentMyCarApplication.context.getString(R.string.edit_car)
         }
 
         viewModel.carResult.observe(viewLifecycleOwner) { carResult ->

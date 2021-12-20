@@ -55,7 +55,6 @@ class RentalPlanRepository {
         val request = NetworkLayer.rentalPlanClient.getRentalPlans()
 
         if (request.failed || !request.isSuccessful) {
-            Log.d("tag", request.toString())
             return emptyList()
         }
 

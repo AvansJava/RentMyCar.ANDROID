@@ -149,15 +149,83 @@
     <string name="car_list">%1$d - %2$s %3$s %4$s</string>
     <string name="price_per_hour">Price per hour</string>
     <string name="user_dashboard_title">Hi, %1$s %2$s</string>
+    <string name="user_dashboard_address1">%1$s %2$s</string>
+    <string name="user_dashboard_address2">%1$s %2$s</string>
+    <string name="user_dashboard_address3">%1$s</string>
+    <string name="user_dashboard_phone">%1$s</string>
+    <string name="user_dashboard_email">%1$s</string>
     <string name="price_value">€%.2f%n</string>
     <string name="dashboard_edit_detail">Dashboard Edit Detail</string>
     <string name="street_number">Street + house number</string>
     <string name="postal_city">Postcode</string>
     <string name="phone_number">Phone number</string>
     <string name="edit_details">Edit details</string>
+    <string name="book_now">Book now</string>
+    <string name="book_car">Book Car</string>
+    <string name="edit_car">Edit car</string>
+    <string name="no_timeslots_found">No timeslots found</string>
+    <string name="no_timeslots_available">It looks like there are no timeslots available for this car.</string>
+    <string name="timeslot_start_end">%1$s - %2$s</string>
+    <string name="error_get_availability_page">Can\'t get car availability. Please try again later.</string>
+    <string name="date_calendar">%1$s</string>
+    <string name="make_reservation">Make a reservation</string>
+    <string name="select_insurance">Select your insurance</string>
+    <string name="price_insurance">Price:</string>
+    <string name="description_insurance">Description:</string>
+    <string name="title_all_risk">All risk insurance</string>
+    <string name="description_all_risk">Always insured with damage without excess, even if you cause it yourself.</string>
+    <string name="title_all_risk_international">All risk insurance international</string>
+    <string name="description_basic_coverage">"Basic insurance in case of theft, damage or breakdown. €300,- excess."</string>
+    <string name="description_all_risk_international">Always insured with damage without excess, even if you cause it yourself. Also internationally.</string>
+    <string name="title_basic_coverage">Basic insurance</string>
+    <string name="title_basic_coverage_international">Basic insurance international</string>
+    <string name="description_basic_coverage_international">Basic insurance in case of theft, damage or breakdown, also internationally. €300,- excess.</string>
+    <string name="insurance_price">€%.2f%n</string>
+    <string name="no_insurance_types_available">There are currently no insurances available</string>
+    <string name="no_insurance_types_found">No insurance found</string>
+    <string name="error_post_reservation">Could not create reservation. Try again later.</string>
+    <string name="reservation_overview">Reservation</string>
+    <string name="error_get_timeslots">Unable to retrieve timeslots. Try again later.</string>
+    <string name="reservation_number">Reservation Number:</string>
+    <string name="price_reservation">Total:</string>
+    <string name="price_amount_reservation">€%.2f%n</string>
+    <string name="price_product">Rent Car:</string>
+    <string name="price_reservation_insurance">Price Insurance:</string>
+    <string name="insurance_type">Insurance Type:</string>
+    <string name="description">Description:</string>
+    <string name="status_completed">COMPLETED</string>
+    <string name="status_pending">PENDING</string>
+    <string name="status_canceled">CANCELED</string>
+    <string name="status_expired">EXPIRED</string>
+    <string name="status">Status:</string>
+    <string name="error_get_reservation">Reservation not found. Try again later.</string>
+    <string name="pay">Pay Now</string>
+    <string name="payment_method">Select payment method</string>
+    <string name="payment_method_empty">Please select a payment method</string>
+    <string name="error_post_payment">Cannot create payment. Please try again later.</string>
+    <string name="error_get_payment">Cannot find payment</string>
+    <string name="payment_method_used">Payment method:</string>
+    <string name="proof_of_concept">RentMyCar is currently still in the concept phase. This means you cannot make an actual reservation yet. Please click one of the buttons below to simulate a payment and continue.</string>
+    <string name="failure">Failure</string>
+    <string name="success">Success</string>
+    <string name="payment">Payment</string>
+    <string name="payment_of_amount">Payment of €%.2f%n</string>
+    <string name="ideal">iDeal</string>
+    <string name="visa_card">Visa</string>
+    <string name="paypal">PayPal</string>
+    <string name="mastercard">Mastercard</string>
+    <string name="invalid_payment_method">Payment Method is invalid</string>
+    <string name="payment_callback_failed">Payment callback failed</string>
+    <string name="reservation_overview_title">Reservation Overview</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
         <item>Fuel Cell Electric Vehicle (FCEV)</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>iDeal</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>PayPal</item>
     </string-array>
 </resources>

@@ -18,8 +18,10 @@
     <color name="grey">#BABABA</color>
     <color name="hyperlink">#2ECDD0</color>
     <color name="light_red">#FF3131</color>
+    <color name="light_green">#86DC3D</color>
     <color name="background">#fafafa</color>
     <color name="card_background">#f7eee1</color>
     <color name="hyperlink_clicked">#FF018786</color>
     <color name="text_field_background_gray">#e0e0e0</color>
+    <color name="btn_payment_green">#009400</color>
 </resources>

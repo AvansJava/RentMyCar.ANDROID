@@ -25,13 +25,12 @@ import kotlinx.android.synthetic.main.model_car_details_title.*
 class CarDetailsFragment: Fragment() {
 
     private val userId = AppPreference(RentMyCarApplication.context).getUserId()
-    private var locationId: Int? = null
-    private var carId: Int? = null
     private val viewModel: CarViewModel by lazy {
         ViewModelProvider(this)[CarViewModel::class.java]
     }
 
-    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked, ::onEditLocationBtnClicked, ::onEditCarBtnClicked)
+    private val epoxyController = CarDetailsEpoxyController(::onLocationBtnClicked,
+        ::onEditLocationBtnClicked, ::onEditCarBtnClicked, ::onBookNowBtnClicked)
     private val safeArgs: CarDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -56,9 +55,6 @@ class CarDetailsFragment: Fragment() {
             } else {
                 btnAddResource.visibility = View.GONE
             }
-
-            locationId = car.location?.id
-            carId = car.id
         }
 
         val carId = safeArgs.carId
@@ -70,21 +66,25 @@ class CarDetailsFragment: Fragment() {
 
     private fun onLocationBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(
-                locationId!!
-            )
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationDetailsFragment(id)
         findNavController().navigate(directions)
     }
 
     private fun onEditLocationBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, locationId!!)
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToLocationCreateFragment(true, id)
         findNavController().navigate(directions)
     }
 
     private fun onEditCarBtnClicked(id: Int) {
         val directions =
-            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarCreateFragment(updateCar = true, carId!!)
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarCreateFragment(updateCar = true, id)
+        findNavController().navigate(directions)
+    }
+
+    private fun onBookNowBtnClicked(carId: Int, rentalPlanId: Int) {
+        val directions =
+            CarDetailsFragmentDirections.actionCarDetailsFragmentToCarAvailabilityFragment(carId = carId, rentalPlanId = rentalPlanId)
         findNavController().navigate(directions)
     }
 }

@@ -37,7 +37,6 @@ class CarViewModel: ViewModel() {
         }
     }
 
-
     fun getCarById(id: Int) {
         viewModelScope.launch {
             val response = carRepository.getCarById(id)

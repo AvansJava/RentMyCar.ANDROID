@@ -240,6 +240,13 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carDetailsFragment_to_carAvailabilityFragment"
+            app:destination="@+id/carAvailabilityFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/userWelcomeBackFragment"
@@ -367,5 +374,97 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/carAvailabilityFragment"
+        android:name="com.rentmycar.rentmycar.fragment.CarAvailabilityFragment"
+        android:label="@string/book_car"
+        tools:layout="@layout/fragment_car_availability">
+
+        <argument android:name="carId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_insuranceSelectFragment"
+            app:destination="@+id/insuranceSelectFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/insuranceSelectFragment"
+        android:name="com.rentmycar.rentmycar.fragment.InsuranceSelectFragment"
+        android:label="@string/select_insurance"
+        tools:layout="@layout/fragment_insurance_select">
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_insuranceSelectFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationCreateFragment"
+        android:label="@string/reservation_overview"
+        tools:layout="@layout/fragment_reservation_create">
+
+        <argument android:name="reservationNumber"
+            app:argType="string"
+            android:defaultValue=""/>
+
+        <action android:id="@+id/action_reservationCreateFragment_to_carListFragment"
+            app:destination="@+id/carListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_reservationCreateFragment_to_reservationPaymentFragment"
+            app:destination="@+id/reservationPaymentFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationPaymentFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationPaymentFragment"
+        android:label="@string/payment"
+        tools:layout="@layout/fragment_reservation_payment">
+
+        <argument android:name="paymentId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_reservationPaymentFragment_to_reservationOverviewFragment"
+            app:destination="@+id/reservationOverviewFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationOverviewFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationOverviewFragment"
+        android:label="@string/reservation_overview_title"
+        tools:layout="@layout/fragment_reservation_payment">
     </fragment>
 </navigation>
