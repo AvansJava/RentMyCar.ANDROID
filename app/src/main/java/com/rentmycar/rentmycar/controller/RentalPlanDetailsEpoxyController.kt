@@ -78,8 +78,12 @@ class RentalPlanDetailsEpoxyController(
             val formattedEndAt = convertDate(endAt)
             timeslotCheckbox.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
 
-            if (productId != null || status == "CLOSED") {
+            if (productId != null) {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
+                timeslotCheckbox.isEnabled = true
+                timeslotCheckbox.isChecked = false
+            } else if (status == "CLOSED") {
+                timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.grey))
                 timeslotCheckbox.isEnabled = true
                 timeslotCheckbox.isChecked = false
             } else {
