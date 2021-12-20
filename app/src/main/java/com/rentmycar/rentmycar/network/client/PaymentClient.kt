@@ -1,5 +1,7 @@
 package com.rentmycar.rentmycar.network.client
 
+import com.rentmycar.rentmycar.network.request.PostPaymentRequest
+import com.rentmycar.rentmycar.network.response.PostPaymentResponse
 import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
 import com.rentmycar.rentmycar.network.response.GetPaymentResponse
@@ -11,6 +13,9 @@ class PaymentClient(
     private val paymentService: PaymentService
 ): BaseClient() {
 
+    suspend fun postPayment(payment: PostPaymentRequest): SimpleResponse<PostPaymentResponse> {
+        return safeApiCall { paymentService.postPayment(payment) }
+    }
     suspend fun postPayment(payment: PostPaymentRequest): SimpleResponse<GetPaymentResponse> {
         return safeApiCall { paymentService.postPayment(payment) }
     }

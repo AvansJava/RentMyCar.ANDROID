@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.airbnb.epoxy.EpoxyRecyclerView
+import androidx.navigation.fragment.navArgs
 import com.rentmycar.rentmycar.R
-import com.rentmycar.rentmycar.controller.UserLoginEpoxyController
-import kotlinx.android.synthetic.main.fragment_user_dashboard.*
+import kotlinx.android.synthetic.main.fragment_user_dashboard_edit_details.*
 
 class UserDashboardEditDetailsFragment: Fragment() {
 
-    private val epoxyController = UserLoginEpoxyController()
+    private val safeArgs: UserDashboardEditDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,13 +24,20 @@ class UserDashboardEditDetailsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
-        epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
+        first_name_input.setText(safeArgs.firstName)
+        last_name_input.setText(safeArgs.lastName)
+        street_number_input.setText(safeArgs.address1)
+        postal_city_input.setText(safeArgs.address2)
+        county_input.setText(safeArgs.address3)
+        email_input.setText(safeArgs.email)
+        phone_number_input.setText(safeArgs.phoneNumber)
 
-        btnUserDashboard.setOnClickListener {
+        btnEditDetails.setOnClickListener {
             val directions = UserDashboardFragmentDirections.actionUserDashboardFragmentToUserDashboardEditDetailsFragment()
             findNavController().navigate(directions)
         }
     }
+
+
 
 }

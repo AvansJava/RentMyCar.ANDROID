@@ -29,7 +29,6 @@ class ReservationCreateFragment: Fragment() {
     private val safeArgs: ReservationCreateFragmentArgs by navArgs()
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private var paymentMethods: Array<String> = emptyArray()
-
     private val viewModel: ReservationViewModel by lazy {
         ViewModelProvider(this)[ReservationViewModel::class.java]
     }

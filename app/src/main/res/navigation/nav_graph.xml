@@ -100,6 +100,7 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+
         <argument android:name="password"
             app:argType="string"
             app:nullable="true"
@@ -111,6 +112,35 @@
         android:name="com.rentmycar.rentmycar.fragment.UserDashboardEditDetailsFragment"
         android:label="Edit Details"
         tools:layout="@layout/fragment_user_dashboard_edit_details">
+
+        <argument android:name="firstName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="lastName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address1"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address2"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address3"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
 
     </fragment>
 

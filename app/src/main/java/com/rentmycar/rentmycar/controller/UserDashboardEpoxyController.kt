@@ -8,7 +8,9 @@ import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetUserResponse
 
-class UserDashboardEpoxyController: EpoxyController() {
+class UserDashboardEpoxyController(
+    private val onEditDetailsClicked: (String, String, String, String, String, String, String) -> Unit
+): EpoxyController() {
 
     var isLoading: Boolean = true
         set(value) {
@@ -41,6 +43,8 @@ class UserDashboardEpoxyController: EpoxyController() {
 
         HeaderEpoxyModel(
             title = RentMyCarApplication.context.getString(R.string.user_dashboard_title, getUserResponse!!.firstName, getUserResponse!!.lastName),
+            firstName = getUserResponse!!.firstName,
+            lastName = getUserResponse!!.lastName,
             address1 = RentMyCarApplication.context.getString(R.string.user_dashboard_address1, getUserResponse!!.street, getUserResponse!!.houseNumber),
             address2 = RentMyCarApplication.context.getString(R.string.user_dashboard_address2, getUserResponse!!.postalCode, getUserResponse!!.city),
             address3 = RentMyCarApplication.context.getString(R.string.user_dashboard_address3, getUserResponse!!.country),
@@ -51,11 +55,14 @@ class UserDashboardEpoxyController: EpoxyController() {
 
     data class HeaderEpoxyModel(
         val title: String,
+        val firstName: String,
+        val lastName: String,
         val address1: String,
         val address2: String,
         val address3: String,
         val phoneNumber: String,
         val emailAddress: String,
+        val onEditDetailsClicked: (String, String, String, String, String, String, String) -> Unit
     ) : ViewBindingKotlinModel<ModelUserDashboardHeaderBinding>(R.layout.model_user_dashboard_header) {
 
         override fun ModelUserDashboardHeaderBinding.bind() {
@@ -65,6 +72,19 @@ class UserDashboardEpoxyController: EpoxyController() {
             userDashboardHeaderCountry.text = address3
             userDashboardHeaderPhone.text = phoneNumber
             userDashboardHeaderEmail.text = emailAddress
+
+            btnUserDashboard.setOnClickListener{
+                onEditDetailsClicked(
+                    firstName,
+                    lastName,
+                    address1,
+                    address2,
+                    address3,
+                    phoneNumber,
+                    emailAddress
+                )
+            }
+
         }
     }
 }

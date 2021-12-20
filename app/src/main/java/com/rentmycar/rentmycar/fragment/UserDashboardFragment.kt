@@ -12,15 +12,16 @@ import com.airbnb.epoxy.EpoxyRecyclerView
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.UserDashboardEpoxyController
+import com.rentmycar.rentmycar.network.response.GetUserResponse
 import com.rentmycar.rentmycar.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_dashboard.*
+import kotlinx.android.synthetic.main.fragment_user_register.*
 
 class UserDashboardFragment: Fragment() {
 
     private val viewModel: UserViewModel by lazy {
         ViewModelProvider(this)[UserViewModel::class.java]
     }
-    private val epoxyController = UserDashboardEpoxyController()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +31,8 @@ class UserDashboardFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val epoxyController = UserDashboardEpoxyController(::onEditDetailsClicked)
+
         super.onViewCreated(view, savedInstanceState)
         val navController = findNavController()
 
@@ -46,9 +49,28 @@ class UserDashboardFragment: Fragment() {
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
 
-        btnUserDashboard.setOnClickListener {
-            val directions = UserDashboardFragmentDirections.actionUserDashboardFragmentToUserDashboardEditDetailsFragment()
-            findNavController().navigate(directions)
-        }
+    }
+
+    private fun onEditDetailsClicked(
+        firstName: String,
+        lastName: String,
+        address1: String,
+        address2: String,
+        address3: String,
+        phoneNumber: String,
+        emailAddress: String
+    ) {
+        val directions =
+            UserDashboardFragmentDirections.actionUserDashboardFragmentToUserDashboardEditDetailsFragment(
+                firstName,
+                lastName,
+                address1,
+                address2,
+                address3,
+                phoneNumber,
+                emailAddress
+            )
+        findNavController().navigate(directions)
     }
 }
+
