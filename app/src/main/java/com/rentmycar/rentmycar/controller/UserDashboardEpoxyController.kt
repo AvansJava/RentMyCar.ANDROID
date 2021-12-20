@@ -50,6 +50,7 @@ class UserDashboardEpoxyController(
             address3 = RentMyCarApplication.context.getString(R.string.user_dashboard_address3, getUserResponse!!.country),
             phoneNumber = RentMyCarApplication.context.getString(R.string.user_dashboard_phone, getUserResponse!!.phoneNumber),
             emailAddress = RentMyCarApplication.context.getString(R.string.user_dashboard_email, getUserResponse!!.email),
+            onEditDetailsClicked
         ).id("header").addTo(this)
     }
 
