@@ -7,12 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.room.Car as CarRoom
-import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.repository.CarRepository
-import com.rentmycar.rentmycar.repository.LocationRepository
-import com.rentmycar.rentmycar.repository.RentalPlanRepository
-import com.rentmycar.rentmycar.room.Location
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 
 class CarViewModel: ViewModel() {
 
@@ -29,6 +26,9 @@ class CarViewModel: ViewModel() {
 
     private val _carRoomLiveData = MutableLiveData<CarRoom?>()
     val carRoomLiveData: LiveData<CarRoom?> = _carRoomLiveData
+
+    private val _carResourceResult = MutableLiveData<String>()
+    val carResourceResult: LiveData<String> = _carResourceResult
 
     fun getCarsList() {
         viewModelScope.launch {
@@ -82,6 +82,13 @@ class CarViewModel: ViewModel() {
         viewModelScope.launch {
             val response = carRepository.putCar(id, car)
             _carByIdLiveData.postValue(response)
+        }
+    }
+
+    fun postCarResource(id: Int, image: MultipartBody.Part) {
+        viewModelScope.launch {
+            val response = carRepository.postCarResource(id, image)
+            _carResourceResult.postValue(response)
         }
     }
 }

@@ -5,6 +5,7 @@ import com.rentmycar.rentmycar.network.response.GetCarResponse
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 import com.rentmycar.rentmycar.network.response.SimpleResponse
 import com.rentmycar.rentmycar.network.service.CarService
+import okhttp3.MultipartBody
 
 class CarClient(
     private val carService: CarService
@@ -32,5 +33,9 @@ class CarClient(
 
     suspend fun putCar(car: Car, id: Int): SimpleResponse<GetCarResponse> {
         return safeApiCall { carService.putCar(id, car) }
+    }
+
+    suspend fun postCarResource(id: Int, image: MultipartBody.Part): SimpleResponse<String> {
+        return safeApiCall { carService.postCarResource(id, image) }
     }
 }
