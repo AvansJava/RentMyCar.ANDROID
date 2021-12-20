@@ -203,6 +203,20 @@
     <string name="payment_method">Select payment method</string>
     <string name="payment_method_empty">Please select a payment method</string>
     <string name="error_post_payment">Cannot create payment. Please try again later.</string>
+    <string name="error_get_payment">Cannot find payment</string>
+    <string name="payment_method_used">Payment method:</string>
+    <string name="proof_of_concept">RentMyCar is currently still in the concept phase. This means you cannot make an actual reservation yet. Please click one of the buttons below to simulate a payment and continue.</string>
+    <string name="failure">Failure</string>
+    <string name="success">Success</string>
+    <string name="payment">Payment</string>
+    <string name="payment_of_amount">Payment of €%.2f%n</string>
+    <string name="ideal">iDeal</string>
+    <string name="visa_card">Visa</string>
+    <string name="paypal">PayPal</string>
+    <string name="mastercard">Mastercard</string>
+    <string name="invalid_payment_method">Payment Method is invalid</string>
+    <string name="payment_callback_failed">Payment callback failed</string>
+    <string name="reservation_overview_title">Reservation Overview</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

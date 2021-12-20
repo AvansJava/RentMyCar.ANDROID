@@ -466,5 +466,35 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_reservationCreateFragment_to_reservationPaymentFragment"
+            app:destination="@+id/reservationPaymentFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationPaymentFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationPaymentFragment"
+        android:label="@string/payment"
+        tools:layout="@layout/fragment_reservation_payment">
+
+        <argument android:name="paymentId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_reservationPaymentFragment_to_reservationOverviewFragment"
+            app:destination="@+id/reservationOverviewFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationOverviewFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationOverviewFragment"
+        android:label="@string/reservation_overview_title"
+        tools:layout="@layout/fragment_reservation_payment">
     </fragment>
 </navigation>

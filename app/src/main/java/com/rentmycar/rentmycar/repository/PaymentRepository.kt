@@ -4,13 +4,14 @@ import android.widget.Toast
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.network.NetworkLayer
+import com.rentmycar.rentmycar.network.request.PostPaymentCallbackRequest
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
-import com.rentmycar.rentmycar.network.response.PostPaymentResponse
+import com.rentmycar.rentmycar.network.response.GetPaymentResponse
 
 class PaymentRepository {
     private fun client() = NetworkLayer.paymentClient
 
-    suspend fun postPayment(payment: PostPaymentRequest): PostPaymentResponse? {
+    suspend fun postPayment(payment: PostPaymentRequest): GetPaymentResponse? {
         val request = client().postPayment(payment)
 
         if (request.failed || !request.isSuccessful) {
@@ -19,5 +20,27 @@ class PaymentRepository {
         }
 
         return request.body
+    }
+
+    suspend fun getPayment(id: Int): GetPaymentResponse? {
+        val request = client().getPayment(id)
+
+        if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context,
+                RentMyCarApplication.context.getString(R.string.error_get_payment), Toast.LENGTH_LONG).show()
+            return null
+        }
+
+        return request.body
+    }
+
+    suspend fun postPayment(id: Int, callback: PostPaymentCallbackRequest): String? {
+        val request = client().postPaymentCallback(id, callback)
+
+        if (request.failed || !request.isSuccessful) {
+            return request.toString()
+        }
+
+        return request.toString()
     }
 }

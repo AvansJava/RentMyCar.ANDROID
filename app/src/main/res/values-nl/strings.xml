@@ -203,6 +203,22 @@
     <string name="payment_method">Selecteer betaalmethode</string>
     <string name="payment_method_empty">Selecteer een betaalmethode</string>
     <string name="error_post_payment">Kan betaling niet starten. Probeer het later opnieuw.</string>
+    <string name="error_get_payment">Betaling niet gevonden</string>
+    <string name="payment_method_used">Betaalmethode:</string>
+    <string name="proof_of_concept">HuurMijnAuto is momenteel nog in de concept fase, dit betekent
+        dat het niet mogelijk is om daadwerkelijk een auto te huren. Klik een van onderstaande
+        knoppen om een betaling te simuleren en verder te gaan.</string>
+    <string name="failure">Mislukt</string>
+    <string name="success">Succesvol</string>
+    <string name="payment">Betaling</string>
+    <string name="payment_of_amount">Betaling van €%.2f%n</string>
+    <string name="ideal">iDeal</string>
+    <string name="visa_card">Visa</string>
+    <string name="paypal">PayPal</string>
+    <string name="mastercard">Mastercard</string>
+    <string name="invalid_payment_method">Betaalmethode ongeldig</string>
+    <string name="payment_callback_failed">Betaling callback mislukt</string>
+    <string name="reservation_overview_title">Overzicht reserveringen</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

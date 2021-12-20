@@ -18,7 +18,9 @@ import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.controller.ReservationCreateEpoxyController
 import com.rentmycar.rentmycar.network.request.PostPaymentRequest
 import com.rentmycar.rentmycar.network.request.ReservationNumberRequest
+import com.rentmycar.rentmycar.viewmodel.PaymentViewModel
 import com.rentmycar.rentmycar.viewmodel.ReservationViewModel
+import kotlinx.android.synthetic.main.fragment_reservation_payment.*
 import kotlinx.android.synthetic.main.model_reservation_create_payment_method.*
 
 class ReservationCreateFragment: Fragment() {
@@ -30,6 +32,11 @@ class ReservationCreateFragment: Fragment() {
     private val viewModel: ReservationViewModel by lazy {
         ViewModelProvider(this)[ReservationViewModel::class.java]
     }
+
+    private val paymentViewModel: PaymentViewModel by lazy {
+        ViewModelProvider(this)[PaymentViewModel::class.java]
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +64,8 @@ class ReservationCreateFragment: Fragment() {
         viewModel.getTimeslotsByReservation(reservationNumber)
         viewModel.getReservation(reservationNumber)
 
+        observePayment()
+
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
     }
@@ -67,16 +76,18 @@ class ReservationCreateFragment: Fragment() {
     }
 
     private fun onBtnPayClicked(reservationNumber: String) {
-        val paymentMethod = autoCompleteTextView.text.toString()
+        val paymentMethod = mapPaymentMethodToEnumValue(autoCompleteTextView.text.toString())
 
         if (!paymentMethods.contains(paymentMethod)) {
             autoCompleteTextView.error = RentMyCarApplication.context.getString(R.string.payment_method_empty)
         }
+        autoCompleteTextView.error = null
 
         val paymentRequest = PostPaymentRequest(
             reservation = ReservationNumberRequest(reservationNumber),
             paymentMethod = paymentMethod
         )
+        paymentViewModel.postPayment(paymentRequest)
     }
 
     private fun dropdownFieldBinding(autoCompleteTextView: AutoCompleteTextView) {
@@ -84,5 +95,38 @@ class ReservationCreateFragment: Fragment() {
         paymentMethods = resources.getStringArray(R.array.payment_methods)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.model_dropdown_list_item, paymentMethods)
         autoCompleteTextView.setAdapter(arrayAdapter)
+    }
+
+    private fun observePayment() {
+        paymentViewModel.paymentLiveData.observe(viewLifecycleOwner) { payment ->
+            if (payment != null) {
+                val directions =
+                    ReservationCreateFragmentDirections.actionReservationCreateFragmentToReservationPaymentFragment(paymentId = payment.id)
+                findNavController().navigate(directions)
+            }
+        }
+    }
+
+    private fun mapPaymentMethodToEnumValue(paymentMethod: String): String {
+        var paymentEnumType: String = ""
+
+        when(true) {
+            paymentMethod.contains("ideal", ignoreCase = true) -> {
+                paymentEnumType = "IDEAL"
+            }
+            paymentMethod.contains("visa", ignoreCase = true) -> {
+                paymentEnumType = "VISA_CARD"
+            }
+            paymentMethod.contains("mastercard", ignoreCase = true) -> {
+                paymentEnumType = "MASTER_CARD"
+            }
+            paymentMethod.contains("paypal", ignoreCase = true) -> {
+                paymentEnumType = "PAYPAL"
+            }
+            else -> {
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.invalid_payment_method), Toast.LENGTH_LONG).show()
+            }
+        }
+        return paymentEnumType
     }
 }
