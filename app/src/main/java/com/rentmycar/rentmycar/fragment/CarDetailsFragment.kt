@@ -1,5 +1,6 @@
 package com.rentmycar.rentmycar.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.gms.maps.*
 import com.rentmycar.rentmycar.AppPreference
 import com.rentmycar.rentmycar.R
@@ -21,6 +23,13 @@ import kotlinx.android.synthetic.main.fragment_location_details.*
 import kotlinx.android.synthetic.main.model_car_details_location_data_point.*
 import kotlinx.android.synthetic.main.model_car_details_map.*
 import kotlinx.android.synthetic.main.model_car_details_title.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+
 
 class CarDetailsFragment: Fragment() {
 
@@ -57,8 +66,17 @@ class CarDetailsFragment: Fragment() {
             }
         }
 
+        observeCarResource()
+
         val carId = safeArgs.carId
         viewModel.getCarById(id = carId)
+
+        btnAddResource.setOnClickListener {
+            ImagePicker.with(this)
+                .crop()
+                .compress(1024)
+                .start(101)
+        }
 
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
@@ -86,6 +104,35 @@ class CarDetailsFragment: Fragment() {
         val directions =
             CarDetailsFragmentDirections.actionCarDetailsFragmentToCarAvailabilityFragment(carId = carId, rentalPlanId = rentalPlanId)
         findNavController().navigate(directions)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 101) {
+            val uri = data?.data
+            val file = File(uri?.path)
+            val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
+            val image = MultipartBody.Part.createFormData("file","file", requestFile)
+
+            Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.uploading_image), Toast.LENGTH_LONG).show()
+
+            viewModel.postCarResource(safeArgs.carId, image)
+        }
+    }
+
+    private fun observeCarResource() {
+        viewModel.carResourceResult.observe(viewLifecycleOwner) { response ->
+            if (response == null) {
+                Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
+                return@observe
+            }
+
+            Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.image_uploaded), Toast.LENGTH_LONG).show()
+
+            val directions = CarDetailsFragmentDirections.actionCarDetailsFragmentToCarDetailsFragment(carId = safeArgs.carId)
+            findNavController().navigate(directions)
+        }
     }
 }
 

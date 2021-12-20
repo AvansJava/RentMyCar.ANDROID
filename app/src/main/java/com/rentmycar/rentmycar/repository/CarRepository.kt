@@ -13,7 +13,7 @@ import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.network.NetworkLayer;
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
 import com.rentmycar.rentmycar.room.RentMyCarDatabase
-import com.rentmycar.rentmycar.viewmodel.RentalPlanViewModel
+import okhttp3.MultipartBody
 import com.rentmycar.rentmycar.room.Car as CarRoom
 
 class CarRepository {
@@ -187,13 +187,23 @@ class CarRepository {
         )
     }
 
-    suspend fun getRentalPlanByCar(carId: Int): RentalPlan? {
+    private suspend fun getRentalPlanByCar(carId: Int): RentalPlan? {
         val request = NetworkLayer.rentalPlanClient.getRentalPlanByCar(carId)
 
         if (request.failed || !request.isSuccessful) {
             return null
         }
         return RentalPlanMapper.buildFrom(response = request.body, car = null)
+    }
+
+    suspend fun postCarResource(id: Int, image: MultipartBody.Part): String {
+        val request = client().postCarResource(id, image)
+
+        if (request.failed || !request.isSuccessful) {
+            return RentMyCarApplication.context.getString(R.string.image_not_uploaded)
+        }
+
+        return RentMyCarApplication.context.getString(R.string.image_uploaded)
     }
 }
 

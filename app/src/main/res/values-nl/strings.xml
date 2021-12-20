@@ -219,6 +219,9 @@
     <string name="invalid_payment_method">Betaalmethode ongeldig</string>
     <string name="payment_callback_failed">Betaling callback mislukt</string>
     <string name="reservation_overview_title">Overzicht reserveringen</string>
+    <string name="image_uploaded">Afbeelding succesvol geüpload</string>
+    <string name="image_not_uploaded">Afbeelding kon niet geüpload worden</string>
+    <string name="uploading_image">Afbeelding uploaden…</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

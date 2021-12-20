@@ -37,7 +37,8 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 R.id.locationListFragment,
                 R.id.userCarListFragment,
                 R.id.rentalPlanListFragment,
-                R.id.reservationOverviewFragment),
+                R.id.reservationOverviewFragment,
+                R.id.carDetailsFragment),
             drawerLayout = drawerLayout
         )
         setupActionBarWithNavController(

@@ -3,6 +3,7 @@ package com.rentmycar.rentmycar.network.service
 import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.network.response.GetCarResponse
 import com.rentmycar.rentmycar.network.response.GetCarResourceResponse
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -34,4 +35,11 @@ interface CarService {
         @Path("id") id: Int,
         @Body car: Car
     ): Response<GetCarResponse>
+
+    @Multipart
+    @POST("cars/{id}/upload")
+    suspend fun postCarResource(
+        @Path("id") id: Int,
+        @Part image: MultipartBody.Part
+    ): Response<String>
 }

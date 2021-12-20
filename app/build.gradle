@@ -72,6 +72,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // image picker
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
     // Room and Lifecycle dependencies
     implementation "androidx.room:room-runtime:2.4.0-rc01"
     kapt "androidx.room:room-compiler:2.4.0-rc01"

@@ -217,6 +217,9 @@
     <string name="invalid_payment_method">Payment Method is invalid</string>
     <string name="payment_callback_failed">Payment callback failed</string>
     <string name="reservation_overview_title">Reservation Overview</string>
+    <string name="image_uploaded">Image successfully uploaded</string>
+    <string name="image_not_uploaded">Image could not be uploaded.</string>
+    <string name="uploading_image">Uploading image…</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

@@ -1,18 +1,12 @@
 package com.rentmycar.rentmycar.controller
 
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
-import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging.PagedListEpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.*
-import com.rentmycar.rentmycar.domain.model.Availability
-import com.rentmycar.rentmycar.domain.model.Car
-import com.rentmycar.rentmycar.domain.model.LocalException
-import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
 import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
