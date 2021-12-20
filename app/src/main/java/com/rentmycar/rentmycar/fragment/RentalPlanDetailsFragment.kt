@@ -80,36 +80,39 @@ class RentalPlanDetailsFragment: Fragment() {
         view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView).setController(epoxyController)
     }
 
-    private fun timeslotSelected(id: Int, startAt: String, status: String) {
-        var dialogMessage: String
-        var positiveBtnText: String
+    private fun timeslotSelected(id: Int, startAt: String, status: String, productId: Int?) {
 
-        if (status == "OPEN") {
-            dialogMessage = resources.getString(R.string.timeslot_close_message, startAt)
-            positiveBtnText = resources.getString(R.string.close_timeslot)
-        } else {
-            dialogMessage = resources.getString(R.string.timeslot_open_message, startAt)
-            positiveBtnText = resources.getString(R.string.open_timeslot)
-        }
+        if (productId == null) {
+            var dialogMessage: String
+            var positiveBtnText: String
 
-        MaterialAlertDialogBuilder(requireContext())
-            .setMessage(dialogMessage)
-            .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
-                dialog.dismiss()
+            if (status == "OPEN") {
+                dialogMessage = resources.getString(R.string.timeslot_close_message, startAt)
+                positiveBtnText = resources.getString(R.string.close_timeslot)
+            } else {
+                dialogMessage = resources.getString(R.string.timeslot_open_message, startAt)
+                positiveBtnText = resources.getString(R.string.open_timeslot)
             }
-            .setPositiveButton(positiveBtnText) { dialog, which ->
-                var timeslotRequest: PutTimeslotRequest
 
-                if (status == "OPEN") {
-                    timeslotRequest = PutTimeslotRequest(status = "CLOSED")
-                } else {
-                    timeslotRequest = PutTimeslotRequest(status = "OPEN")
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(dialogMessage)
+                .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
+                    dialog.dismiss()
                 }
+                .setPositiveButton(positiveBtnText) { dialog, which ->
+                    var timeslotRequest: PutTimeslotRequest
 
-                availabilityViewModel.updateTimeslotStatus(id, timeslotRequest)
-                dialog.dismiss()
-            }
-            .show()
+                    if (status == "OPEN") {
+                        timeslotRequest = PutTimeslotRequest(status = "CLOSED")
+                    } else {
+                        timeslotRequest = PutTimeslotRequest(status = "OPEN")
+                    }
+
+                    availabilityViewModel.updateTimeslotStatus(id, timeslotRequest)
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
 
     private fun convertDate(input: String): String {

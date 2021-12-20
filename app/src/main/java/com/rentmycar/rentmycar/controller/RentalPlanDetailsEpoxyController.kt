@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 class RentalPlanDetailsEpoxyController(
-    private val timeslotSelected: (Int, String, String) -> Unit
+    private val timeslotSelected: (Int, String, String, Int?) -> Unit
 ): PagedListEpoxyController<GetAvailabilityResponse>() {
 
     override fun buildItemModel(currentPosition: Int, item: GetAvailabilityResponse?): EpoxyModel<*> {
@@ -70,7 +70,7 @@ class RentalPlanDetailsEpoxyController(
         val status: String,
         val startAt: String,
         val endAt: String,
-        val timeslotSelected: (Int, String, String) -> Unit
+        val timeslotSelected: (Int, String, String, Int?) -> Unit
     ): ViewBindingKotlinModel<ModelCarAvailabilityTimeslotBinding>(R.layout.model_car_availability_timeslot) {
         @RequiresApi(Build.VERSION_CODES.M)
         override fun ModelCarAvailabilityTimeslotBinding.bind() {
@@ -89,7 +89,7 @@ class RentalPlanDetailsEpoxyController(
             }
 
             timeslotCheckbox.setOnClickListener {
-                timeslotSelected(id, convertDate(startAt), status)
+                timeslotSelected(id, convertDate(startAt), status, productId)
             }
         }
 
