@@ -100,6 +100,7 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+
         <argument android:name="password"
             app:argType="string"
             app:nullable="true"
@@ -111,6 +112,35 @@
         android:name="com.rentmycar.rentmycar.fragment.UserDashboardEditDetailsFragment"
         android:label="Edit Details"
         tools:layout="@layout/fragment_user_dashboard_edit_details">
+
+        <argument android:name="firstName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="lastName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address1"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address2"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="address3"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument android:name="email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
 
     </fragment>
 
@@ -240,6 +270,13 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carDetailsFragment_to_carAvailabilityFragment"
+            app:destination="@+id/carAvailabilityFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 
     <fragment android:id="@+id/userWelcomeBackFragment"
@@ -363,6 +400,68 @@
 
         <action android:id="@+id/action_rentalPlanCreateFragment_to_rentalPlanListFragment"
             app:destination="@+id/rentalPlanListFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/carAvailabilityFragment"
+        android:name="com.rentmycar.rentmycar.fragment.CarAvailabilityFragment"
+        android:label="@string/book_car"
+        tools:layout="@layout/fragment_car_availability">
+
+        <argument android:name="carId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_insuranceSelectFragment"
+            app:destination="@+id/insuranceSelectFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+
+        <action android:id="@+id/action_carAvailabilityFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/insuranceSelectFragment"
+        android:name="com.rentmycar.rentmycar.fragment.InsuranceSelectFragment"
+        android:label="@string/select_insurance"
+        tools:layout="@layout/fragment_insurance_select">
+
+        <argument android:name="rentalPlanId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+
+        <action android:id="@+id/action_insuranceSelectFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+    </fragment>
+
+    <fragment android:id="@+id/reservationCreateFragment"
+        android:name="com.rentmycar.rentmycar.fragment.ReservationCreateFragment"
+        android:label="@string/reservation_overview"
+        tools:layout="@layout/fragment_reservation_create">
+
+        <argument android:name="reservationNumber"
+            app:argType="string"
+            android:defaultValue=""/>
+
+        <action android:id="@+id/action_reservationCreateFragment_to_carListFragment"
+            app:destination="@+id/carListFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:exitAnim="@anim/slide_out_to_left"
             app:popEnterAnim="@anim/slide_in_from_left"

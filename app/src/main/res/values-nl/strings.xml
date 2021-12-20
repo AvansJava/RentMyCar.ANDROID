@@ -149,15 +149,69 @@
     <string name="car_list">%1$d - %2$s %3$s %4$s</string>
     <string name="price_per_hour">Prijs per uur</string>
     <string name="user_dashboard_title">Hi, %1$s %2$s</string>
+    <string name="user_dashboard_address1">%1$s %2$s</string>
+    <string name="user_dashboard_address2">%1$s %2$s</string>
+    <string name="user_dashboard_address3">%1$s</string>
+    <string name="user_dashboard_phone">%1$s</string>
+    <string name="user_dashboard_email">%1$s</string>
     <string name="price_value">€%.2f%n</string>
     <string name="dashboard_edit_detail">Dashboard details aanpassen</string>
     <string name="street_number">Straat + huis nummer</string>
     <string name="postal_city">Postcode</string>
     <string name="phone_number">Telefoonnummer</string>
     <string name="edit_details">Aanpassen</string>
+    <string name="book_now">Reserveer nu</string>
+    <string name="book_car">Reserveer Auto</string>
+    <string name="edit_car">Bewerk auto</string>
+    <string name="no_timeslots_found">Geen tijdsloten gevonden</string>
+    <string name="no_timeslots_available">Het lijkt erop dat er geen tijdsloten beschikbaar zijn voor deze auto.</string>
+    <string name="timeslot_start_end">%1$s - %2$s</string>
+    <string name="error_get_availability_page">Kan beschikbaarheid van auto niet ophalen. Probeer het later opnieuw.</string>
+    <string name="date_calendar">%1$s</string>
+    <string name="make_reservation">Maak een reservering</string>
+    <string name="select_insurance">Selecteer een verzekering</string>
+    <string name="price_insurance">Prijs:</string>
+    <string name="description_insurance">Beschrijving:</string>
+    <string name="title_all_risk">All risk verzekering</string>
+    <string name="description_all_risk">Altijd verzekerd bij schade zonder eigen risico, zelfs als u het zelf veroorzaakt.</string>
+    <string name="title_all_risk_international">All risk verzekering internationaal</string>
+    <string name="description_basic_coverage">Basis verzekering bij diefstal schade of pech. €300,- eigen risico.</string>
+    <string name="description_all_risk_international">Altijd verzekerd bij schade zonder eigen risico, zelfs als u het zelf veroorzaakt. Ook in het buitenland.</string>
+    <string name="title_basic_coverage">Basis verzekering</string>
+    <string name="title_basic_coverage_international">Basis verzekering internationaal</string>
+    <string name="description_basic_coverage_international">Basis verzekering bij diefstal schade of pech, ook in het buitenland. €300,- eigen risico.</string>
+    <string name="insurance_price">€%.2f%n</string>
+    <string name="no_insurance_types_available">Er zijn momenteel geen verzekeringen beschikbaar.</string>
+    <string name="no_insurance_types_found">Geen verzekering gevonden</string>
+    <string name="error_post_reservation">Kon geen reservering aanmaken. Probeer het later opnieuw.</string>
+    <string name="reservation_overview">Reservering</string>
+    <string name="error_get_timeslots">Kan tijdsloten niet ophalen. Probeer het later opnieuw.</string>
+    <string name="reservation_number">Reserveringsnummer:</string>
+    <string name="price_reservation">Totaal:</string>
+    <string name="price_amount_reservation">€%.2f%n</string>
+    <string name="price_product">Huur Auto:</string>
+    <string name="price_reservation_insurance">Prijs verzekering:</string>
+    <string name="insurance_type">Soort verzekering:</string>
+    <string name="description">Beschrijving:</string>
+    <string name="status_completed">AFGEROND</string>
+    <string name="status_pending">IN BEHANDELING</string>
+    <string name="status_canceled">GECANCELD</string>
+    <string name="status_expired">VERLOPEN</string>
+    <string name="status">Status:</string>
+    <string name="error_get_reservation">Reservering niet gevonden. Probeer het later opnieuw.</string>
+    <string name="pay">Betalen</string>
+    <string name="payment_method">Selecteer betaalmethode</string>
+    <string name="payment_method_empty">Selecteer een betaalmethode</string>
+    <string name="error_post_payment">Kan betaling niet starten. Probeer het later opnieuw.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>
         <item>Waterstof Auto (FCEV)</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>iDeal</item>
+        <item>Visa</item>
+        <item>Mastercard</item>
+        <item>PayPal</item>
     </string-array>
 </resources>

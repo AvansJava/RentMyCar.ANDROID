@@ -9,7 +9,6 @@ import com.rentmycar.rentmycar.network.response.GetLocationResponse
 
 object CarMapper {
 
-    //todo: carUser
     fun buildFrom(response: GetCarResponse, rentalPlan: RentalPlan?, resources: List<GetCarResourceResponse>): Car {
         return Car(
             id = response.id,

@@ -4,6 +4,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.databinding.FragmentUserDashboardEditDetailsBinding
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
+import kotlinx.android.synthetic.main.fragment_user_dashboard_edit_details.*
 
 class UserDashboardEditDetailsEpoxyController: EpoxyController() {
 
@@ -19,7 +20,7 @@ class UserDashboardEditDetailsEpoxyController: EpoxyController() {
     ) : ViewBindingKotlinModel<FragmentUserDashboardEditDetailsBinding>(R.layout.fragment_user_dashboard_edit_details) {
 
         override fun FragmentUserDashboardEditDetailsBinding.bind() {
-//            firstName.editText = title
+
         }
     }
 }
