@@ -8,6 +8,7 @@ import com.airbnb.epoxy.paging.PagedListEpoxyController
 import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.ModelCarAvailabilityTimeslotBinding
+import com.rentmycar.rentmycar.databinding.ModelRentalPlanDetailsTimeslotBinding
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
@@ -71,28 +72,24 @@ class RentalPlanDetailsEpoxyController(
         val startAt: String,
         val endAt: String,
         val timeslotSelected: (Int, String, String, Int?) -> Unit
-    ): ViewBindingKotlinModel<ModelCarAvailabilityTimeslotBinding>(R.layout.model_car_availability_timeslot) {
+    ): ViewBindingKotlinModel<ModelRentalPlanDetailsTimeslotBinding>(R.layout.model_rental_plan_details_timeslot) {
         @RequiresApi(Build.VERSION_CODES.M)
-        override fun ModelCarAvailabilityTimeslotBinding.bind() {
+        override fun ModelRentalPlanDetailsTimeslotBinding.bind() {
             val formattedStartAt = convertDate(startAt)
             val formattedEndAt = convertDate(endAt)
-            timeslotCheckbox.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
+            timeslotTextView.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
 
-            if (productId != null) {
-                timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
-                timeslotCheckbox.isEnabled = true
-                timeslotCheckbox.isChecked = false
-            } else if (status == "CLOSED") {
+            when (true) {
+                productId != null -> {
+                    timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
+                } status == "CLOSED" -> {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.grey))
-                timeslotCheckbox.isEnabled = true
-                timeslotCheckbox.isChecked = false
-            } else {
+                } else -> {
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_green))
-                timeslotCheckbox.isEnabled = true
-                timeslotCheckbox.isChecked = false
+                }
             }
 
-            timeslotCheckbox.setOnClickListener {
+            timeslotTextView.setOnClickListener {
                 timeslotSelected(id, convertDate(startAt), status, productId)
             }
         }
