@@ -5,7 +5,6 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.databinding.ModelRentalPlanDataPointsBinding
 import com.rentmycar.rentmycar.databinding.ModelRentalPlanHeaderBinding
-import com.rentmycar.rentmycar.domain.model.Car
 import com.rentmycar.rentmycar.domain.model.LocalException
 import com.rentmycar.rentmycar.domain.model.RentalPlan
 import com.rentmycar.rentmycar.epoxy.EmptyListEpoxyModel
@@ -16,7 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class RentalPlanListEpoxyController(
-    private val onRentalPlanSelected: (Int) -> Unit
+    private val onRentalPlanSelected: (Int, Int) -> Unit
 ): EpoxyController() {
     var isLoading: Boolean = true
         set(value) {
@@ -61,7 +60,7 @@ class RentalPlanListEpoxyController(
 
     data class RentalPlanHeaderItemModel(
         val rentalPlan: RentalPlan,
-        val onRentalPlanSelected: (Int) -> Unit
+        val onRentalPlanSelected: (Int, Int) -> Unit
     ): ViewBindingKotlinModel<ModelRentalPlanHeaderBinding>(R.layout.model_rental_plan_header) {
 
         override fun ModelRentalPlanHeaderBinding.bind() {
@@ -70,14 +69,18 @@ class RentalPlanListEpoxyController(
                 rentalPlan.car?.brand, rentalPlan.car?.brandType, rentalPlan.car?.model)
 
             root.setOnClickListener {
-                rentalPlan.id?.let { it1 -> onRentalPlanSelected(it1) }
+                rentalPlan.id?.let { it1 -> rentalPlan.car?.id?.let { it2 ->
+                    onRentalPlanSelected(it1,
+                        it2
+                    )
+                } }
             }
         }
     }
 
     data class RentalPlanDataItemModel(
         val rentalPlan: RentalPlan,
-        val onRentalPlanSelected: (Int) -> Unit
+        val onRentalPlanSelected: (Int, Int) -> Unit
     ): ViewBindingKotlinModel<ModelRentalPlanDataPointsBinding>(R.layout.model_rental_plan_data_points) {
 
         override fun ModelRentalPlanDataPointsBinding.bind() {
@@ -89,7 +92,11 @@ class RentalPlanListEpoxyController(
             priceTextView.text = RentMyCarApplication.context.getString(R.string.rental_plan_price, rentalPlan.price)
 
             root.setOnClickListener {
-                rentalPlan.id?.let { it1 -> onRentalPlanSelected(it1) }
+                rentalPlan.id?.let { it1 -> rentalPlan.car?.id?.let { it2 ->
+                    onRentalPlanSelected(it1,
+                        it2
+                    )
+                } }
             }
         }
 

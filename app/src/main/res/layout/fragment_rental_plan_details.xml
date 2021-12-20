@@ -1,12 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/welcome_background_car_grayscale">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="40sp"
-        android:text="This is rentalplan details."/>
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/opacity_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_60_opacity"
+            android:contentDescription="@null"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rentalPlanCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="@+id/opacity_layer"
+            tools:layout_editor_absoluteX="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/topConstraintLayout"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/indigo_500">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rentalPlanTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textColor="@color/white_smoke"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/rentalPlanImageView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/rental_plan" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rentalPlanItalicTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_smoke"
+                        android:paddingBottom="16dp"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        app:layout_constraintStart_toStartOf="@id/rentalPlanTextView"
+                        app:layout_constraintTop_toBottomOf="@id/rentalPlanTextView"
+                        tools:text="Honda H-RV EX-L" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/rentalPlanImageView"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/rentalPlanTextView"
+                        app:srcCompat="@drawable/ic_baseline_date_range_24"
+                        app:tint="@color/white_smoke"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toBottomOf="@+id/topConstraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@color/card_background"
+                    android:paddingTop="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/carLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_directions_car_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/car"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableTint="@color/black"
+                        app:layout_constraintEnd_toStartOf="@id/carTextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/carTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/carLabelTextView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Honda H-RV EX-L" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/availableFromLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_date_range_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/start_date"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableTint="@color/black"
+                        app:layout_constraintEnd_toStartOf="@id/availableFromTextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/carLabelTextView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/availableFromTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/availableFromLabelTextView"
+                        app:layout_constraintTop_toBottomOf="@id/carTextView"
+                        tools:text="2022-02-01" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/availableUntilLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_date_range_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/end_date"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableTint="@color/black"
+                        app:layout_constraintEnd_toStartOf="@id/availableUntilTextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/availableFromLabelTextView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/availableUntilTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/availableUntilLabelTextView"
+                        app:layout_constraintTop_toBottomOf="@id/availableFromTextView"
+                        tools:text="2022-04-30" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/priceLabelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_euro_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/price"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableTint="@color/black"
+                        app:layout_constraintEnd_toStartOf="@id/priceTextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/availableUntilLabelTextView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/priceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/priceLabelTextView"
+                        app:layout_constraintTop_toBottomOf="@id/availableUntilTextView"
+                        tools:text="€80.00" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rentalPlanCard"
+            android:id="@+id/epoxyRecyclerView"
+            app:itemSpacing="8dp"
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="12"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -220,6 +220,13 @@
     <string name="image_uploaded">Image successfully uploaded</string>
     <string name="image_not_uploaded">Image could not be uploaded.</string>
     <string name="uploading_image">Uploading image…</string>
+    <string name="close_timeslot">Close Timeslot</string>
+    <string name="open_timeslot">Open Timeslot</string>
+    <string name="decline">Cancel</string>
+    <string name="timeslot_close_message">Do you want to close the selected timeslot at %1$s?</string>
+    <string name="timeslot_open_message">Do you want to re-open the selected timeslot at %1$s?</string>
+    <string name="error_put_timeslot">Cannot update timeslot status. Try again later.</string>
+    <string name="timeslot_status_updated">Timeslot status successfully updated</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

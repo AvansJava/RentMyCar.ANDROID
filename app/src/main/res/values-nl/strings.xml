@@ -222,6 +222,13 @@
     <string name="image_uploaded">Afbeelding succesvol geüpload</string>
     <string name="image_not_uploaded">Afbeelding kon niet geüpload worden</string>
     <string name="uploading_image">Afbeelding uploaden…</string>
+    <string name="close_timeslot">Sluit Tijdslot</string>
+    <string name="open_timeslot">Open Tijdslot</string>
+    <string name="decline">Annuleren</string>
+    <string name="timeslot_close_message">Wil je het geselecteerde tijdslot om %1$s sluiten?</string>
+    <string name="timeslot_open_message">Wil je het geselecteerde tijdslot om %1$s weer openen?</string>
+    <string name="error_put_timeslot">Kan tijdslot niet bewerken. Probeer het later opnieuw.</string>
+    <string name="timeslot_status_updated">Tijdslot status succesvol bewerkt.</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

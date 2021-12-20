@@ -50,8 +50,8 @@ class RentalPlanListFragment: Fragment() {
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
     }
 
-    private fun onRentalPlanSelected(id: Int) {
-        val directions = RentalPlanListFragmentDirections.actionRentalPlanListFragmentToRentalPlanDetailsFragment(rentalPlanId = id)
+    private fun onRentalPlanSelected(rentalPlanId: Int, carId: Int) {
+        val directions = RentalPlanListFragmentDirections.actionRentalPlanListFragmentToRentalPlanDetailsFragment(rentalPlanId = rentalPlanId, carId = carId)
         findNavController().navigate(directions)
     }
 }
