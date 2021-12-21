@@ -227,6 +227,7 @@
     <string name="timeslot_open_message">Do you want to re-open the selected timeslot at %1$s?</string>
     <string name="error_put_timeslot">Cannot update timeslot status. Try again later.</string>
     <string name="timeslot_status_updated">Timeslot status successfully updated</string>
+    <string name="save_successful">Saved changes</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

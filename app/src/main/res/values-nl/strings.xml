@@ -229,6 +229,7 @@
     <string name="timeslot_open_message">Wil je het geselecteerde tijdslot om %1$s weer openen?</string>
     <string name="error_put_timeslot">Kan tijdslot niet bewerken. Probeer het later opnieuw.</string>
     <string name="timeslot_status_updated">Tijdslot status succesvol bewerkt.</string>
+    <string name="save_successful">Opgeslagen</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>
