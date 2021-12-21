@@ -117,7 +117,7 @@ class ReservationCreateEpoxyController(
                 RentMyCarApplication.context.getString(R.string.paid_at),
                 reservation?.paidAt,
                 R.drawable.ic_baseline_check_circle_24
-            ).id("data_point_9").addTo(this)
+            ).id("data_point_10").addTo(this)
         }
 
         if (!isDetailsView) {
