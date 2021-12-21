@@ -52,6 +52,7 @@ class ReservationCreateFragment: Fragment() {
 
         viewModel.reservationLiveData.observe(viewLifecycleOwner) { reservation ->
             epoxyController.reservation = reservation
+            epoxyController.isDetailsView = safeArgs.isDetailsView
 
             if (reservation == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()

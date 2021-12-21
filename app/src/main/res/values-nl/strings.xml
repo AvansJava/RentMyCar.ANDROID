@@ -233,6 +233,7 @@
     <string name="no_reservations_found">Geen reserveringen gevonden</string>
     <string name="no_reservations_available">Er zijn geen reserveringen beschikbaar om te tonen.</string>
     <string name="reservation_list_time">%1$s - %2$s</string>
+    <string name="paid_at">Betaald op</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

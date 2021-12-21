@@ -231,6 +231,7 @@
     <string name="no_reservations_found">No reservations found</string>
     <string name="no_reservations_available">No reservations available to display</string>
     <string name="reservation_list_time">%1$s - %2$s</string>
+    <string name="paid_at">Paid at</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>
