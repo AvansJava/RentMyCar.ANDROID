@@ -6,5 +6,6 @@ data class Reservation(
     val price: Double,
     val status: String?,
     val paidAt: String?,
-    val product: Product?
+    val product: Product?,
+    val availability: List<Availability?>
 )

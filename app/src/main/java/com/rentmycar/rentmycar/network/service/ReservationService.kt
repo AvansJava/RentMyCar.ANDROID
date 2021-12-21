@@ -4,10 +4,7 @@ import com.rentmycar.rentmycar.network.request.PostReservationRequest
 import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
 import com.rentmycar.rentmycar.network.response.GetReservationResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ReservationService {
 
@@ -25,4 +22,9 @@ interface ReservationService {
     suspend fun getReservation(
         @Path("reservationNumber") reservationNumber: String
     ): Response<GetReservationResponse>
+
+    @GET("reservation/")
+    suspend fun getReservationList(
+        @Query("status") status: String?,
+    ): Response<List<GetReservationResponse>>
 }

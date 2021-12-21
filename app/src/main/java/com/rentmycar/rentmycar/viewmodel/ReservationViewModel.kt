@@ -16,8 +16,8 @@ class ReservationViewModel: ViewModel() {
     private val _reservationLiveData = MutableLiveData<Reservation?>()
     val reservationLiveData: LiveData<Reservation?> = _reservationLiveData
 
-    private val _timeslotListLiveData = MutableLiveData<List<Availability>>()
-    val timeslotListLiveData: LiveData<List<Availability>> = _timeslotListLiveData
+    private val _reservationListLiveData = MutableLiveData<List<Reservation?>>()
+    val reservationListLiveData: LiveData<List<Reservation?>> = _reservationListLiveData
 
     fun postReservation(reservation: PostReservationRequest) {
         viewModelScope.launch {
@@ -26,17 +26,17 @@ class ReservationViewModel: ViewModel() {
         }
     }
 
-    fun getTimeslotsByReservation(reservationNumber: String) {
-        viewModelScope.launch {
-            val response = reservationRepository.getTimeslotsByReservation(reservationNumber)
-            _timeslotListLiveData.postValue(response)
-        }
-    }
-
     fun getReservation(reservationNumber: String) {
         viewModelScope.launch {
             val response = reservationRepository.getReservation(reservationNumber)
             _reservationLiveData.postValue(response)
+        }
+    }
+
+    fun getReservationList(status: String?) {
+        viewModelScope.launch {
+            val response = reservationRepository.getReservationList(status)
+            _reservationListLiveData.postValue(response)
         }
     }
 }

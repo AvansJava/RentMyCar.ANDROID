@@ -50,9 +50,6 @@ class ReservationCreateFragment: Fragment() {
 
         val reservationNumber = safeArgs.reservationNumber
 
-        viewModel.timeslotListLiveData.observe(viewLifecycleOwner) { timeslots ->
-            epoxyController.timeslots = timeslots
-        }
         viewModel.reservationLiveData.observe(viewLifecycleOwner) { reservation ->
             epoxyController.reservation = reservation
 
@@ -61,7 +58,6 @@ class ReservationCreateFragment: Fragment() {
                 return@observe
             }
         }
-        viewModel.getTimeslotsByReservation(reservationNumber)
         viewModel.getReservation(reservationNumber)
 
         observePayment()

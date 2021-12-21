@@ -33,13 +33,6 @@ class ReservationCreateEpoxyController(
             }
         }
 
-    var timeslots: List<Availability?> = emptyList()
-        set(value) {
-            field = value
-            isLoading = false
-            requestModelBuild()
-        }
-
     var reservation: Reservation? = null
         set(value) {
             field = value

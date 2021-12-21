@@ -9,6 +9,7 @@ import com.rentmycar.rentmycar.domain.model.Availability
 import com.rentmycar.rentmycar.domain.model.Reservation
 import com.rentmycar.rentmycar.network.NetworkLayer
 import com.rentmycar.rentmycar.network.request.PostReservationRequest
+import com.rentmycar.rentmycar.network.response.GetAvailabilityResponse
 
 class ReservationRepository {
     private fun client() = NetworkLayer.reservationClient
@@ -23,25 +24,18 @@ class ReservationRepository {
 
         return ReservationMapper.buildFrom(
             response = request.body,
-            product = request.body.product
+            product = request.body.product,
+            availability = emptyList()
         )
     }
 
-    suspend fun getTimeslotsByReservation(reservationNumber: String): List<Availability> {
-        val timeslotList = mutableListOf<Availability>()
+    suspend fun getTimeslotsByReservation(reservationNumber: String): List<GetAvailabilityResponse> {
         val request = client().getTimeslotsByReservation(reservationNumber)
 
         if (request.failed || !request.isSuccessful) {
             return emptyList()
         }
-
-        request.body.forEach { item ->
-            val timeslot: Availability = AvailabilityMapper.buildFrom(
-                response = item
-            )
-            timeslotList.add(timeslot)
-        }
-        return timeslotList
+        return request.body
     }
 
     suspend fun getReservation(reservationNumber: String): Reservation? {
@@ -55,6 +49,30 @@ class ReservationRepository {
 
         return ReservationMapper.buildFrom(
             response = request.body,
-            product = request.body.product)
+            product = request.body.product,
+            availability = getTimeslotsByReservation(request.body.reservationNumber))
+    }
+
+    suspend fun getReservationList(status: String?): List<Reservation?> {
+        val reservationList = mutableListOf<Reservation>()
+        val request = client().getReservationList(status)
+
+        if (request.failed || !request.isSuccessful) {
+            return emptyList()
+        }
+
+        request.body.forEach { item ->
+
+            val availability = getTimeslotsByReservation(item.reservationNumber)
+
+            val reservation: Reservation = ReservationMapper.buildFrom(
+                response = item,
+                product = item.product,
+                availability = availability
+            )
+
+            reservationList.add(reservation)
+        }
+        return reservationList
     }
 }

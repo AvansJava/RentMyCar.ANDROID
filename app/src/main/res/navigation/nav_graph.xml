@@ -475,6 +475,10 @@
             app:argType="string"
             android:defaultValue=""/>
 
+        <argument android:name="isDetailsView"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+
         <action android:id="@+id/action_reservationCreateFragment_to_carListFragment"
             app:destination="@+id/carListFragment"
             app:enterAnim="@anim/slide_in_from_right"
@@ -511,5 +515,12 @@
         android:name="com.rentmycar.rentmycar.fragment.ReservationOverviewFragment"
         android:label="@string/reservation_overview_title"
         tools:layout="@layout/fragment_reservation_payment">
+
+        <action android:id="@+id/action_reservationOverviewFragment_to_reservationCreateFragment"
+            app:destination="@+id/reservationCreateFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right"/>
     </fragment>
 </navigation>
