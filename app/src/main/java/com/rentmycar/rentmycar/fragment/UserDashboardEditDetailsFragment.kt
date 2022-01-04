@@ -36,27 +36,30 @@ class UserDashboardEditDetailsFragment: Fragment() {
 
         first_name_input.setText(safeArgs.firstName)
         last_name_input.setText(safeArgs.lastName)
-        street_number_input.setText(safeArgs.address1)
-        postal_city_input.setText(safeArgs.address2)
-        county_input.setText(safeArgs.address3)
+        street_name_input.setText(safeArgs.streetName)
+        house_number_input.setText(safeArgs.houseNumber)
+        city_input.setText(safeArgs.city)
+        postal_code_input.setText(safeArgs.postalCode)
+        county_input.setText(safeArgs.country)
         email_input.setText(safeArgs.email)
         phone_number_input.setText(safeArgs.phoneNumber)
 
-        val user = User(
-            city = "test",
-            country = "test",
-            email = "john.doe@gmail.com",
-            firstName = "Test",
-            houseNumber = "12",
-            iban = "",
-            lastName = "Test",
-            phoneNumber = "06-123456789",
-            postalCode = "5051BN",
-            street = "Test"
-        )
-
         btnEditDetails.setOnClickListener {
+            val user = User(
+                city = city_input.text.toString(),
+                country = county_input.text.toString(),
+                email = "john.doe@gmail.com",
+                firstName = first_name_input.text.toString(),
+                houseNumber = house_number_input.text.toString(),
+                iban = "",
+                lastName = last_name_input.text.toString(),
+                phoneNumber = phone_number_input.text.toString(),
+                postalCode = postal_code_input.text.toString(),
+                street = street_name_input.text.toString()
+            )
+
             viewModel.putUser(user)
+//            Toast.makeText(RentMyCarApplication.context, user.postalCode, Toast.LENGTH_SHORT).show()
             Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.save_successful), Toast.LENGTH_SHORT).show()
         }
 

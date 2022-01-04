@@ -23,6 +23,7 @@ class UserClient(
     }
 
     suspend fun putUser(user: User): SimpleResponse<GetUserResponse> {
+        print(user);
         return safeApiCall { userService.putUserEdit(user) }
     }
 

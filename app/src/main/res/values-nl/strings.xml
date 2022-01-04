@@ -154,9 +154,15 @@
     <string name="user_dashboard_address3">%1$s</string>
     <string name="user_dashboard_phone">%1$s</string>
     <string name="user_dashboard_email">%1$s</string>
+    <string name="user_dashboard_street_name">%1$s</string>
+    <string name="user_dashboard_house_number">%1$s</string>
+    <string name="user_dashboard_city">%1$s</string>
+    <string name="user_dashboard_postal_code">%1$s</string>
+    <string name="user_dashboard_country">%1$s</string>
     <string name="price_value">€%.2f%n</string>
     <string name="dashboard_edit_detail">Dashboard details aanpassen</string>
-    <string name="street_number">Straat + huis nummer</string>
+    <string name="street">Straat</string>
+    <string name="house_number">Huisnr.</string>
     <string name="postal_city">Postcode</string>
     <string name="phone_number">Telefoonnummer</string>
     <string name="edit_details">Aanpassen</string>

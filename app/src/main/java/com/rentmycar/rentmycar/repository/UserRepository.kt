@@ -69,14 +69,13 @@ class UserRepository {
 
     suspend fun putUser(user: User): GetUserResponse? {
         val request = NetworkLayer.userClient.putUser(user)
-        print("[REQUEST]")
-        print(request)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_user), Toast.LENGTH_LONG).show()
             return null
         }
-
+        print("[REQUEST]")
+        print(request.body)
         return request.body
     }
 }

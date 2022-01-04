@@ -54,9 +54,11 @@ class UserDashboardFragment: Fragment() {
     private fun onEditDetailsClicked(
         firstName: String,
         lastName: String,
-        address1: String,
-        address2: String,
-        address3: String,
+        streetName: String,
+        houseNumber: String,
+        city: String,
+        postalCode: String,
+        country: String,
         phoneNumber: String,
         emailAddress: String
     ) {
@@ -64,9 +66,11 @@ class UserDashboardFragment: Fragment() {
             UserDashboardFragmentDirections.actionUserDashboardFragmentToUserDashboardEditDetailsFragment(
                 firstName,
                 lastName,
-                address1,
-                address2,
-                address3,
+                streetName,
+                houseNumber,
+                city,
+                postalCode,
+                country,
                 phoneNumber,
                 emailAddress
             )

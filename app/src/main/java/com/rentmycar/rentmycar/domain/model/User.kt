@@ -1,5 +1,8 @@
 package com.rentmycar.rentmycar.domain.model
 
+import com.google.android.material.textfield.TextInputEditText
+import com.squareup.moshi.Json
+
 data class User(
     val city: String,
     val country: String,
