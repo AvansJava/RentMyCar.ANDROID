@@ -50,18 +50,15 @@ class ReservationCreateFragment: Fragment() {
 
         val reservationNumber = safeArgs.reservationNumber
 
-        viewModel.timeslotListLiveData.observe(viewLifecycleOwner) { timeslots ->
-            epoxyController.timeslots = timeslots
-        }
         viewModel.reservationLiveData.observe(viewLifecycleOwner) { reservation ->
             epoxyController.reservation = reservation
+            epoxyController.isDetailsView = safeArgs.isDetailsView
 
             if (reservation == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()
                 return@observe
             }
         }
-        viewModel.getTimeslotsByReservation(reservationNumber)
         viewModel.getReservation(reservationNumber)
 
         observePayment()

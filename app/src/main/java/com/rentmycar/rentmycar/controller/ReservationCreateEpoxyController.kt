@@ -19,6 +19,8 @@ import com.rentmycar.rentmycar.epoxy.LoadingEpoxyModel
 import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import kotlinx.android.synthetic.main.fragment_car_create.*
 import kotlinx.android.synthetic.main.model_reservation_create_payment_method.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReservationCreateEpoxyController(
     private val onBtnBackClicked: () -> Unit,
@@ -33,17 +35,16 @@ class ReservationCreateEpoxyController(
             }
         }
 
-    var timeslots: List<Availability?> = emptyList()
+    var reservation: Reservation? = null
         set(value) {
             field = value
             isLoading = false
             requestModelBuild()
         }
 
-    var reservation: Reservation? = null
+    var isDetailsView: Boolean = false
         set(value) {
             field = value
-            isLoading = false
             requestModelBuild()
         }
 
@@ -53,7 +54,7 @@ class ReservationCreateEpoxyController(
             return
         }
 
-        ReservationHeaderEpoxyModel(reservation?.reservationNumber)
+        ReservationHeaderEpoxyModel(reservation?.reservationNumber, reservation?.status)
             .id("header").addTo(this)
 
         ReservationDataPointEpoxyModel(
@@ -99,20 +100,59 @@ class ReservationCreateEpoxyController(
             reservation?.status
         ).id("data_point_7").addTo(this)
 
-        ReservationPaymentMethodEpoxyModel(dropdownFieldBinding).id("payment_method_selector").addTo(this)
+        ReservationTimeDataPointEpoxyModel(
+            RentMyCarApplication.context.getString(R.string.start_date),
+            reservation?.availability?.get(0)?.startAt,
+            R.drawable.ic_baseline_date_range_24
+        ).id("data_point_8").addTo(this)
 
-        ReservationButtonsEpoxyModel(
-            onBtnBackClicked,
-            onBtnPayClicked,
-            reservation?.reservationNumber
-        ).id("buttons").addTo(this)
+        ReservationTimeDataPointEpoxyModel(
+            RentMyCarApplication.context.getString(R.string.end_date),
+            reservation?.availability?.get(reservation?.availability!!.size - 1)?.endAt,
+            R.drawable.ic_baseline_date_range_24
+        ).id("data_point_9").addTo(this)
+
+        if (isDetailsView && reservation?.paidAt != null) {
+            ReservationTimeDataPointEpoxyModel(
+                RentMyCarApplication.context.getString(R.string.paid_at),
+                reservation?.paidAt,
+                R.drawable.ic_baseline_check_circle_24
+            ).id("data_point_10").addTo(this)
+        }
+
+        if (!isDetailsView) {
+            ReservationPaymentMethodEpoxyModel(dropdownFieldBinding).id("payment_method_selector").addTo(this)
+
+            ReservationButtonsEpoxyModel(
+                onBtnBackClicked,
+                onBtnPayClicked,
+                reservation?.reservationNumber
+            ).id("buttons").addTo(this)
+        }
     }
 
     data class ReservationHeaderEpoxyModel(
-        val reservationNumber: String?
+        val reservationNumber: String?,
+        val status: String?
     ): ViewBindingKotlinModel<ModelReservationCreateHeaderBinding>(R.layout.model_reservation_create_header) {
         override fun ModelReservationCreateHeaderBinding.bind() {
+
             reservationHeaderTextView.text = reservationNumber
+
+            when(status) {
+                "COMPLETED" -> {
+                    reservationImageView.setImageResource(R.drawable.ic_baseline_check_circle_24)
+                }
+                "PENDING" -> {
+                    reservationImageView.setImageResource(R.drawable.ic_baseline_access_time_24)
+                }
+                "CANCELED" -> {
+                    reservationImageView.setImageResource(R.drawable.ic_baseline_cancel_24)
+                }
+                "EXPIRED" -> {
+                    reservationImageView.setImageResource(R.drawable.ic_baseline_cancel_24)
+                }
+            }
         }
     }
 
@@ -241,6 +281,32 @@ class ReservationCreateEpoxyController(
                 }
             }
         }
+    }
 
+    data class ReservationTimeDataPointEpoxyModel(
+        val title: String?,
+        val description: String?,
+        val icon: Int
+    ): ViewBindingKotlinModel<ModelReservationCreateDataPointBinding>(R.layout.model_reservation_create_data_point) {
+        override fun ModelReservationCreateDataPointBinding.bind() {
+            titleTextView.text = title
+            descriptionTextView.text = convertDate(description)
+            titleTextView.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+        }
+
+        private fun convertDate(input: String?): String? {
+            if (input != null) {
+                val date = SimpleDateFormat(
+                    "yyyy-MM-dd'T'HH:mm:ss",
+                    Locale.getDefault()
+                ).parse(input)
+                val format = SimpleDateFormat(
+                    "HH:mm '('dd-MM-yyy')'",
+                    Locale.getDefault()
+                )
+                return format.format(date!!)
+            }
+            return input
+        }
     }
 }

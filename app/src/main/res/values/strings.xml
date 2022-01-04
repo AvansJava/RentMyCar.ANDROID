@@ -125,15 +125,15 @@
     <string name="error_post_rental_plan">Can\'t create rental plan. Please try again later.</string>
     <string name="error_get_rental_plan">No rental plan found.</string>
     <string name="error_delete_rental_plan">Cannot delete rental plan because timeslots have been booked</string>
-    <string name="my_rental_plans">Rental Plans</string>
+    <string name="my_rental_plans">Rental plans</string>
     <string name="add_rental_plan">Add Rental Plan</string>
     <string name="rental_plan_list">Rental Plan Overview</string>
     <string name="rental_plan_details">Rental Plan Details</string>
     <string name="rental_plan_create">Create Rental Plan</string>
     <string name="no_rental_plans_found">No rental plans found</string>
     <string name="no_rental_plans_available">No rental plans available</string>
-    <string name="no_rental_plan_found">Geen verhuurplan gevonden</string>
-    <string name="no_rental_plan_available">Dit verhuurplan bestaat niet.</string>
+    <string name="no_rental_plan_found">No rental plan found</string>
+    <string name="no_rental_plan_available">This rental plan does not exist.</string>
     <string name="end_date">End date:</string>
     <string name="start_date">Start date:</string>
     <string name="car">Car:</string>
@@ -234,6 +234,11 @@
     <string name="error_put_timeslot">Cannot update timeslot status. Try again later.</string>
     <string name="timeslot_status_updated">Timeslot status successfully updated</string>
     <string name="save_successful">Saved changes</string>
+    <string name="my_reservations">My reservations</string>
+    <string name="no_reservations_found">No reservations found</string>
+    <string name="no_reservations_available">No reservations available to display</string>
+    <string name="reservation_list_time">%1$s - %2$s</string>
+    <string name="paid_at">Paid at</string>
     <string-array name="car_types">
         <item>Internal combustion engine (ICE)</item>
         <item>Battery Electric Vehicle (BEV)</item>

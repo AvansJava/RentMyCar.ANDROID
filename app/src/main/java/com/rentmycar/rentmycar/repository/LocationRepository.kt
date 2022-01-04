@@ -28,7 +28,7 @@ class LocationRepository {
     }
 
     suspend fun postLocation(location: Location): Location? {
-        val request =  client().postLocation(location)
+        val request = client().postLocation(location)
 
         if (request.failed || !request.isSuccessful) {
             Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_post_location), Toast.LENGTH_LONG).show()

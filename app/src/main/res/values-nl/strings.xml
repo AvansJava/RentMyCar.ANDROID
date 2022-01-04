@@ -236,6 +236,11 @@
     <string name="error_put_timeslot">Kan tijdslot niet bewerken. Probeer het later opnieuw.</string>
     <string name="timeslot_status_updated">Tijdslot status succesvol bewerkt.</string>
     <string name="save_successful">Opgeslagen</string>
+    <string name="my_reservations">Mijn reserveringen</string>
+    <string name="no_reservations_found">Geen reserveringen gevonden</string>
+    <string name="no_reservations_available">Er zijn geen reserveringen beschikbaar om te tonen.</string>
+    <string name="reservation_list_time">%1$s - %2$s</string>
+    <string name="paid_at">Betaald op</string>
     <string-array name="car_types">
         <item>Verbrandingsmotor (ICE)</item>
         <item>Volledig Elektrisch (BEV)</item>

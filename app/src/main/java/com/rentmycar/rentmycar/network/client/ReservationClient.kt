@@ -21,4 +21,8 @@ class ReservationClient(
     suspend fun getReservation(reservationNumber: String): SimpleResponse<GetReservationResponse> {
         return safeApiCall { reservationService.getReservation(reservationNumber) }
     }
+
+    suspend fun getReservationList(status: String?): SimpleResponse<List<GetReservationResponse>> {
+        return safeApiCall { reservationService.getReservationList(status) }
+    }
 }
