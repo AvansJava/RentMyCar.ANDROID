@@ -7,6 +7,7 @@ import com.rentmycar.rentmycar.R
 import com.rentmycar.rentmycar.RentMyCarApplication
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.domain.model.Register
+import com.rentmycar.rentmycar.domain.model.User
 import com.rentmycar.rentmycar.network.NetworkLayer
 import com.rentmycar.rentmycar.network.response.GetUserResponse
 import com.rentmycar.rentmycar.network.response.PostLoginResponse
@@ -63,6 +64,18 @@ class UserRepository {
             return null
         }
 
+        return request.body
+    }
+
+    suspend fun putUser(user: User): GetUserResponse? {
+        val request = NetworkLayer.userClient.putUser(user)
+
+        if (request.failed || !request.isSuccessful) {
+            Toast.makeText(RentMyCarApplication.context, RentMyCarApplication.context.getString(R.string.error_get_user), Toast.LENGTH_LONG).show()
+            return null
+        }
+        print("[REQUEST]")
+        print(request.body)
         return request.body
     }
 }

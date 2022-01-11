@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rentmycar.rentmycar.domain.model.Login
 import com.rentmycar.rentmycar.domain.model.Register
+import com.rentmycar.rentmycar.domain.model.User
 import com.rentmycar.rentmycar.network.response.GetUserResponse
 import com.rentmycar.rentmycar.network.response.PostLoginResponse
 import com.rentmycar.rentmycar.repository.UserRepository
@@ -37,6 +38,13 @@ class UserViewModel: ViewModel() {
     fun getUser() {
         viewModelScope.launch {
             val response = userRepository.getUser()
+            _getUserLiveData.postValue(response)
+        }
+    }
+
+    fun putUser(user: User) {
+        viewModelScope.launch {
+            val response = userRepository.putUser(user)
             _getUserLiveData.postValue(response)
         }
     }

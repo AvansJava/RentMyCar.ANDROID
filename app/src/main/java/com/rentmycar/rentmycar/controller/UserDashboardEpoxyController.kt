@@ -9,7 +9,7 @@ import com.rentmycar.rentmycar.epoxy.ViewBindingKotlinModel
 import com.rentmycar.rentmycar.network.response.GetUserResponse
 
 class UserDashboardEpoxyController(
-    private val onEditDetailsClicked: (String, String, String, String, String, String, String) -> Unit
+    private val onEditDetailsClicked: (String, String, String, String, String, String, String, String, String) -> Unit
 ): EpoxyController() {
 
     var isLoading: Boolean = true
@@ -50,6 +50,11 @@ class UserDashboardEpoxyController(
             address3 = RentMyCarApplication.context.getString(R.string.user_dashboard_address3, getUserResponse!!.country),
             phoneNumber = RentMyCarApplication.context.getString(R.string.user_dashboard_phone, getUserResponse!!.phoneNumber),
             emailAddress = RentMyCarApplication.context.getString(R.string.user_dashboard_email, getUserResponse!!.email),
+            streetName = RentMyCarApplication.context.getString(R.string.user_dashboard_street_name, getUserResponse!!.street),
+            houseNumber = RentMyCarApplication.context.getString(R.string.user_dashboard_house_number, getUserResponse!!.houseNumber),
+            city = RentMyCarApplication.context.getString(R.string.user_dashboard_city, getUserResponse!!.city),
+            postalCode = RentMyCarApplication.context.getString(R.string.user_dashboard_postal_code, getUserResponse!!.postalCode),
+            country = RentMyCarApplication.context.getString(R.string.user_dashboard_country, getUserResponse!!.country),
             onEditDetailsClicked
         ).id("header").addTo(this)
     }
@@ -63,7 +68,12 @@ class UserDashboardEpoxyController(
         val address3: String,
         val phoneNumber: String,
         val emailAddress: String,
-        val onEditDetailsClicked: (String, String, String, String, String, String, String) -> Unit
+        val streetName: String,
+        val houseNumber: String,
+        val city: String,
+        val postalCode: String,
+        val country: String,
+        val onEditDetailsClicked: (String, String, String, String, String, String, String, String, String) -> Unit
     ) : ViewBindingKotlinModel<ModelUserDashboardHeaderBinding>(R.layout.model_user_dashboard_header) {
 
         override fun ModelUserDashboardHeaderBinding.bind() {
@@ -78,9 +88,11 @@ class UserDashboardEpoxyController(
                 onEditDetailsClicked(
                     firstName,
                     lastName,
-                    address1,
-                    address2,
-                    address3,
+                    streetName,
+                    houseNumber,
+                    city,
+                    postalCode,
+                    country,
                     phoneNumber,
                     emailAddress
                 )

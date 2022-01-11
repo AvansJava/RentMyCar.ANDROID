@@ -154,9 +154,15 @@
     <string name="user_dashboard_address3">%1$s</string>
     <string name="user_dashboard_phone">%1$s</string>
     <string name="user_dashboard_email">%1$s</string>
+    <string name="user_dashboard_street_name">%1$s</string>
+    <string name="user_dashboard_house_number">%1$s</string>
+    <string name="user_dashboard_city">%1$s</string>
+    <string name="user_dashboard_postal_code">%1$s</string>
+    <string name="user_dashboard_country">%1$s</string>
     <string name="price_value">€%.2f%n</string>
     <string name="dashboard_edit_detail">Dashboard Edit Detail</string>
-    <string name="street_number">Street + house number</string>
+    <string name="street">Street</string>
+    <string name="house_number">House nr.</string>
     <string name="postal_city">Postcode</string>
     <string name="phone_number">Phone number</string>
     <string name="edit_details">Edit details</string>
@@ -227,6 +233,7 @@
     <string name="timeslot_open_message">Do you want to re-open the selected timeslot at %1$s?</string>
     <string name="error_put_timeslot">Cannot update timeslot status. Try again later.</string>
     <string name="timeslot_status_updated">Timeslot status successfully updated</string>
+    <string name="save_successful">Saved changes</string>
     <string name="my_reservations">My reservations</string>
     <string name="no_reservations_found">No reservations found</string>
     <string name="no_reservations_available">No reservations available to display</string>

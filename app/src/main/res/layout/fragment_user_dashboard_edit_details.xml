@@ -61,44 +61,88 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/street_number"
+            android:id="@+id/street_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/street_number"
+            android:hint="@string/street"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
             android:paddingTop="20dp"
             app:startIconDrawable="@drawable/ic_baseline_house_24"
-            app:startIconContentDescription="@string/street_number"
+            app:startIconContentDescription="@string/street"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/last_name"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/street_number_input"
+                android:id="@+id/street_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/postal_city"
+            android:id="@+id/house_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/postal_city"
+            android:hint="@string/house_number"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_house_24"
+            app:startIconContentDescription="@string/house_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/street_name"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/house_number_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/city"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
             android:paddingTop="20dp"
             app:startIconDrawable="@drawable/ic_baseline_local_post_office_24"
-            app:startIconContentDescription="@string/postal_city"
+            app:startIconContentDescription="@string/city"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/street_number"
+            app:layout_constraintTop_toBottomOf="@+id/house_number"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/postal_city_input"
+                android:id="@+id/city_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/postal_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/postal_code"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="20dp"
+            app:startIconDrawable="@drawable/ic_baseline_local_post_office_24"
+            app:startIconContentDescription="@string/postal_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/postal_code_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -116,7 +160,7 @@
             app:startIconContentDescription="@string/country"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postal_city"
+            app:layout_constraintTop_toBottomOf="@+id/postal_code"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
