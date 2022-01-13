@@ -45,6 +45,7 @@ class CarAvailabilityFragment: Fragment() {
             epoxyController.submitList(pagedList)
         }
 
+        // Store selected timeslots as parcelable and continue to insurance selection with this data
         btnBookNow.setOnClickListener {
             val bundle = Bundle()
             bundle.putParcelableArrayList("selectedTimeslots", ArrayList<TimeslotIdRequest>(selectedTimeslots))

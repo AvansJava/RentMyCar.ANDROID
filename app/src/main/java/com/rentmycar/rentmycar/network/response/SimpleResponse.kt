@@ -9,6 +9,7 @@ data class SimpleResponse<T>(
     val exception: Exception?
 ) {
 
+    // Make a SimpleResponse out of the API request for error handling
     companion object {
         fun <T> success(data: Response<T>): SimpleResponse<T> {
             return SimpleResponse(

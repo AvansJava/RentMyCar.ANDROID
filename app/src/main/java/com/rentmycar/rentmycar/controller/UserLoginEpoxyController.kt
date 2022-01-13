@@ -26,6 +26,8 @@ class UserLoginEpoxyController: EpoxyController() {
         }
 
     override fun buildModels() {
+
+        // Show loading spinner when request is still processing
         if (isLoading) {
             LoadingEpoxyModel().id("loading").addTo(this)
             return

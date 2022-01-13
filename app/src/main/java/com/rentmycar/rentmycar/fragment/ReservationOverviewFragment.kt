@@ -46,6 +46,8 @@ class ReservationOverviewFragment: Fragment() {
     }
 
     private fun onReservationSelected(reservationNumber: String, status: String) {
+
+        // If status is pending send property to allow to still complete reservation in next step
         val isDetailsView = status != "PENDING"
 
         val directions =

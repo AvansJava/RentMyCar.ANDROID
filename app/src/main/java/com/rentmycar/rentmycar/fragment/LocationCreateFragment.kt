@@ -62,6 +62,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
 
         viewModel.locationResult.observe(viewLifecycleOwner) { locationResult ->
 
+            // Update car in room database with newly created location (part of car create)
             if (locationResult != null) {
                 if (carId > 0 && locationResult > 0) {
                     carViewModel.updateCar(requireContext(), locationResult, carId)
@@ -99,16 +100,21 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
 
                 when (true) {
                     updateLocation -> {
+                        // If it is updating a location do a put request to api
                         viewModel.updateLocation(locationId, location)
                         val directions =
                             LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
                         findNavController().navigate(directions)
                     } carId < 0 -> {
+                        // If there is not carId this means a location is created separately from car.
+                        // Do a post location request to API
                         viewModel.postLocation(location)
                     val directions =
                         LocationCreateFragmentDirections.actionLocationCreateFragmentToLocationListFragment()
                     findNavController().navigate(directions)
                     } else -> {
+                        // Location is created in car creation process, store in room database to do post
+                        // car with location in one at a later moment
                         val roomLocation = Location(
                             id = null,
                             street = location.street,
@@ -143,6 +149,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
         )
     }
 
+    // Search function in map. Search for address and add marker and zoom into it.
     fun searchLocation(view: View){
         val location: String = idSearchView.query.toString().trim()
         var addressList: List<Address>? = null
@@ -171,6 +178,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
         }
     }
 
+    // Permissions are checked earlier
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         gMap = googleMap
@@ -183,6 +191,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
     }
 
     override fun onMapClick(position: LatLng) {
+        // Add marker by clicking on map
         gMap?.clear()
         var addressList: List<Address>? = null
 
@@ -199,6 +208,7 @@ class LocationCreateFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMapCli
     }
 
     private fun checkPermissions() {
+        // Check permissions and if none are found ask for them
         if (ActivityCompat.checkSelfPermission(requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED &&

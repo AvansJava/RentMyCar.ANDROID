@@ -29,9 +29,9 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         navController = navHostFragment.navController
         drawerLayout = findViewById(R.id.drawer_layout)
 
+        // Define top level destinations
         appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf(
-                R.id.welcomeScreenFragment,
                 R.id.userDashboardFragment,
                 R.id.carListFragment,
                 R.id.locationListFragment,
@@ -58,6 +58,7 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
+        // If logout is selected navigate to login and clear preferences else navigate to selected item
         when (val id = item.itemId) {
             R.id.logout_item -> {
                 preference.clearPreferences()
@@ -70,6 +71,7 @@ class NavGraphActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         return true
     }
 
+    // Implement global navigator functions (logout on 401 unauthorized)
     override fun logout() {
         runOnUiThread {
             navController.navigate(R.id.userLoginFragment)

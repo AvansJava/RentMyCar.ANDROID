@@ -34,11 +34,14 @@ class CarAvailabilityEpoxyController(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun addModels(models: List<EpoxyModel<*>>) {
+
+        // If no models are created (so request still pending) show loading spinner
         if (models.isEmpty()) {
             LoadingEpoxyModel().id("loading").addTo(this)
             return
         }
 
+        // Group models (timeslots) on day. Add date as title per group.
         (models as List<TimeslotGridItemEpoxyModel>).groupBy {
             it.startAt.split("T")[0]
         }.forEach { mapEntry ->
@@ -96,10 +99,14 @@ class CarAvailabilityEpoxyController(
             timeslotCheckbox.text = RentMyCarApplication.context.getString(R.string.timeslot_start_end, formattedStartAt, formattedEndAt)
 
             if (productId != null || status == "CLOSED") {
+
+                // If the timeslot is closed by the renter or booked it shows as unavailable (red)
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_red))
                 timeslotCheckbox.isEnabled = false
                 timeslotCheckbox.isChecked = false
             } else {
+
+                // If the timeslot is available it shows as available (green)
                 timeslotCard.setCardBackgroundColor(RentMyCarApplication.context.getColor(R.color.light_green))
                 timeslotCheckbox.isEnabled = true
                 timeslotCheckbox.isChecked = false

@@ -7,6 +7,7 @@ import okhttp3.Response
 class AuthInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
+        // If request response is 401 logout user (redirect to login)
         val builder = chain.request().newBuilder()
         val response = chain.proceed(builder.build())
 

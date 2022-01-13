@@ -53,6 +53,7 @@ class UserLoginFragment : Fragment() {
                 return@observe
             }
 
+            // Set shared preferences
             preference.setToken(userLogin.accessToken)
             preference.setUserId(userLogin.userId.toInt())
             preference.setFirstName(userLogin.firstName)

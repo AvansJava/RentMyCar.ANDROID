@@ -8,6 +8,7 @@ class RentMyCarApplication: Application() {
         lateinit var context: Context
     }
 
+    // define application context
     override fun onCreate() {
         super.onCreate()
         context = this

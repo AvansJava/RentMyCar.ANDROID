@@ -32,6 +32,7 @@ class CarListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Observe car list live data
         viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
             epoxyController.cars = cars
             if (cars == null) {
@@ -41,11 +42,13 @@ class CarListFragment: Fragment() {
         }
         viewModel.getCarsList()
 
+        // Instantiate recycler view from epoxy controller
         val epoxyRecyclerView = view.findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
     }
 
     private fun onCarSelected(id: Int) {
+        // When clicking on a car navigate to details page
         val directions = CarListFragmentDirections.actionCarListFragmentToCarDetailsFragment(carId = id)
         findNavController().navigate(directions)
     }

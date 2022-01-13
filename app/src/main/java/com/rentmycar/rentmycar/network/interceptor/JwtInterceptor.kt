@@ -11,6 +11,8 @@ class JwtInterceptor: Interceptor {
     private val preference = AppPreference(RentMyCarApplication.context)
 
     override fun intercept(chain: Interceptor.Chain): Response {
+
+        // Always add JWT token to request (exception auth routes such as login/register)
         var request: Request = chain.request()
         val requiresAuthentication: Boolean = !request.url.toString().contains("auth")
         val token = preference.getToken()

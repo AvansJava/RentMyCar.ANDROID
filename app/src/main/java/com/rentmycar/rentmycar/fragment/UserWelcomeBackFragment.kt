@@ -26,6 +26,7 @@ class UserWelcomeBackFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Load app settings, add slight delay so API can process requests
         CoroutineScope(Dispatchers.IO).launch {
             delay(TimeUnit.SECONDS.toMillis(2))
             withContext(Dispatchers.Main) {

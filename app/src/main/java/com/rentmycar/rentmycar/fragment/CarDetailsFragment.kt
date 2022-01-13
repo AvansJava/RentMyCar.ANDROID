@@ -60,6 +60,7 @@ class CarDetailsFragment: Fragment() {
                 return@observe
             }
 
+            // Only show edit buttons if car belongs to logged in user
             if (userId == car.userId) {
                 btnAddResource.visibility = View.VISIBLE
             } else {
@@ -72,6 +73,7 @@ class CarDetailsFragment: Fragment() {
         val carId = safeArgs.carId
         viewModel.getCarById(id = carId)
 
+        // Upload image to car and set request code 101
         btnAddResource.setOnClickListener {
             ImagePicker.with(this)
                 .crop()
@@ -110,6 +112,7 @@ class CarDetailsFragment: Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        // Listen for request 101 on activity, post image to api if successful
         if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
             val uri = data?.data
             val file = File(uri?.path)

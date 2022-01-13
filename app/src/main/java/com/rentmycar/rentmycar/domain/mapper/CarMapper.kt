@@ -9,6 +9,7 @@ import com.rentmycar.rentmycar.network.response.GetLocationResponse
 
 object CarMapper {
 
+    // Map CarResponse to Car Model
     fun buildFrom(response: GetCarResponse, rentalPlan: RentalPlan?, resources: List<GetCarResourceResponse>): Car {
         return Car(
             id = response.id,
@@ -28,6 +29,7 @@ object CarMapper {
         )
     }
 
+    // Map CarResponse to Car Model with Location included
     fun buildFromWithLocation(response: GetCarResponse, rentalPlan: RentalPlan?, location: Location, resources: List<GetCarResourceResponse>): Car {
         return Car(
             id = response.id,

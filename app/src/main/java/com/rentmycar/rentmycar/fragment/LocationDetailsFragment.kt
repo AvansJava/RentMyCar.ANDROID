@@ -54,6 +54,7 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
                 return@observe
             }
 
+            // Only show update/delete buttons if location belongs to logged in user
             if (preference.getUserId() != location.userId) {
                 btnDeleteLocation.visibility = View.GONE
                 btnUpdateLocation.visibility = View.GONE
@@ -64,6 +65,7 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
                 selectedLocation!!.longitude
             )
 
+            // Add marker on the selected location and zoom in
             mMap.addMarker(
                 MarkerOptions().position(latLng)
                     .title(selectedLocation!!.street + " " + selectedLocation!!.houseNumber)
@@ -103,6 +105,8 @@ class LocationDetailsFragment: Fragment(), OnMapReadyCallback {
     }
 
     private fun checkPermissions() {
+
+        // Check if user has given location permissions and if not ask for them
         if (ActivityCompat.checkSelfPermission(requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED &&

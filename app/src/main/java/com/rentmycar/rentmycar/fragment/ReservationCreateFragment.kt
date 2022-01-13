@@ -107,6 +107,7 @@ class ReservationCreateFragment: Fragment() {
     private fun mapPaymentMethodToEnumValue(paymentMethod: String): String {
         var paymentEnumType: String = ""
 
+        // Make sure correct ENUM type is sent to API.
         when(true) {
             paymentMethod.contains("ideal", ignoreCase = true) -> {
                 paymentEnumType = "IDEAL"

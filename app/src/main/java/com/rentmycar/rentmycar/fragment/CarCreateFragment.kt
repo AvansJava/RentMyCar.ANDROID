@@ -28,6 +28,7 @@ class CarCreateFragment: Fragment() {
     override fun onResume() {
         super.onResume()
 
+        // Load array of carTypes into dropdown item
         val carTypes = resources.getStringArray(R.array.car_types)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.model_dropdown_list_item, carTypes)
         autoCompleteTextView.setAdapter(arrayAdapter)
@@ -46,6 +47,7 @@ class CarCreateFragment: Fragment() {
         val updateCar = safeArgs.updateCar
         val carId = safeArgs.carId
 
+        // Change buttonText if it is car update instead of create
         if (updateCar) {
             btnNext.text = RentMyCarApplication.context.getString(R.string.update_car)
             nameTextView.text = RentMyCarApplication.context.getString(R.string.edit_car)
@@ -75,6 +77,7 @@ class CarCreateFragment: Fragment() {
             )
             if (updateCar) {
                 val carType = getCarType(car.carType)
+                // If it is update do a put request
                 viewModel.putCar(carId, com.rentmycar.rentmycar.domain.model.Car(
                     id = 0,
                     brand = car.brand,
@@ -94,12 +97,14 @@ class CarCreateFragment: Fragment() {
                 val directions = CarCreateFragmentDirections.actionCarCreateFragmentToCarDetailsFragment(carId)
                 findNavController().navigate(directions)
             } else {
+                // Create room entry for car
                 viewModel.createCar(requireContext(), car)
             }
         }
     }
 
     private fun getCarType(carType: String): String {
+        // Map carType selection to correct ENUM type
         return when (true) {
             carType.contains("ICE") -> {
                 "ICE"

@@ -73,6 +73,7 @@ class CarCreateOverviewFragment: Fragment() {
                 userId = userId
             )
 
+            // Observe room car/location and post them to the API
             viewModel.carRoomLiveData.observe(viewLifecycleOwner) { car ->
                 epoxyController.car = car
 
@@ -125,6 +126,7 @@ class CarCreateOverviewFragment: Fragment() {
     }
 
     private fun getCarAndLocation() {
+        // Retrieve location and car from Room database
         viewModel.getCar(requireContext(), safeArgs.carId)
         locationViewModel.getLocation(requireContext(), safeArgs.locationId)
     }

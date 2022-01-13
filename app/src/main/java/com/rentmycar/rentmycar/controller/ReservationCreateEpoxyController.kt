@@ -120,6 +120,7 @@ class ReservationCreateEpoxyController(
             ).id("data_point_10").addTo(this)
         }
 
+        // If reservation status is not final show buttons and payment method dropdown
         if (!isDetailsView) {
             ReservationPaymentMethodEpoxyModel(dropdownFieldBinding).id("payment_method_selector").addTo(this)
 

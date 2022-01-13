@@ -14,6 +14,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object NetworkLayer {
 
+    // Build Retrofit and Moshi clients
     private val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
     private val retrofit: Retrofit = Retrofit.Builder()
         .client(getLoggingHttpClient())
@@ -63,6 +64,8 @@ object NetworkLayer {
     val paymentClient = PaymentClient(paymentService)
 
     private fun getLoggingHttpClient(): OkHttpClient {
+
+        // Adds request logging for easier debugging and jwt/auth interceptors to Retrofit client.
         val client = OkHttpClient.Builder()
         client.addInterceptor(JwtInterceptor())
         client.addInterceptor(AuthInterceptor())

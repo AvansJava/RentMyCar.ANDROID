@@ -83,9 +83,10 @@ class RentalPlanDetailsFragment: Fragment() {
     private fun timeslotSelected(id: Int, startAt: String, status: String, productId: Int?) {
 
         if (productId == null) {
-            var dialogMessage: String
-            var positiveBtnText: String
+            val dialogMessage: String
+            val positiveBtnText: String
 
+            // Show dialog message depending on opening or closing timeslot
             if (status == "OPEN") {
                 dialogMessage = resources.getString(R.string.timeslot_close_message, startAt)
                 positiveBtnText = resources.getString(R.string.close_timeslot)
@@ -100,8 +101,9 @@ class RentalPlanDetailsFragment: Fragment() {
                     dialog.dismiss()
                 }
                 .setPositiveButton(positiveBtnText) { dialog, which ->
-                    var timeslotRequest: PutTimeslotRequest
+                    val timeslotRequest: PutTimeslotRequest
 
+                    // If timeslot is open, set to closed and vice versa
                     if (status == "OPEN") {
                         timeslotRequest = PutTimeslotRequest(status = "CLOSED")
                     } else {

@@ -74,6 +74,7 @@ class RentalPlanCreateFragment: Fragment() {
 
         observeUserCarList()
 
+        // Fields cannot be typed in, instead add onClick listener that shows dateRangePicker and fills date
         start_field.isFocusable = false
         end_field.isFocusable = false
         start_field.setOnClickListener {
@@ -89,6 +90,7 @@ class RentalPlanCreateFragment: Fragment() {
         }
 
         btnSubmit.setOnClickListener {
+            // Set and post rentalPlan object.
             val stringArray = autoCompleteTextView.text.split("-").toTypedArray()
             val carId = stringArray[0].trim { it <= ' ' }.toInt()
 
@@ -109,6 +111,7 @@ class RentalPlanCreateFragment: Fragment() {
     }
 
     private fun observeUserCarList() {
+        // Retrieve cars from user and add them to a dropdown
         carViewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
             if (cars == null) {
                 Toast.makeText(requireActivity(), RentMyCarApplication.context.getString(R.string.network_call_failed), Toast.LENGTH_LONG).show()

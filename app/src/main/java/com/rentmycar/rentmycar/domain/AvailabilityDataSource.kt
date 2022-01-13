@@ -13,6 +13,8 @@ class AvailabilityDataSource(
     private val carId: Int
 ): PageKeyedDataSource<Int, GetAvailabilityResponse>() {
 
+
+    // Loads first page(s) of timeslots from API
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, GetAvailabilityResponse>
@@ -38,6 +40,7 @@ class AvailabilityDataSource(
         // noting to do
     }
 
+    // loads next set of pages from API
     override fun loadAfter(
         params: LoadParams<Int>,
         callback: LoadCallback<Int, GetAvailabilityResponse>
