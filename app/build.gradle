@@ -81,6 +81,7 @@ dependencies {
 
     // Room and Lifecycle dependencies
     implementation "androidx.room:room-runtime:2.4.0-rc01"
+    implementation 'androidx.fragment:fragment-testing:1.4.0'
     kapt "androidx.room:room-compiler:2.4.0-rc01"
 
     // Kotlin Extensions and Coroutines support for Room
@@ -108,6 +109,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2"
     testImplementation 'org.mockito:mockito-core:4.0.0'
     testImplementation 'org.mockito.kotlin:mockito-kotlin:4.0.0'
+    androidTestImplementation 'androidx.navigation:navigation-testing:2.3.5'
     androidTestImplementation 'org.mockito:mockito-android:4.0.0'
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2") {
         // conflicts with mockito due to direct inclusion of byte buddy
