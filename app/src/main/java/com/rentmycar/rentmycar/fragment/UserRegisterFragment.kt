@@ -36,7 +36,9 @@ class UserRegisterFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        if(activity!! is AppCompatActivity){
+            (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        }
 
         viewModel.userRegisterLiveData.observe(viewLifecycleOwner) { register ->
             btnRegister.isEnabled = true
@@ -90,42 +92,42 @@ class UserRegisterFragment: Fragment() {
         var formErrors = false
 
         if (userEmail.isEmpty()) {
-            email.error = RentMyCarApplication.context.getString(R.string.email_empty)
+            test_email.error = RentMyCarApplication.context.getString(R.string.email_empty)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            email.error = RentMyCarApplication.context.getString(R.string.email_incorrect)
+            test_email.error = RentMyCarApplication.context.getString(R.string.email_incorrect)
             formErrors = true
         } else {
             email.error = null
         }
 
         if (userPassword.isEmpty()) {
-            password.error = RentMyCarApplication.context.getString(R.string.password_empty)
+            test_password.error = RentMyCarApplication.context.getString(R.string.password_empty)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userPassword.length < 6) {
-            password.error = RentMyCarApplication.context.getString(R.string.password_incorrect)
+            test_password.error = RentMyCarApplication.context.getString(R.string.password_incorrect)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userFirstName.length < 2) {
-            first_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
+            test_first_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
             formErrors = true
         } else {
             password.error = null
         }
 
         if (userLastName.length < 2) {
-            last_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
+            test_last_name.error = RentMyCarApplication.context.getString(R.string.name_incorrect)
             formErrors = true
         } else {
             password.error = null
